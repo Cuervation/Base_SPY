@@ -11,6 +11,7 @@ param(
   [int]$ProfileCadenceRuns = 10,
   [bool]$DisableFastArtifacts = $false,
   [bool]$DisableWindowReuse = $false,
+  [switch]$AllowProgressiveWindows,
   [int]$MinYearsVsSpy = 2,
   [int]$MaxNonPositiveYearsVsSpy = 0,
   [int]$TimeoutSecPerRun = 5400,
@@ -201,6 +202,7 @@ for ($i = 1; $i -le $MaxIterations; $i++) {
   )
   if ($DisableFastArtifacts) { $iterArgs += "-DisableFastArtifacts" }
   if ($DisableWindowReuse) { $iterArgs += "-DisableWindowReuse" }
+  if ($AllowProgressiveWindows) { $iterArgs += "-AllowProgressiveWindows" }
   $p = Start-Process -FilePath "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" `
     -ArgumentList $iterArgs `
     -WorkingDirectory $repo `

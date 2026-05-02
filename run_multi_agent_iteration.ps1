@@ -14,6 +14,7 @@ param(
   [int]$ProfileCadenceRuns = 10,
   [switch]$DisableFastArtifacts,
   [switch]$DisableWindowReuse,
+  [switch]$AllowProgressiveWindows,
   [int]$MinYearsVsSpy = 2,
   [int]$MaxNonPositiveYearsVsSpy = 0,
   [double]$TieLowPct = 0.0,
@@ -62,7 +63,6 @@ if (-not (Test-Path $script)) { throw "No existe $script" }
     "--experiment-log", "$ExperimentLog",
     "--dependencies-json", "$DependenciesJson",
     "--evaluation-windows", "$EvaluationWindows",
-    "--allow-progressive-windows",
     "--year-validation-window-weeks", "$YearValidationWindowWeeks",
     "--long156-policy", "$Long156Policy",
   "--long156-cadence-useful-runs", "$Long156CadenceUsefulRuns",
@@ -79,6 +79,7 @@ if (-not (Test-Path $script)) { throw "No existe $script" }
 )
 if ($DisableFastArtifacts) { $argList += "--disable-fast-artifacts" }
 if ($DisableWindowReuse) { $argList += "--disable-window-reuse" }
+if ($AllowProgressiveWindows) { $argList += "--allow-progressive-windows" }
 if ($DryRun) { $argList += "--dry-run" }
 
 & $py $script @argList
