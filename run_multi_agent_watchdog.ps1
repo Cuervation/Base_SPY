@@ -1,10 +1,10 @@
-﻿param(
+param(
   [int]$CheckIntervalMinutes = 15,
   [int]$StaleMinutes = 20,
   [int]$HardStuckMinutes = 90,
   [double]$CpuDeltaThreshold = 0.05,
   [string]$PythonExe = "python",
-  [string]$EvaluationWindows = "4,8,24,52,156",
+  [string]$EvaluationWindows = "4,8,24,52",
   [int]$YearValidationWindowWeeks = 156,
   [string]$Long156Policy = "threshold_or_cadence",
   [int]$Long156CadenceUsefulRuns = 3,
@@ -749,4 +749,3 @@ while ($true) {
     continue
   }
 }
-

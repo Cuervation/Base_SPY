@@ -3,7 +3,7 @@ param(
   [string]$BaselineJson = "state/current_baseline.json",
   [string]$ExperimentLog = "trackers/experiment_log.csv",
   [string]$DependenciesJson = "config/parameter_dependencies.json",
-  [string]$EvaluationWindows = "4,8,24,52,156",
+  [string]$EvaluationWindows = "4,8,24,52",
   [int]$YearValidationWindowWeeks = 156,
   [string]$Long156Policy = "cadence_only",
   [int]$Long156CadenceUsefulRuns = 4,

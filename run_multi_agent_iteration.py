@@ -1298,7 +1298,7 @@ def default_clean_baseline(repo: Path) -> Dict[str, Any]:
             "TRAIL_STEP_PCT": 0.05,
         },
         "validation_policy": {
-            "windows": [4, 8, 24, 52, 156],
+            "windows": [4, 8, 24, 52],
             "must_compare_vs_spy": True,
             "long_window_policy": {
                 "treat_insufficient_depth_as_non_fatal": True,
@@ -6814,7 +6814,7 @@ def parse_windows(raw: str) -> List[int]:
         if p and re.fullmatch(r"\d+", p):
             out.append(int(p))
     out = sorted(list(dict.fromkeys(out)))
-    return out or [4, 8, 24, 52, 156]
+    return out or [4, 8, 24, 52]
 
 
 def build_progressive_window_plan(requested_windows: List[int], year_validation_window_weeks: int) -> List[int]:
