@@ -1,0 +1,67 @@
+﻿name: Validate Python Repo
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate lightweight repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate no heavy files
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          forbidden_dirs = {'runs', 'multi_agent_runs', '_dataset_cache', 'cache', 'logs', 'snapshots'}
+          forbidden_suffixes = {'.parquet', '.xlsx', '.xls', '.xlsm', '.zip'}
+          forbidden_prefixes = ('sp500_feature_store_weekly_master_all_', 'sp500_feature_store_daily_master_')
+          bad = []
+          for p in Path('.').rglob('*'):
+              if '.git' in p.parts:
+                  continue
+              if any(part in forbidden_dirs for part in p.parts):
+                  bad.append(str(p))
+              if p.is_file():
+                  if p.suffix.lower() in forbidden_suffixes:
+                      bad.append(str(p))
+                  if p.name.startswith(forbidden_prefixes):
+                      bad.append(str(p))
+                  if p.stat().st_size > 5 * 1024 * 1024:
+                      bad.append(str(p))
+          if bad:
+              print('Forbidden or heavy files found:')
+              print('\n'.join(sorted(set(bad))))
+              raise SystemExit(1)
+          print('OK: no heavy files found')
+          PY
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in Path('.').rglob('*.json'):
+              if '.git' in p.parts:
+                  continue
+              json.loads(p.read_text(encoding='utf-8-sig'))
+          print('OK: JSON files are valid')
+          PY
+
+      - name: Compile Python files
+        run: python -m compileall -q .
