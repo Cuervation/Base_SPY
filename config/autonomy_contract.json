@@ -1,0 +1,45 @@
+{
+  "never_stop_for": [
+    "no_material_candidate",
+    "metric_no_effect",
+    "no_improvement",
+    "pending_promotion_review",
+    "baseline_changed_when_config_false",
+    "blocked_preflight_expected",
+    "fix_process_before_more_research_when_config_false"
+  ],
+  "recoverable_errors": [
+    "permission_denied_once",
+    "iteration_timeout",
+    "run_dir_not_found_once",
+    "coordinator_output_invalid_once",
+    "blocked_preflight_expected",
+    "incomplete_no_parent"
+  ],
+  "fatal_errors": [
+    "syntax_error",
+    "missing_required_file",
+    "invalid_config",
+    "feature_store_missing",
+    "permission_denied_persistent",
+    "forbidden_window_156_detected"
+  ],
+  "max_consecutive_no_material_before_escape": 5,
+  "max_consecutive_no_material_before_parent_reset": 10,
+  "max_consecutive_no_material_before_axis_reset": 15,
+  "max_consecutive_no_material_before_diagnostic_only": 25,
+  "iteration_timeout_seconds": 4500,
+  "single_writer_required": true,
+  "candidate_generation_exhaustion_policy": {
+    "no_material_candidate_is_not_a_real_experiment": true,
+    "quarantine_as_cgf": true,
+    "do_not_use_as_parent": true,
+    "do_not_count_as_backtest": true,
+    "stop_batch_after_consecutive_no_material": 25,
+    "required_diagnostic_files": [
+      "reports/candidate_generation_exhaustion_diagnostic.json",
+      "reports/candidate_generation_exhaustion_diagnostic.md",
+      "state/candidate_generation_failures.csv"
+    ]
+  }
+}

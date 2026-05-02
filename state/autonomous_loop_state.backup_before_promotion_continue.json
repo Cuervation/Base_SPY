@@ -1,0 +1,33 @@
+{
+  "loop_status": "stopped_for_review",
+  "started_at": "2026-04-27T22:03:04",
+  "updated_at": "2026-04-27T22:26:43",
+  "iterations_completed": 1,
+  "consecutive_rejected_without_followup": 0,
+  "consecutive_operational_failures": 0,
+  "consecutive_operational_warnings": 0,
+  "last_run_id": "EXP_229",
+  "last_successful_run_id": "",
+  "last_useful_run_id": "",
+  "current_parent_run_id": "",
+  "stop_reason": "pending_promotion_review",
+  "pending_promotion_review": [
+    {
+      "run_id": "EXP_229",
+      "at": "2026-04-27T22:26:43",
+      "reason": "promoted_to_baseline_true_but_not_applied"
+    }
+  ],
+  "baseline_hash_before": "8ace9a169991601c9cdcf256cb894f823326a1597c63220f5e1c152ba46ea8a1",
+  "windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "forbidden_windows": [
+    156
+  ],
+  "last_run_status": "run_ok",
+  "last_decision_type": "promoted_to_baseline"
+}

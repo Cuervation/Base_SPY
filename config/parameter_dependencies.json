@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-05T00:00:00",
+  "rules": [
+    {
+      "id": "close_filter_requires_flag",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "requires": {
+        "ENABLE_CLOSE_VS_SMA50_FILTER": true
+      },
+      "block_message": "No se puede cambiar MAX_CLOSE_VS_SMA50_PCT si ENABLE_CLOSE_VS_SMA50_FILTER=False."
+    },
+    {
+      "id": "momentum_requires_family",
+      "parameter_prefix": "MOMENTUM_",
+      "requires": {
+        "STRATEGY_FAMILY": "momentum_rank"
+      },
+      "block_message": "No se pueden cambiar parametros MOMENTUM_* si STRATEGY_FAMILY != \"momentum_rank\"."
+    },
+    {
+      "id": "profile_distance_threshold_requires_gate",
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "requires": {
+        "ENABLE_AVG_PROFILE_DISTANCE_GATE": true
+      },
+      "block_message": "No se puede cambiar MAX_AVG_PROFILE_DISTANCE con ENABLE_AVG_PROFILE_DISTANCE_GATE=False."
+    },
+    {
+      "id": "profile_mode_requires_distance_review",
+      "parameter": "PROFILE_MODE",
+      "requires_any_changed_parameter": [
+        "ENABLE_AVG_PROFILE_DISTANCE_GATE",
+        "MAX_AVG_PROFILE_DISTANCE"
+      ],
+      "block_message": "Cambiar PROFILE_MODE exige revisar el gate dependiente de avg_profile_distance (recalibrar o desactivar temporalmente)."
+    }
+  ],
+  "semantic_dependencies": [
+    {
+      "main_parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+      "main_target_value": true,
+      "dependent_parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "reason": "Activar el filtro de extension requiere umbral operativo explicito."
+    },
+    {
+      "main_parameter": "PROFILE_MODE",
+      "dependent_parameter": "ENABLE_AVG_PROFILE_DISTANCE_GATE",
+      "reason": "Cambiar la semantica de distancia requiere revisar gate dependiente para evitar test invalido."
+    }
+  ],
+  "inactive_parameter_flags": [
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "activation_flag": "ENABLE_CLOSE_VS_SMA50_FILTER"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "activation_flag": "ENABLE_AVG_PROFILE_DISTANCE_GATE"
+    }
+  ]
+}

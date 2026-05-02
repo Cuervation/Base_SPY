@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "cache_dir": "_dataset_cache/prepared",
+  "format": "parquet",
+  "cache_version": 1,
+  "rebuild_if_source_changed": true,
+  "min_file_size_mb": 5,
+  "max_cache_file_mb": 2048,
+  "monkeypatch_pandas_read_csv": true,
+  "allow_chunked_csv_cache": false
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-05-01T01:08:06",
+  "level": "parent_reset",
+  "reason": "too_many_no_material_candidate_parent_reset",
+  "last_run_id": "EXP_1290",
+  "parent_run_id": "EXP_1288",
+  "consecutive_no_material_candidate": 10,
+  "next_mode": "controlled_exploration",
+  "action": "force_controlled_exploration_and_research_state_escape"
+}

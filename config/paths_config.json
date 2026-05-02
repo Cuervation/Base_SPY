@@ -1,0 +1,33 @@
+{
+  "state": {
+    "current_baseline": "state/current_baseline.json",
+    "research_state": "state/research_state.json",
+    "parameter_effect_memory": "state/parameter_effect_memory.json",
+    "subspace_cooldowns": "state/subspace_cooldowns.json",
+    "champion_runs": "state/champion_runs.json",
+    "analyst_initial_tests_queue": "state/queues/analyst_initial_tests_queue.json"
+  },
+  "trackers": {
+    "experiment_log": "trackers/experiment_log.csv",
+    "agent_live_runs_master_csv": "trackers/agent_live_runs_master.csv",
+    "agent_live_runs_master_xlsx": "trackers/agent_live_runs_master.xlsx",
+    "all_runs_full_stats": "trackers/all_runs_full_stats.csv"
+  },
+  "scripts": {
+    "extract_backtest_metrics": "scripts/metrics/extract_backtest_metrics.py",
+    "generate_run_analysis": "scripts/reports/generate_run_analysis.py"
+  },
+  "runs": {
+    "multi_agent_runs": "runs/multi_agent_runs",
+    "champion_runs": "runs/champion_runs",
+    "champion_runs_json": "runs/champion_runs/champion_runs.json"
+  },
+  "logs": {
+    "loop": "logs/loop/multi_agent_loop_logs",
+    "watchdog": "logs/watchdog/multi_agent_watchdog_logs",
+    "launch": "logs/launch"
+  },
+  "reports": {
+    "iteration_reviews": "reports/iteration_reviews"
+  }
+}

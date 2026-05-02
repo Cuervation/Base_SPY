@@ -1,0 +1,84 @@
+[
+  {
+    "id": "TEST_A",
+    "status": "completed",
+    "objective": "Probar de forma real si limitar extensión mejora la calidad del basket.",
+    "main_change": {
+      "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+      "to_value": true,
+      "meaning": "Activa filtro de extensión por SMA50.",
+      "purpose": "Evitar candidatos sobre-extendidos.",
+      "why_improve": "Puede mejorar calidad del basket."
+    },
+    "dependent_change": {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "to_value": 0.5,
+      "dependency_reason": "semantic_scale_metric",
+      "meaning": "Umbral operativo del filtro activado."
+    },
+    "expected_effect": "Menor ruido de basket, con posible costo de frecuencia.",
+    "updated_at": "2026-04-07T15:59:07",
+    "run_id": "EXP_001",
+    "retry_allowed": false,
+    "retry_only_if": [
+      "evidence_based_retry_explicit",
+      "new_process_fix_changes_interpretation",
+      "new_depth_validation_changes_result"
+    ],
+    "superseded_by": []
+  },
+  {
+    "id": "TEST_B",
+    "status": "completed",
+    "objective": "Probar de forma limpia si zscore_distance mejora matching y ranking interno.",
+    "main_change": {
+      "parameter": "PROFILE_MODE",
+      "to_value": "zscore_distance",
+      "meaning": "Cambia la métrica de distancia del perfil.",
+      "purpose": "Evaluar matching continuo por z-score.",
+      "why_improve": "Podría mejorar discriminación del ranking."
+    },
+    "dependent_change": {
+      "parameter": "ENABLE_AVG_PROFILE_DISTANCE_GATE",
+      "to_value": false,
+      "dependency_reason": "semantic_scale_metric",
+      "meaning": "Desactivar temporalmente gate dependiente para test válido."
+    },
+    "expected_effect": "Aislar impacto del nuevo PROFILE_MODE sin sesgo de gate no recalibrado.",
+    "updated_at": "2026-04-07T16:58:34",
+    "run_id": "EXP_002",
+    "retry_allowed": false,
+    "retry_only_if": [
+      "evidence_based_retry_explicit",
+      "gate_recalibration_available",
+      "new_branch_context_requires_retest"
+    ],
+    "superseded_by": []
+  },
+  {
+    "id": "TEST_C_ENABLE_SMA50_FILTER_1_0",
+    "status": "completed",
+    "objective": "Activar filtro SMA50 con umbral 1.0 para mejorar calidad individual del candidato sin tocar salida.",
+    "main_change": {
+      "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+      "to_value": true,
+      "meaning": "Activa filtro individual de extensión por SMA50.",
+      "purpose": "Reducir ruido de candidatos sobre-extendidos.",
+      "why_improve": "Apunta a calidad de candidato, subespacio ortogonal a weeks/distance agotados."
+    },
+    "dependent_change": {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "to_value": 1.0,
+      "dependency_reason": "semantic_scale_metric",
+      "meaning": "Umbral operativo al activar el filtro."
+    },
+    "expected_effect": "Mejorar edge en 24/52 con costo controlado de frecuencia.",
+    "updated_at": "2026-04-23T11:22:38",
+    "run_id": "EXP_124",
+    "retry_allowed": false,
+    "retry_only_if": [
+      "evidence_based_retry_explicit"
+    ],
+    "superseded_by": []
+  }
+]

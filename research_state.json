@@ -1,0 +1,761 @@
+{
+  "version": 1,
+  "updated_at": "2026-05-01T11:23:08",
+  "project": "SPY context strategy",
+  "branch_state": {
+    "active_branch_id": "reboot_from_exp127",
+    "branch_health": "stagnating",
+    "learning_signal": "weak",
+    "stagnation_risk": "high",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration",
+    "current_mode": "controlled_exploration",
+    "mode_reason": "branch_reboot_from_exp127_due_to_stagnation",
+    "last_mode_change_at": "2026-05-01T11:23:08",
+    "last_mode_change_run_id": "EXP_127",
+    "previous_mode": "refine_current_branch",
+    "mode_stability_counter": 0,
+    "branch_anchor_active": false,
+    "anchor_parameter": "",
+    "anchor_value": null,
+    "anchor_hold_iterations": 0,
+    "branch_id": "reboot_from_exp127",
+    "recommended_change_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "branch_seed_run_id": "EXP_127",
+    "branch_seed_reason": "best recent useful run for reboot",
+    "branch_seed_w52_spy_compare": 4.11359533063,
+    "rebooted_from_branch_id": "main",
+    "rebooted_at": "2026-05-01T11:23:08",
+    "reboot_reason": "branch_stagnation_long_window_depth"
+  },
+  "state_tracking": {
+    "last_useful_run_id": "EXP_127",
+    "last_followup_run_id": "EXP_127",
+    "last_promoted_baseline_run_id": "EXP_068",
+    "last_successful_executor_run_id": "EXP_127",
+    "last_completed_initial_test_id": "TEST_C_ENABLE_SMA50_FILTER_1_0"
+  },
+  "latest_scores": {
+    "process_reliability_score": 77.0,
+    "analyst_quality_score": 81.0,
+    "coordinator_quality_score": 78.0,
+    "research_effectiveness_score": 54,
+    "overall_agent_score": 76.0
+  },
+  "latest_learning_summary": {
+    "research_value": "medium",
+    "what_was_learned": [],
+    "what_is_not_working": [
+      "edge",
+      "relation_with_spy",
+      "year_breakdown"
+    ],
+    "process_warnings": [
+      "missing_or_insufficient_depth_window",
+      "Hipótesis informativa, pero aún no robusta para baseline."
+    ],
+    "recommended_change_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "learning_signal": "weak",
+    "branch_health": "stagnating",
+    "stagnation_risk": "high",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration"
+  },
+  "branch_memory": [
+    {
+      "run_id": "BASELINE_CLEAN",
+      "decision_type": "baseline_reference",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": true,
+      "research_value": "high",
+      "notes": "Baseline limpio inicial."
+    },
+    {
+      "run_id": "EXP_066",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_067",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento, pero sin promoción de baseline., No hay metricas del parent para validar promoción.",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_068",
+      "decision_type": "promoted_to_baseline",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": true,
+      "research_value": "high",
+      "notes": "Cumple fase year1 y valida promoción vs parent.",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_069",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_070",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_071",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_072",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_073",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Configuracion ya probada en EXP_069_260422011508",
+      "coordinator_status": "blocked_duplicate"
+    },
+    {
+      "run_id": "EXP_074",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_075",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_076",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_077",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Configuracion ya probada en EXP_075_260422054929",
+      "coordinator_status": "blocked_duplicate"
+    },
+    {
+      "run_id": "EXP_078",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_079",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Configuracion ya probada en EXP_076_260422064439",
+      "coordinator_status": "blocked_duplicate"
+    },
+    {
+      "run_id": "EXP_080",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_081",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Configuracion ya probada en EXP_078_260422074020",
+      "coordinator_status": "blocked_duplicate"
+    },
+    {
+      "run_id": "EXP_082",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_083",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Configuracion ya probada en EXP_080_260422083656",
+      "coordinator_status": "blocked_duplicate"
+    },
+    {
+      "run_id": "EXP_084",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_085",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_086",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Preflight invalido rc=3221226356",
+      "coordinator_status": "blocked_preflight"
+    },
+    {
+      "run_id": "EXP_087",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_088",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_089",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_090",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_091",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_092",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Executor no finalizo OK.",
+      "coordinator_status": "run_error"
+    },
+    {
+      "run_id": "EXP_093",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_094",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_095",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_096",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_097",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_098",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_099",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_100",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_101",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_102",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_103",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_104",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_105",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_106",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_107",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_108",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_109",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_110",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_111",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_112",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Faltan ventanas 24/52 validas y con profundidad real para validar robustez.",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_113",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_114",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_115",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_116",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_117",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_118",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Faltan ventanas 24/52 validas y con profundidad real para validar robustez.",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_119",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_120",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Faltan ventanas 24/52 validas y con profundidad real para validar robustez.",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_121",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_122",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Faltan ventanas 24/52 validas y con profundidad real para validar robustez.",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_123",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_124",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_125",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_126",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., No supera SPY en anios suficientes: 2 anios no positivos (maximo permitido 0).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_127",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_128",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_129",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_130",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_131",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_132",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_133",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Muy baja frecuencia en 52 semanas., Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_partial_valid"
+    },
+    {
+      "run_id": "EXP_134",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (156 semanas reales). actual=None",
+      "coordinator_status": "run_partial_valid"
+    }
+  ],
+  "guardrails": {
+    "do_not_reset_to_initial_queue_if_useful_run_exists": true,
+    "do_not_treat_insufficient_depth_as_fatal_by_default": true,
+    "do_not_confuse_duplicate_with_true_zigzag": true,
+    "preserve_52w_evidence_if_156_not_real": true
+  },
+  "branch_anchor": {
+    "active": false,
+    "parameter": "",
+    "value": null,
+    "hold_iterations": 3,
+    "remaining_iterations": 0,
+    "activated_run_id": "",
+    "activated_at": "",
+    "reason": "",
+    "locked_by_duplicate_throttling": false
+  },
+  "parent_state": {
+    "current_parent_run_id": "EXP_127",
+    "last_useful_run_id": "EXP_127",
+    "parent_source": "branch_reboot_seed",
+    "use_baseline_as_parent": false
+  },
+  "active_branch_reboot": {
+    "active_branch_id": "reboot_from_exp127",
+    "created_at": "2026-05-01T11:23:08",
+    "branch_seed_run_id": "EXP_127",
+    "branch_seed_reason": "best recent useful run for reboot",
+    "branch_seed_w52_spy_compare": 4.11359533063,
+    "last_promoted_baseline_run_id": "EXP_068",
+    "preserve_history": true,
+    "reset_scope": "branch_state_only",
+    "allowed_initial_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "cooldown_subspaces": [
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "from_value": "2",
+        "to_value": "4",
+        "reason": "recent_exhausted_subspace"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "from_value": "2",
+        "to_value": "5",
+        "reason": "recent_exhausted_subspace"
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "from_value": "24",
+        "to_value": "16",
+        "reason": "recent_exhausted_subspace"
+      }
+    ]
+  }
+}

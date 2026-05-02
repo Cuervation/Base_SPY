@@ -1,0 +1,6 @@
+{
+  "at": "2026-04-30T16:47:05",
+  "last_run_id": "EXP_1276",
+  "reason": "too_many_rejections_without_followup",
+  "next_mode": "controlled_exploration"
+}

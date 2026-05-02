@@ -1,0 +1,137 @@
+{
+  "windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "year_validation_window_weeks": 52,
+  "forbidden_windows": [
+    156
+  ],
+  "strict_windows": true,
+  "max_iterations": 0,
+  "baseline_path": "state/current_baseline.json",
+  "research_state_path": "state/research_state.json",
+  "experiment_log_path": "trackers/experiment_log.csv",
+  "dependencies_path": "config/parameter_dependencies.json",
+  "runs_root": "runs/multi_agent_runs",
+  "long156_policy": "never",
+  "stop_on_baseline_change": false,
+  "stop_on_156": true,
+  "stop_on_promoted_to_baseline": false,
+  "stop_on_fix_process_before_more_research": false,
+  "stop_on_operational_failures": false,
+  "max_consecutive_rejected_without_followup": 999,
+  "max_consecutive_operational_failures": 999,
+  "sleep_seconds_between_runs": 5,
+  "stale_run_recovery_enabled": true,
+  "stale_run_recovery_grace_seconds": 180,
+  "continue_after_promotion_review": true,
+  "strict_spy_compare_promotion_gate": true,
+  "controlled_exploration": {
+    "enabled": true,
+    "activate_after_no_material_candidates": 2,
+    "candidate_generation_layers": [
+      "normal",
+      "fallback",
+      "controlled_exploration"
+    ],
+    "allow_allowed_explore": true,
+    "do_not_stop_on_no_material_candidate": true,
+    "families": [
+      "profile_variable_reactivation",
+      "profile_recalibration",
+      "quality_tightening",
+      "new_profile_dimensions"
+    ],
+    "activate_after_rejections_without_followup": 4,
+    "force_after_rejection_streak": true,
+    "must_use_new_family": true,
+    "block_old_axes_without_allowed_explore": true
+  },
+  "parameter_precheck": {
+    "required": true,
+    "lookback_runs": 50,
+    "block_exact_duplicates": true,
+    "block_repeated_negative_parameter_direction": true,
+    "block_frequency_up_quality_down_axis": true,
+    "allowed_explore_only_in_controlled_exploration": true
+  },
+  "rejection_streak_policy": {
+    "too_many_rejections_without_followup_is_fatal": false,
+    "on_threshold": "branch_exhausted_activate_controlled_exploration_and_continue",
+    "reset_counter_after_activation": true
+  },
+  "derived_weekly_feature_engineering": {
+    "enabled": true,
+    "strategy": "create_missing_columns_from_ohlcv",
+    "features": {
+      "close_vs_sma8w_pct": {
+        "formula": "(close / SMA8(close) - 1) * 100",
+        "source_columns": [
+          "ticker",
+          "signal_date",
+          "close"
+        ]
+      },
+      "atr_14w_pct": {
+        "formula": "ATR14 semanal / close * 100",
+        "source_columns": [
+          "ticker",
+          "signal_date",
+          "high",
+          "low",
+          "close"
+        ]
+      },
+      "volume_ratio_vs_sma13w": {
+        "formula": "volume / SMA13(volume)",
+        "source_columns": [
+          "ticker",
+          "signal_date",
+          "volume"
+        ]
+      },
+      "dist_to_high_26w_pct": {
+        "formula": "(rolling_high_26w - close) / rolling_high_26w * 100",
+        "source_columns": [
+          "ticker",
+          "signal_date",
+          "high",
+          "close"
+        ]
+      }
+    },
+    "missing_source_column_policy": "create_feature_as_nan_and_continue"
+  },
+  "preflight_policy": {
+    "blocked_preflight_is_fatal": false,
+    "on_blocked_preflight": "mark_skip_force_controlled_exploration_and_continue",
+    "do_not_count_as_operational_failure": true,
+    "do_not_stop_batch": true
+  },
+  "stop_on_operational_warnings": false,
+  "single_instance_lock_enabled": true,
+  "single_instance_lock_path": "state/autonomous_loop.lock",
+  "single_instance_lock_stale_seconds": 28800,
+  "safe_io_retries": 12,
+  "safe_io_delay_seconds": 0.25,
+  "iteration_timeout_seconds": 4500,
+  "coordinator_output_invalid_policy": "recoverable",
+  "parent_invalid_policy": "fallback_to_baseline",
+  "candidate_generation_escape": {
+    "enabled": true,
+    "max_consecutive_no_material_before_escape": 5,
+    "max_consecutive_no_material_before_parent_reset": 10,
+    "max_consecutive_no_material_before_axis_reset": 15,
+    "max_consecutive_no_material_before_diagnostic_only": 25,
+    "stop_batch_on_diagnostic_only": true,
+    "quarantine_no_material_runs": true,
+    "candidate_generation_failure_dir": "runs/candidate_generation_failures",
+    "candidate_generation_failure_log_path": "state/candidate_generation_failures.csv",
+    "remove_no_material_from_experiment_log": true,
+    "do_not_append_no_material_to_exp_trace": true
+  },
+  "autonomy_contract_enabled": true
+}

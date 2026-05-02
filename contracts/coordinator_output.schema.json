@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "coordinator_output.schema.json",
+  "title": "Coordinator Output",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "role",
+    "status",
+    "gate_decision",
+    "decision_type",
+    "accepted_for_followup",
+    "promoted_to_baseline",
+    "reasons",
+    "material_change_detected",
+    "materiality",
+    "transition_classification",
+    "promotion_reason",
+    "promotion_blockers",
+    "parent_run_id",
+    "parent_script",
+    "validation_phase",
+    "next_validation_phase",
+    "multi_year_validation",
+    "effective_change_check",
+    "compare",
+    "auditor_v2_evaluation",
+    "learning_feedback"
+  ],
+  "properties": {
+    "role": { "const": "coordinator" },
+    "status": { "type": "string", "minLength": 1 },
+    "gate_decision": { "type": "string" },
+    "decision_type": {
+      "type": "string",
+      "enum": ["rejected", "accepted_for_followup", "promoted_to_baseline"]
+    },
+    "accepted_for_followup": { "type": "boolean" },
+    "promoted_to_baseline": { "type": "boolean" },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "material_change_detected": { "type": "boolean" },
+    "materiality": { "type": "object" },
+    "transition_classification": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "no_op_equivalence",
+                  "duplicate_recent_proposal",
+                  "fresh_change",
+                  "monotonic_refinement",
+                  "controlled_exploration",
+                  "evidence_based_rollback",
+                  "true_zigzag_reversal"
+                ]
+              },
+              "parameter": { "type": "string" }
+            }
+          }
+        ]
+      }
+    },
+    "promotion_reason": { "type": "string" },
+    "promotion_blockers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "parent_run_id": { "type": "string" },
+    "parent_script": { "type": "string" },
+    "validation_phase": { "type": "string" },
+    "next_validation_phase": { "type": "string" },
+    "multi_year_validation": { "type": "object" },
+    "effective_change_check": { "type": "object" },
+    "compare": { "type": "object" },
+    "auditor_v2_evaluation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "process_reliability_score",
+        "analyst_quality_score",
+        "coordinator_quality_score",
+        "research_effectiveness_score",
+        "overall_agent_score",
+        "research_value",
+        "branch_health",
+        "learning_signal",
+        "stagnation_risk",
+        "main_friction",
+        "recommended_next_action",
+        "recommended_change_directions",
+        "why_this_direction"
+      ],
+      "properties": {
+        "process_reliability_score": { "type": ["number", "null"] },
+        "analyst_quality_score": { "type": ["number", "null"] },
+        "coordinator_quality_score": { "type": ["number", "null"] },
+        "research_effectiveness_score": { "type": ["number", "null"] },
+        "overall_agent_score": { "type": ["number", "null"] },
+        "research_value": {
+          "type": "string",
+          "enum": ["high", "medium", "low", "none"]
+        },
+        "branch_health": {
+          "type": "string",
+          "enum": ["alive_and_improving", "alive_but_noisy", "stagnating", "blocked_by_process", "exhausted"]
+        },
+        "learning_signal": {
+          "type": "string",
+          "enum": ["strong", "medium", "weak", "absent"]
+        },
+        "stagnation_risk": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "main_friction": {
+          "type": "string",
+          "enum": [
+            "coordinator",
+            "analyst_fallback",
+            "long_window_depth",
+            "state_handling",
+            "candidate_generation",
+            "branch_stagnation",
+            "none"
+          ]
+        },
+        "recommended_next_action": {
+          "type": "string",
+          "enum": [
+            "refine_current_branch",
+            "controlled_exploration",
+            "evidence_based_rollback",
+            "extend_validation",
+            "stop_branch",
+            "fix_process_before_more_research"
+          ]
+        },
+        "recommended_change_directions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 3
+        },
+        "why_this_direction": { "type": "string" }
+      }
+    },
+    "learning_feedback": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "hypothesis_discarded",
+        "worsened_dimensions",
+        "next_change_type_recommendation",
+        "meta_feedback_for_analyst",
+        "notes"
+      ],
+      "properties": {
+        "hypothesis_discarded": { "type": "array", "items": { "type": "string" } },
+        "worsened_dimensions": { "type": "array", "items": { "type": "string" } },
+        "next_change_type_recommendation": { "type": "array", "items": { "type": "string" } },
+        "meta_feedback_for_analyst": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "decision_type": { "const": "accepted_for_followup" } },
+        "required": ["decision_type"]
+      },
+      "then": {
+        "properties": {
+          "accepted_for_followup": { "const": true },
+          "promoted_to_baseline": { "const": false }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "decision_type": { "const": "promoted_to_baseline" } },
+        "required": ["decision_type"]
+      },
+      "then": {
+        "properties": {
+          "promoted_to_baseline": { "const": true },
+          "accepted_for_followup": { "const": false }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "decision_type": { "const": "rejected" } },
+        "required": ["decision_type"]
+      },
+      "then": {
+        "properties": {
+          "accepted_for_followup": { "const": false },
+          "promoted_to_baseline": { "const": false }
+        }
+      }
+    }
+  ]
+}

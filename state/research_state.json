@@ -1,0 +1,2864 @@
+{
+  "version": 1,
+  "updated_at": "2026-05-01T11:23:08",
+  "source_repo_state": {
+    "legacy_research_state_path": "research_state.json",
+    "legacy_current_baseline_path": "current_baseline.json"
+  },
+  "branch_state": {
+    "current_mode": "controlled_exploration",
+    "mode_reason": "branch_reboot_from_exp127_due_to_stagnation",
+    "last_mode_change_at": "2026-05-01T11:23:08",
+    "last_mode_change_run_id": "EXP_127",
+    "previous_mode": "controlled_exploration",
+    "mode_stability_counter": 0,
+    "branch_id": "reboot_from_exp127",
+    "active_branch_id": "reboot_from_exp127",
+    "branch_health": "stagnating",
+    "learning_signal": "weak",
+    "stagnation_risk": "high",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration",
+    "branch_anchor_active": false,
+    "anchor_parameter": "",
+    "anchor_value": null,
+    "anchor_hold_iterations": 0,
+    "recommended_change_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "branch_seed_run_id": "EXP_127",
+    "branch_seed_reason": "best recent useful run for reboot",
+    "branch_seed_w52_spy_compare": 4.11359533063,
+    "rebooted_from_branch_id": "fresh_baseline_branch_260425",
+    "rebooted_at": "2026-05-01T11:23:08",
+    "reboot_reason": "branch_stagnation_long_window_depth"
+  },
+  "parent_state": {
+    "current_parent_run_id": "EXP_127",
+    "last_useful_run_id": "EXP_127",
+    "parent_source": "branch_reboot_seed",
+    "use_baseline_as_parent": false
+  },
+  "branch_anchor": {
+    "active": false,
+    "parameter": "",
+    "value": null,
+    "hold_iterations": 3,
+    "remaining_iterations": 0,
+    "activated_run_id": "",
+    "activated_at": "",
+    "reason": "",
+    "locked_by_duplicate_throttling": false
+  },
+  "friction_state": {
+    "branch_health": "alive_but_noisy",
+    "learning_signal": "medium",
+    "stagnation_risk": "medium",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration",
+    "recommended_change_directions": [
+      "tighten_individual_candidate_filters",
+      "reactivate_disabled_gate",
+      "recalibrate_weekly_gate"
+    ]
+  },
+  "project": "SPY context strategy",
+  "state_tracking": {
+    "last_useful_run_id": "EXP_127",
+    "last_followup_run_id": "EXP_127",
+    "last_promoted_baseline_run_id": "EXP_068",
+    "last_successful_executor_run_id": "EXP_127",
+    "last_completed_initial_test_id": "TEST_C_ENABLE_SMA50_FILTER_1_0"
+  },
+  "latest_scores": {
+    "process_reliability_score": 79.0,
+    "analyst_quality_score": 84.0,
+    "coordinator_quality_score": 78.0,
+    "research_effectiveness_score": 54,
+    "overall_agent_score": 79.75
+  },
+  "latest_learning_summary": {
+    "research_value": "medium",
+    "what_was_learned": [],
+    "what_is_not_working": [
+      "year_breakdown"
+    ],
+    "process_warnings": [
+      "missing_or_insufficient_depth_window",
+      "Hipótesis informativa, pero aún no robusta para baseline."
+    ],
+    "recommended_change_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "learning_signal": "weak",
+    "branch_health": "stagnating",
+    "stagnation_risk": "high",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration"
+  },
+  "branch_memory": [
+    {
+      "run_id": "EXP_1021",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1022",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1023",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1024",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1025",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1026",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1027",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1028",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1029",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1030",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1031",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1032",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1033",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1034",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1035",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1036",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1037",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1038",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1039",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1040",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1041",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1042",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1043",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1044",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1045",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1046",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1047",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1048",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1049",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1050",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1051",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1052",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1053",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1054",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1055",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1056",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1057",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1058",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1059",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1060",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1061",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1062",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1063",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1064",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1065",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1066",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1067",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1068",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1069",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1070",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1071",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1072",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1073",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1074",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1075",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1076",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1077",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1078",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1079",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1080",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1081",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1082",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1083",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1084",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1085",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1086",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1087",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1088",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1089",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1090",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1091",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1092",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1093",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1094",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1095",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1096",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1097",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1098",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1099",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1100",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1101",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1102",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1103",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1104",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1105",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1106",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1107",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1108",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1109",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1110",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1111",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1112",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1113",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1114",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1115",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1116",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1117",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1118",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1119",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1120",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1121",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1122",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1123",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1124",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1125",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1126",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1127",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1128",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1129",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1130",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1131",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1132",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1133",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1134",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1135",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1136",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1137",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1138",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1139",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1140",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1141",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1142",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1143",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1144",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1145",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1146",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1147",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1148",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1149",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1150",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1151",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1152",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1153",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1154",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1155",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1156",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1157",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1158",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1159",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1160",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1161",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1162",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1163",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1164",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1165",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1166",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1167",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1168",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1169",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1170",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1171",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1172",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1173",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1174",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1175",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1176",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1177",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1178",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1179",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1180",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1181",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1182",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1183",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1184",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1185",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1186",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1187",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1188",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1189",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1190",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1191",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1192",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1193",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1194",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1195",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1196",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1197",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1198",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1199",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1200",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1201",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1202",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1203",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1204",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1205",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1206",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1207",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1208",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1209",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1210",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1211",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1212",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1213",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1214",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1215",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1216",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1217",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1218",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1219",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1220",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1221",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1222",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1223",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1224",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1225",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1226",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1227",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1228",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1229",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1230",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1231",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1232",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1233",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1234",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1235",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1236",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1237",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1238",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1239",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1240",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1241",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1242",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1243",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1244",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1245",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1246",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1247",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1248",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1249",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1250",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1251",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1252",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1253",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1254",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1255",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1256",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1257",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1258",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1259",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1260",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1261",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1262",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1263",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1264",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1265",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1266",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1267",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1268",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1269",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1270",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1271",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1272",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1273",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1274",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1275",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1276",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1277",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1278",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1279",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1280",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1281",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1282",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1283",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1284",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1285",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1286",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1287",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1288",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "high",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1289",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "low",
+      "notes": "Empeora contra ultima corrida valida en PnL y spy_compare (52w).",
+      "coordinator_status": "run_ok"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "rejected",
+      "accepted_for_followup": false,
+      "promoted_to_baseline": false,
+      "research_value": "none",
+      "notes": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+      "coordinator_status": "blocked_no_material_candidate"
+    },
+    {
+      "run_id": "EXP_1290",
+      "decision_type": "accepted_for_followup",
+      "accepted_for_followup": true,
+      "promoted_to_baseline": false,
+      "research_value": "medium",
+      "notes": "Aceptado para seguimiento., Falta ventana valida multi-anio (53 semanas reales). actual=None",
+      "coordinator_status": "run_ok"
+    }
+  ],
+  "guardrails": {
+    "do_not_reset_to_initial_queue_if_useful_run_exists": true,
+    "do_not_treat_insufficient_depth_as_fatal_by_default": true,
+    "do_not_confuse_duplicate_with_true_zigzag": true,
+    "preserve_52w_evidence_if_156_not_real": true
+  },
+  "candidate_generation_escape_event": {
+    "at": "2026-04-30T14:38:04",
+    "reason": "consecutive_blocked_no_material_candidate",
+    "trigger_run_id": "EXP_1113",
+    "threshold": 5,
+    "consecutive_no_material_candidates": 5,
+    "escape_count": 113,
+    "selected_parent_after_escape": "EXP_396",
+    "previous_mode": "controlled_exploration",
+    "next_mode": "controlled_exploration",
+    "actions": {
+      "force_controlled_exploration": true,
+      "ignore_cooldowns_once": true,
+      "allow_previously_tested_config_once": false,
+      "reset_parent_to_last_useful": true
+    },
+    "note": "Non-fatal escape. The next analyst proposal may bypass cooldown/memory hard-blocks once, but exact executed config duplicates remain blocked unless explicitly enabled."
+  },
+  "active_branch_reboot": {
+    "active_branch_id": "reboot_from_exp127",
+    "created_at": "2026-05-01T11:23:08",
+    "branch_seed_run_id": "EXP_127",
+    "branch_seed_reason": "best recent useful run for reboot",
+    "branch_seed_w52_spy_compare": 4.11359533063,
+    "last_promoted_baseline_run_id": "EXP_068",
+    "preserve_history": true,
+    "reset_scope": "branch_state_only",
+    "allowed_initial_directions": [
+      "tighten_individual_candidate_filters",
+      "recalibrate_weekly_gate",
+      "reactivate_disabled_gate"
+    ],
+    "cooldown_subspaces": [
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "from_value": "2",
+        "to_value": "4",
+        "reason": "recent_exhausted_subspace"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "from_value": "2",
+        "to_value": "5",
+        "reason": "recent_exhausted_subspace"
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "from_value": "24",
+        "to_value": "16",
+        "reason": "recent_exhausted_subspace"
+      }
+    ]
+  }
+}
