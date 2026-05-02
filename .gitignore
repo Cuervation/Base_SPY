@@ -1,36 +1,23 @@
-@'
-
-# =========================
-# Datos pesados locales
-# =========================
+﻿# Datos pesados locales
 /sp500_feature_store_weekly_master_all_*.csv
 /sp500_feature_store_daily_master_*.csv
 
-# =========================
 # Corridas y outputs generados
-# =========================
 /runs/
 /multi_agent_runs/
 /outputs/
 /snapshots/
 /logs/
-/loop_logs/
-/watchdog_logs/
-/run_stdout/
 
-# =========================
 # Caches
-# =========================
 /_dataset_cache/
 /_trade_cache/
 /cache/
+**/__pycache__/
 **/_dataset_cache/
-**/_trade_cache/
 **/cache/
 
-# =========================
-# Backups / comprimidos
-# =========================
+# Backups y comprimidos
 *.zip
 *.7z
 *.rar
@@ -39,9 +26,7 @@
 backup_*/
 backups/
 
-# =========================
-# Archivos pesados derivados
-# =========================
+# Archivos derivados pesados
 *.parquet
 *.feather
 *.h5
@@ -50,41 +35,26 @@ backups/
 *.xls
 *.xlsm
 
-# =========================
 # Python
-# =========================
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
 .pytest_cache/
 .venv/
 venv/
 env/
+*.pyc
+*.pyo
+*.pyd
 
-# =========================
-# Logs / temporales
-# =========================
+# Temporales
 *.log
 *.tmp
 *.temp
 *.bak
 *.old
 
-# =========================
 # Secrets / env
-# =========================
 .env
 .env.*
 *.pem
 *.key
 credentials.json
 token.json
-
-# =========================
-# Sistema
-# =========================
-.DS_Store
-Thumbs.db
-
-'@ | Set-Content -Encoding UTF8 .gitignore
