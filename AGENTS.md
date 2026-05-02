@@ -13,7 +13,7 @@ Arquitectura multiagente limpia, acumulativa, causal y auditable para optimizar 
   No opina de estrategia.
 
 - `executor`:
-  solo ejecuta el script recibido, no toca código, devuelve métricas estándar y valida profundidad real en ventanas 4/8/24/52/156.
+  solo ejecuta el script recibido, no toca código, devuelve métricas estándar y valida profundidad real en las ventanas operativas pedidas. Por default usa `4/8/24/52`; `156` queda reservado para validación multi-year condicional.
 
 - `coordinator`:
   orquesta, valida dependencias, bloquea no-op/duplicados/zig-zag reales, compara contra última corrida útil y baseline promovido, separa follow-up de baseline, y además evalúa la calidad del aprendizaje como auditor v2.
@@ -62,9 +62,9 @@ Regla de trades:
 4. Bloqueo de tests no operativos.
 5. Bloqueo de duplicados reales y zig-zag reales.
 6. No bloquear refinements monotónicos razonables.
-7. Comparación obligatoria en `4/8/24/52/156` semanas y contra SPY.
+7. Comparación obligatoria contra SPY en las ventanas operativas pedidas. El default operativo es `4/8/24/52`.
 8. Robustez en `24/52` pesa más que brillo en `4/8`.
-9. `156` se usa como validación multi-year real solo si existe profundidad real suficiente.
+9. `156` se usa como validación multi-year real solo si se pide explícitamente o si la política `long156` lo habilita, y solo cuando exista profundidad real suficiente.
 10. `insufficient_depth` NO debe destruir automáticamente una corrida útil de `4/8/24/52`.
 11. El coordinator puede fijar `branch_anchor` por 3 iteraciones cuando haya señal fuerte (promoción, follow-up con mejora clara vs SPY o repetición útil reciente).
 12. Si `blocked_duplicate >= 20%` en las últimas 15 corridas, priorizar `fix_process_before_more_research`.
@@ -103,22 +103,23 @@ El coordinator debe clasificar cada propuesta como una de estas:
 
 ## Política de ventanas
 
-El executor usa siempre:
+El executor usa por default:
 
-`[4, 8, 24, 52, 156]`
+`[4, 8, 24, 52]`
 
 Función:
 - `4`: smoke test rápido
 - `8`: señal inicial
 - `24`: primer filtro serio
 - `52`: robustez anual
-- `156`: robustez multi-year real
+- `156`: robustez multi-year real opcional/condicional, solo si fue pedido explícitamente o habilitado por la política `long156`
 
 ### Reglas de profundidad
 - si `156` no tiene profundidad real suficiente:
   - usar `status = insufficient_depth`
   - informar `requested_weeks` y `actual_weeks_run`
   - no tratarlo como error técnico fatal por defecto
+  - no invalidar automáticamente una corrida útil de `52`
   - preservar la evidencia válida de `52`
 
 ---
@@ -209,7 +210,7 @@ Carpeta: `multi_agent_runs\EXP_XXX_...`
 - `candidate_config.json`
 - `run_live_status.log`
 - script candidato ejecutado
-- logs/stdout/stderr por ventana `4/8/24/52/156`
+- logs/stdout/stderr por ventana operativa ejecutada; default `4/8/24/52`, con `156` solo si fue pedido explícitamente o habilitado por política `long156`
 
 Trackers acumulativos recomendados:
 - `experiment_log.csv`
@@ -234,7 +235,7 @@ Prioridad inicial:
 ### Fase `multi_year`
 Después:
 - sostener `52w`
-- validar multi-año con `156` semanas reales
+- validar multi-año con `156` semanas reales cuando haya profundidad suficiente y la política lo habilite
 - revisar `spy_yearly_breakdown`
 
 ### Regla
