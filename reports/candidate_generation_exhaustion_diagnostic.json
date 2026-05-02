@@ -1,0 +1,315 @@
+{
+  "at": "2026-05-01T01:08:06",
+  "reason": "candidate_generation_parent_reset",
+  "final": false,
+  "last_run_id": "EXP_1290",
+  "last_cgf_id": "CGF_000030",
+  "parent_run_id": "EXP_1288",
+  "current_parent_run_id": "EXP_1288",
+  "selected_parent_run_id": "EXP_1288",
+  "consecutive_no_material_candidate": 10,
+  "candidate_generation_escape_event": {
+    "at": "2026-05-01T01:08:06",
+    "level": "parent_reset",
+    "reason": "too_many_no_material_candidate_parent_reset",
+    "last_run_id": "EXP_1290",
+    "parent_run_id": "EXP_1288",
+    "consecutive_no_material_candidate": 10,
+    "next_mode": "controlled_exploration",
+    "action": "reset_parent_to_baseline_clean_for_candidate_generation"
+  },
+  "branch_exhausted_event": {},
+  "recent_results": [
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000013",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000014",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000015",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000016",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000017",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000018",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000019",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "CGF_000020",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1281",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1283",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "BASELINE_CLEAN",
+      "recommended_next_action": "refine_current_branch",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_and_improving",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1284",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1283",
+      "recommended_next_action": "refine_current_branch",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_but_noisy",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1285",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1284",
+      "recommended_next_action": "extend_validation",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_and_improving",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1286",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1285",
+      "recommended_next_action": "extend_validation",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_and_improving",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1287",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1286",
+      "recommended_next_action": "refine_current_branch",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_and_improving",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1288",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1287",
+      "recommended_next_action": "extend_validation",
+      "main_friction": "long_window_depth",
+      "branch_health": "alive_and_improving",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1289",
+      "cgf_id": "",
+      "status": "run_ok",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "long_window_depth",
+      "branch_health": "stagnating",
+      "windows_executed": [
+        52,
+        4,
+        8,
+        24
+      ]
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000021",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000022",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000023",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000024",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000025",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000026",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000027",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000028",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000029",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    },
+    {
+      "run_id": "EXP_1290",
+      "cgf_id": "CGF_000030",
+      "status": "blocked_no_material_candidate",
+      "parent_run_id": "EXP_1288",
+      "recommended_next_action": "controlled_exploration",
+      "main_friction": "candidate_generation",
+      "branch_health": "stagnating",
+      "windows_executed": []
+    }
+  ],
+  "recommended_actions": [
+    "No seguir lanzando EXP si no hay candidato material.",
+    "Revisar fallback_candidate_pool_considered y cooldowns activos.",
+    "Cambiar parent/familia/eje antes de reintentar.",
+    "Si el parent actual sigue agotado, usar baseline clean como parent temporal de exploracion."
+  ]
+}

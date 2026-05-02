@@ -1,0 +1,68 @@
+﻿=== ESTADO DEL LOOP ===
+{
+  "loop_status": "running",
+  "started_at": "2026-04-29T19:20:49",
+  "updated_at": "2026-04-29T22:20:34",
+  "iterations_completed": 8,
+  "consecutive_rejected_without_followup": 0,
+  "consecutive_operational_failures": 0,
+  "consecutive_operational_warnings": 0,
+  "last_run_id": "EXP_295",
+  "last_successful_run_id": "",
+  "last_useful_run_id": "",
+  "current_parent_run_id": "",
+  "stop_reason": "",
+  "pending_promotion_review": [],
+  "baseline_hash_before": "b02812129fbb22a66a76b390f7cdd4b227da29fa40d06aaa48c7728737c03af9",
+  "windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "forbidden_windows": [
+    156
+  ],
+  "recovered_stale_runs_at_start": [
+    "EXP_272",
+    "EXP_272"
+  ],
+  "last_run_status": "run_partial_valid",
+  "last_decision_type": "rejected",
+  "branch_exhausted_event": {
+    "at": "2026-04-29T22:20:34",
+    "last_run_id": "EXP_295",
+    "reason": "too_many_rejections_without_followup",
+    "next_mode": "controlled_exploration"
+  },
+  "force_next_candidate_generation_mode": "controlled_exploration"
+}
+
+=== ULTIMAS 30 CORRIDAS ===
+
+=== ALERTAS metric_no_effect ACEPTADO ===
+
+=== ULTIMAS LINEAS DEL RESUMEN LIVE ===
+# Autonomous Loop Live Summary
+
+- loop_status: `running`
+- iterations_completed: `8`
+- consecutive_rejected_without_followup: `0`
+- consecutive_operational_failures: `0`
+- current_parent_run_id: ``
+- last_run_id: `EXP_295`
+- stop_reason: ``
+
+## Parent
+- selected_parent_run_id: `EXP_282`
+- selected_parent_source: `research.parent_state.current_parent_run_id`
+- parent_valid: `True`
+
+## Recent Runs
+| run_id | status | decision_type | next_action | followup | promotion |
+| --- | --- | --- | --- | --- | --- |
+| EXP_291 | run_ok | rejected | controlled_exploration | False | False |
+| EXP_292 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_293 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_294 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |

@@ -1,0 +1,48 @@
+﻿
+
+ProcessId   : 2000
+Name        : msedgewebview2.exe
+CommandLine : "C:\Program Files (x86)\Microsoft\EdgeWebView\Application\147.0.3912.86\msedgewebview2.exe" 
+              --embedded-browser-webview=1 --webview-exe-name=ms-teams.exe --webview-exe-version=26072.521.4595.7966 --
+              user-data-dir="C:\Users\celestinoh\AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTe
+              ams\EBWebView" --noerrdialogs --embedded-browser-webview-dpi-awareness=2 
+              --autoplay-policy=no-user-gesture-required --disable-background-timer-throttling --disable-features=msEnh
+              ancedTrackingPreventionEnabled,BreakoutBoxPreferCaptureTimestampInVideoFrames,BlockCrossPartitionBlobUrlF
+              etching,msWebOOUI --enable-blink-features=IndexedDbGetAllRecords --enable-features=msSingleSignOnOSForPri
+              maryAccountIsShared,SharedArrayBuffer,AutofillReplaceCachedWebElementsByRendererIds,msWebView2TerminateSe
+              rviceWorkerWhenIdleIgnoringCdpSessions,msWebView2SetUserAgentOverrideOnIframes,PreferredAudioOutputDevice
+              s,DocumentPolicyIncludeJSCallStacksInCrashReports,RendererHangWatcher:delay/13s,msPageInteractionManagerW
+              ebview2,UnresponsiveMultipleStackCollection:delay/0.1s/count/5,PartitionedCookies,ThirdPartyStoragePartit
+              ioning,msWebView2TextureStream,msWebView2EnableDraggableRegions,msAbydos,msAbydosHandwritingAttr,msAbydos
+              GestureSupport --gpu-watchdog-timeout-seconds=60 --isolate-origins=https://[*.]microsoft.com,https://[*.]
+              sharepoint.com,https://[*.]sharepointonline.com,https://mesh-hearts-teams.azurewebsites.net,https://[*.]m
+              eshxp.net,https://res-sdf.cdn.office.net,https://res.cdn.office.net,https://copilot.teams.cloud.microsoft
+              ,https://local.copilot.teams.office.com,https://m365copilotchat.svc.cloud.microsoft,https://m365copilotap
+              p.svc.cloud.microsoft --js-flags=--stack-trace-limit=50 --lang=es-ES 
+              --mojo-named-platform-channel-pipe=18020.21612.7224103538610466312 
+              /pfhostedapp:f50686b1540c524e06fc1ca8e48e4dce80be883d
+
+ProcessId   : 13880
+Name        : msedgewebview2.exe
+CommandLine : "C:\Program Files (x86)\Microsoft\EdgeWebView\Application\147.0.3912.86\msedgewebview2.exe" 
+              --type=gpu-process --gpu-watchdog-timeout-seconds=60 --noerrdialogs --user-data-dir="C:\Users\celestinoh\
+              AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView" 
+              --webview-exe-name=ms-teams.exe --webview-exe-version=26072.521.4595.7966 --embedded-browser-webview=1 
+              --embedded-browser-webview-dpi-awareness=2 --gpu-preferences=SAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAAQAAAAAAAAAA
+              AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --startup-read-main-dll 
+              --metrics-shmem-handle=1900,i,17638021759444889813,1614797576540072882,262144 
+              --field-trial-handle=1552,i,5694440315177228672,3671769314314985019,262144 --enable-features=AutofillRepl
+              aceCachedWebElementsByRendererIds,DocumentPolicyIncludeJSCallStacksInCrashReports,PartitionedCookies,Pref
+              erredAudioOutputDevices,SharedArrayBuffer,ThirdPartyStoragePartitioning,msAbydos,msAbydosGestureSupport,m
+              sAbydosHandwritingAttr,msPageInteractionManagerWebview2,msSingleSignOnOSForPrimaryAccountIsShared,msWebVi
+              ew2EnableDraggableRegions,msWebView2SetUserAgentOverrideOnIframes,msWebView2TerminateServiceWorkerWhenIdl
+              eIgnoringCdpSessions,msWebView2TextureStream --disable-features=BlockCrossPartitionBlobUrlFetching,Breako
+              utBoxPreferCaptureTimestampInVideoFrames,msEnhancedTrackingPreventionEnabled,msWebOOUI 
+              --variations-seed-version 
+              --pseudonymization-salt-handle=1548,i,8380973175030313129,12730281238668135738,4 
+              --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1532 /prefetch:2 
+              /pfhostedapp:f50686b1540c524e06fc1ca8e48e4dce80be883d
+
+
+
+

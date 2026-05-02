@@ -1,0 +1,834 @@
+﻿=== BUSQUEDA DE LOGS REALES ===
+Fecha: 20260429_225334
+
+=== CSV RECIENTES ===
+
+LastWriteTime         Length FullName                                                                                                                                                                                                      
+-------------         ------ --------                                                                                                                                                                                                      
+29/4/2026 22:45:33     71595 C:\Pythons\ML-Trading\Base_Archivos_SPY\trackers\agent_live_runs_master.csv                                                                                                                                   
+29/4/2026 22:45:33    253457 C:\Pythons\ML-Trading\Base_Archivos_SPY\trackers\experiment_log.csv                                                                                                                                           
+29/4/2026 22:45:27       842 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429222057.csv              
+29/4/2026 22:45:27     10216 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429222057.csv     
+29/4/2026 22:45:27     26176 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429222057.csv      
+29/4/2026 22:45:27     46618 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429222057.csv       
+29/4/2026 22:45:27     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429222057.csv
+29/4/2026 22:45:27   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429222057.csv          
+29/4/2026 22:45:26 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429222057.csv                
+29/4/2026 22:44:18    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429222057.csv          
+29/4/2026 22:44:18      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\2604292220\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429222057.csv        
+29/4/2026 22:20:25       842 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv              
+29/4/2026 22:20:25     10216 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv     
+29/4/2026 22:20:25     26176 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv      
+29/4/2026 22:20:25     46618 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv       
+29/4/2026 22:20:25     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429215052.csv
+29/4/2026 22:20:25   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429215052.csv          
+29/4/2026 22:20:24 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429215052.csv                
+29/4/2026 22:18:57    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429215052.csv          
+29/4/2026 22:18:57      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429215052.csv        
+29/4/2026 21:50:01       854 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429212747.csv              
+29/4/2026 21:50:01     10426 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429212747.csv     
+29/4/2026 21:50:01     57974 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429212747.csv      
+29/4/2026 21:50:01    116169 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429212747.csv       
+29/4/2026 21:50:00     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429212747.csv
+29/4/2026 21:50:00   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429212747.csv          
+29/4/2026 21:50:00 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429212747.csv                
+29/4/2026 21:48:31    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429212747.csv          
+29/4/2026 21:48:31      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\2604292127\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429212747.csv        
+29/4/2026 21:27:22       854 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429210653.csv              
+29/4/2026 21:27:22     10426 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429210653.csv     
+29/4/2026 21:27:22     57974 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429210653.csv      
+29/4/2026 21:27:22    116169 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429210653.csv       
+29/4/2026 21:27:22     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429210653.csv
+29/4/2026 21:27:22   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429210653.csv          
+29/4/2026 21:27:21 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429210653.csv                
+29/4/2026 21:26:08    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429210653.csv          
+29/4/2026 21:26:08      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\2604292106\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429210653.csv        
+29/4/2026 21:06:29       832 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429204559.csv              
+29/4/2026 21:06:29     10364 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429204559.csv     
+29/4/2026 21:06:29     48942 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429204559.csv      
+29/4/2026 21:06:29     92643 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429204559.csv       
+29/4/2026 21:06:29     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429204559.csv
+29/4/2026 21:06:29   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429204559.csv          
+29/4/2026 21:06:28 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429204559.csv                
+29/4/2026 21:05:18    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429204559.csv          
+29/4/2026 21:05:18      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\2604292045\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429204559.csv        
+29/4/2026 20:45:20       854 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429203338.csv              
+29/4/2026 20:45:20     10170 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429203338.csv     
+29/4/2026 20:45:20     27370 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429203338.csv      
+29/4/2026 20:45:20     46341 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429203338.csv       
+29/4/2026 20:45:20     62371 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429203338.csv
+29/4/2026 20:45:20   2282632 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429203338.csv          
+29/4/2026 20:45:19 181919407 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429203338.csv                
+29/4/2026 20:44:38    115559 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429203338.csv          
+29/4/2026 20:44:38      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\2604292033\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429203338.csv        
+29/4/2026 20:32:56       854 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429201042.csv              
+29/4/2026 20:32:56     10170 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429201042.csv     
+29/4/2026 20:32:56     27370 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429201042.csv      
+29/4/2026 20:32:56     46341 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429201042.csv       
+29/4/2026 20:32:56     62371 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429201042.csv
+29/4/2026 20:32:56   2282632 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429201042.csv          
+29/4/2026 20:32:55 181919407 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429201042.csv                
+29/4/2026 20:31:26    115559 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429201042.csv          
+29/4/2026 20:31:26      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429201042.csv        
+29/4/2026 20:10:13       854 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429194741.csv              
+29/4/2026 20:10:13     10426 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429194741.csv     
+29/4/2026 20:10:13     57974 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429194741.csv      
+29/4/2026 20:10:13    116169 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429194741.csv       
+29/4/2026 20:10:13     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429194741.csv
+29/4/2026 20:10:13   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429194741.csv          
+29/4/2026 20:10:13 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429194741.csv                
+29/4/2026 20:09:06    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429194741.csv          
+29/4/2026 20:09:06      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\2604291947\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429194741.csv        
+29/4/2026 19:47:11       832 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429192120.csv              
+29/4/2026 19:47:11     10364 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429192120.csv     
+29/4/2026 19:47:11     48942 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429192120.csv      
+29/4/2026 19:47:11     92643 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429192120.csv       
+29/4/2026 19:47:11     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429192120.csv
+29/4/2026 19:47:11   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\2604291921\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429192120.csv          
+
+
+
+
+=== JSON RECIENTES ===
+
+LastWriteTime      Length FullName                                                                                                                  
+-------------      ------ --------                                                                                                                  
+29/4/2026 22:45:42   1349 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\coder_output.json                      
+29/4/2026 22:45:42    312 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\preflight_output.json                  
+29/4/2026 22:45:41    354 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\change_set.json                        
+29/4/2026 22:45:41   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\candidate_config.json                  
+29/4/2026 22:45:41   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\parent_config.json                     
+29/4/2026 22:45:40    454 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\proposal_transition_classification.json
+29/4/2026 22:45:40    418 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\proposal_materiality.json              
+29/4/2026 22:45:40  17661 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\analyst_output.json                    
+29/4/2026 22:45:39    190 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\executor_output.partial.json           
+29/4/2026 22:45:39    266 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\window_execution_plan.json             
+29/4/2026 22:45:39  61141 C:\Pythons\ML-Trading\Base_Archivos_SPY\state\research_state.json                                                         
+29/4/2026 22:45:34   1068 C:\Pythons\ML-Trading\Base_Archivos_SPY\state\autonomous_loop_state.json                                                  
+29/4/2026 22:45:33    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\run_status.json                        
+29/4/2026 22:45:33  53399 C:\Pythons\ML-Trading\Base_Archivos_SPY\state\parameter_effect_memory.json                                                
+29/4/2026 22:45:33  18804 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\experiment_manifest.json               
+29/4/2026 22:45:33  16987 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\coordinator_output.json                
+29/4/2026 22:45:33   3932 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\executor_output.partial.json           
+29/4/2026 22:45:33  15905 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\executor_output.json                   
+29/4/2026 22:45:33   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\multi_window_derived_metrics.json      
+29/4/2026 22:45:33    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_execution_plan.json             
+29/4/2026 22:45:33    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_24\window_result.json           
+29/4/2026 22:45:32    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_08\window_result.json           
+29/4/2026 22:45:30    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_04\window_result.json           
+29/4/2026 22:45:29    733 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\window_result.json           
+29/4/2026 22:20:44   1349 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\coder_output.json                      
+29/4/2026 22:20:44    312 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\preflight_output.json                  
+29/4/2026 22:20:41    354 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\change_set.json                        
+29/4/2026 22:20:41   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\candidate_config.json                  
+29/4/2026 22:20:41   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\parent_config.json                     
+29/4/2026 22:20:41    454 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\proposal_transition_classification.json
+29/4/2026 22:20:41    418 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\proposal_materiality.json              
+29/4/2026 22:20:41  17663 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\analyst_output.json                    
+29/4/2026 22:20:34    159 C:\Pythons\ML-Trading\Base_Archivos_SPY\state\branch_exhausted_event.json                                                 
+29/4/2026 22:20:33    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_status.json                        
+29/4/2026 22:20:33  18873 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\experiment_manifest.json               
+29/4/2026 22:20:33  17056 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coordinator_output.json                
+29/4/2026 22:20:33   3932 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.partial.json           
+29/4/2026 22:20:33  15905 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json                   
+29/4/2026 22:20:33   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\multi_window_derived_metrics.json      
+29/4/2026 22:20:33    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_execution_plan.json             
+29/4/2026 22:20:33    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_24\window_result.json           
+29/4/2026 22:20:31    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_08\window_result.json           
+29/4/2026 22:20:30    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_04\window_result.json           
+29/4/2026 22:20:29    733 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\window_result.json           
+29/4/2026 21:50:25   1349 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coder_output.json                      
+29/4/2026 21:50:25    312 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\preflight_output.json                  
+29/4/2026 21:50:23    354 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\change_set.json                        
+29/4/2026 21:50:23   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\candidate_config.json                  
+29/4/2026 21:50:23   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\parent_config.json                     
+29/4/2026 21:50:22    454 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\proposal_transition_classification.json
+29/4/2026 21:50:22    418 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\proposal_materiality.json              
+29/4/2026 21:50:22  17728 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\analyst_output.json                    
+29/4/2026 21:50:13    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\run_status.json                        
+29/4/2026 21:50:13   2769 C:\Pythons\ML-Trading\Base_Archivos_SPY\subspace_cooldowns.json                                                           
+29/4/2026 21:50:13  17166 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\experiment_manifest.json               
+29/4/2026 21:50:13  15338 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\coordinator_output.json                
+29/4/2026 21:50:13   3742 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\executor_output.partial.json           
+29/4/2026 21:50:13  15549 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\executor_output.json                   
+29/4/2026 21:50:13   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\multi_window_derived_metrics.json      
+29/4/2026 21:50:13    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_execution_plan.json             
+29/4/2026 21:50:13    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_24\window_result.json           
+29/4/2026 21:50:11    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_08\window_result.json           
+29/4/2026 21:50:09    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_04\window_result.json           
+29/4/2026 21:50:07    745 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\window_result.json           
+29/4/2026 21:27:38   1337 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\coder_output.json                      
+29/4/2026 21:27:38    306 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\preflight_output.json                  
+29/4/2026 21:27:37    357 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\change_set.json                        
+29/4/2026 21:27:37   1322 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\candidate_config.json                  
+29/4/2026 21:27:37   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\parent_config.json                     
+29/4/2026 21:27:36    444 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\proposal_transition_classification.json
+29/4/2026 21:27:36    408 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\proposal_materiality.json              
+29/4/2026 21:27:36  15841 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\analyst_output.json                    
+29/4/2026 21:27:29    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\run_status.json                        
+29/4/2026 21:27:29  17168 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\experiment_manifest.json               
+29/4/2026 21:27:29  15340 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\coordinator_output.json                
+29/4/2026 21:27:29   3742 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\executor_output.partial.json           
+29/4/2026 21:27:29  15549 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\executor_output.json                   
+29/4/2026 21:27:29   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\multi_window_derived_metrics.json      
+29/4/2026 21:27:29    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_execution_plan.json             
+29/4/2026 21:27:29    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_24\window_result.json           
+29/4/2026 21:27:27    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_08\window_result.json           
+29/4/2026 21:27:26    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_04\window_result.json           
+29/4/2026 21:27:25    745 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\window_result.json           
+29/4/2026 21:06:44   1337 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\coder_output.json                      
+29/4/2026 21:06:44    306 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\preflight_output.json                  
+29/4/2026 21:06:43    357 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\change_set.json                        
+29/4/2026 21:06:43   1322 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\candidate_config.json                  
+29/4/2026 21:06:43   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\parent_config.json                     
+29/4/2026 21:06:43    444 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\proposal_transition_classification.json
+29/4/2026 21:06:43    408 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\proposal_materiality.json              
+29/4/2026 21:06:43  15844 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\analyst_output.json                    
+29/4/2026 21:06:35    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\run_status.json                        
+29/4/2026 21:06:35  17791 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\experiment_manifest.json               
+29/4/2026 21:06:35  15963 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\coordinator_output.json                
+29/4/2026 21:06:35   3716 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\executor_output.partial.json           
+29/4/2026 21:06:35  15497 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\executor_output.json                   
+29/4/2026 21:06:35   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\multi_window_derived_metrics.json      
+29/4/2026 21:06:35    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_execution_plan.json             
+29/4/2026 21:06:35    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_24\window_result.json           
+29/4/2026 21:06:34    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_08\window_result.json           
+29/4/2026 21:06:33    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_04\window_result.json           
+29/4/2026 21:06:31    720 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\window_result.json           
+29/4/2026 20:45:51   1337 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\coder_output.json                      
+29/4/2026 20:45:51    306 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\preflight_output.json                  
+29/4/2026 20:45:49    357 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\change_set.json                        
+29/4/2026 20:45:49   1322 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\candidate_config.json                  
+29/4/2026 20:45:49   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\parent_config.json                     
+29/4/2026 20:45:49    444 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\proposal_transition_classification.json
+29/4/2026 20:45:49    408 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\proposal_materiality.json              
+29/4/2026 20:45:49  16738 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\analyst_output.json                    
+29/4/2026 20:45:41    215 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\run_status.json                        
+29/4/2026 20:45:41  18931 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\experiment_manifest.json               
+29/4/2026 20:45:41  23843 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\coordinator_output.json                
+29/4/2026 20:45:41   4535 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\executor_output.partial.json           
+29/4/2026 20:45:41  16533 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\executor_output.json                   
+29/4/2026 20:45:41   1254 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\multi_window_derived_metrics.json      
+29/4/2026 20:45:41    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_execution_plan.json             
+29/4/2026 20:45:41    742 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_24\window_result.json           
+29/4/2026 20:45:39    741 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_08\window_result.json           
+29/4/2026 20:45:38    741 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_04\window_result.json           
+
+
+
+
+=== MD/TXT/LOG RECIENTES ===
+
+LastWriteTime      Length FullName                                                                                                                                
+-------------      ------ --------                                                                                                                                
+29/4/2026 22:53:47  37891 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt                                                  
+29/4/2026 22:45:52   1182 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\window_52\stdout.log                                 
+29/4/2026 22:45:46      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\window_52\stderr.log                                 
+29/4/2026 22:45:42   2269 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_297_260429224539\run_live_status.log                                  
+29/4/2026 22:45:34    953 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\autonomous_loop_live_summary.md                                                         
+29/4/2026 22:45:33   4553 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\run_live_status.log                                  
+29/4/2026 22:45:27  10476 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\stdout.log                                 
+29/4/2026 22:40:46   5125 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt                                                
+29/4/2026 22:35:39   5125 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt                                                
+29/4/2026 22:31:22   2156 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\ultimas_corridas_20260429_223121.txt                                                    
+29/4/2026 22:20:50      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_296_260429222039\window_52\stderr.log                                 
+29/4/2026 22:20:33   4553 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_live_status.log                                  
+29/4/2026 22:20:25  10474 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log                                 
+29/4/2026 21:50:31      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stderr.log                                 
+29/4/2026 21:50:13   4552 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\run_live_status.log                                  
+29/4/2026 21:50:01  10666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\stdout.log                                 
+29/4/2026 21:27:42      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_294_260429212735\window_52\stderr.log                                 
+29/4/2026 21:27:29   4552 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\run_live_status.log                                  
+29/4/2026 21:27:22  10665 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\stdout.log                                 
+29/4/2026 21:06:48      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_293_260429210642\window_52\stderr.log                                 
+29/4/2026 21:06:35   4552 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\run_live_status.log                                  
+29/4/2026 21:06:29  10532 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\stdout.log                                 
+29/4/2026 20:45:55      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_292_260429204548\window_52\stderr.log                                 
+29/4/2026 20:45:41   4395 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\run_live_status.log                                  
+29/4/2026 20:45:20  10315 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\stdout.log                                 
+29/4/2026 20:33:19      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_291_260429203312\window_52\stderr.log                                 
+29/4/2026 20:33:05   4397 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\run_live_status.log                                  
+29/4/2026 20:32:56  10480 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\stdout.log                                 
+29/4/2026 20:32:56   3276 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\2604292010\runtime_profile_260429201042.txt
+29/4/2026 20:10:33      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_290_260429201026\window_52\stderr.log                                 
+29/4/2026 20:10:19   4552 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\run_live_status.log                                  
+29/4/2026 20:10:13  10664 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\stdout.log                                 
+29/4/2026 19:47:34      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_289_260429194727\window_52\stderr.log                                 
+29/4/2026 19:47:20   4571 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\run_live_status.log                                  
+29/4/2026 19:47:11  10532 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\stdout.log                                 
+29/4/2026 19:21:01      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_288_260429192050\window_52\stderr.log                                 
+29/4/2026 19:20:49    413 C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\autonomous_loop_final_summary.md                                                        
+29/4/2026 19:20:47      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_autonomy_fix_stderr.log                                           
+29/4/2026 19:20:47      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_autonomy_fix_stdout.log                                           
+29/4/2026 17:06:59   1875 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_287_260429165838\window_52\stdout.log                                 
+29/4/2026 16:58:47      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_287_260429165838\window_52\stderr.log                                 
+29/4/2026 16:58:43   2279 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_287_260429165838\run_live_status.log                                  
+29/4/2026 16:58:31   4420 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_286_260429164323\run_live_status.log                                  
+29/4/2026 16:58:18  10314 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_286_260429164323\window_52\stdout.log                                 
+29/4/2026 16:43:30      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_286_260429164323\window_52\stderr.log                                 
+29/4/2026 16:43:16   4410 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_285_260429162558\run_live_status.log                                  
+29/4/2026 16:42:55  10256 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_285_260429162558\window_52\stdout.log                                 
+29/4/2026 16:26:04      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_285_260429162558\window_52\stderr.log                                 
+29/4/2026 16:25:51   4402 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_284_260429161350\run_live_status.log                                  
+29/4/2026 16:25:45  10035 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_284_260429161350\window_52\stdout.log                                 
+29/4/2026 16:13:56      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_284_260429161350\window_52\stderr.log                                 
+29/4/2026 16:13:43   4313 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_283_260429155702\run_live_status.log                                  
+29/4/2026 16:13:36   9517 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_283_260429155702\window_52\stdout.log                                 
+29/4/2026 15:57:09      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_283_260429155702\window_52\stderr.log                                 
+29/4/2026 15:56:55   4390 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_282_260429153916\run_live_status.log                                  
+29/4/2026 15:56:45   9870 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_282_260429153916\window_52\stdout.log                                 
+29/4/2026 15:39:25      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_282_260429153916\window_52\stderr.log                                 
+29/4/2026 15:39:09   4561 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_281_260429152051\run_live_status.log                                  
+29/4/2026 15:38:56   9950 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_281_260429152051\window_52\stdout.log                                 
+29/4/2026 15:21:00      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_281_260429152051\window_52\stderr.log                                 
+29/4/2026 15:20:44   4314 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_280_260429144630\run_live_status.log                                  
+29/4/2026 15:20:36   9740 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_280_260429144630\window_52\stdout.log                                 
+29/4/2026 15:20:36   3569 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_280_260429144630\window_52\2604291446\runtime_profile_260429144659.txt
+29/4/2026 14:46:35      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_280_260429144630\window_52\stderr.log                                 
+29/4/2026 14:46:24   4314 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_279_260429142923\run_live_status.log                                  
+29/4/2026 14:46:17   9574 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_279_260429142923\window_52\stdout.log                                 
+29/4/2026 14:29:28      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_279_260429142923\window_52\stderr.log                                 
+29/4/2026 14:29:17   4424 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_278_260429141157\run_live_status.log                                  
+29/4/2026 14:29:12  10006 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_278_260429141157\window_52\stdout.log                                 
+29/4/2026 14:12:01      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_278_260429141157\window_52\stderr.log                                 
+29/4/2026 14:11:51   4392 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_277_260429135432\run_live_status.log                                  
+29/4/2026 14:11:45  10284 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_277_260429135432\window_52\stdout.log                                 
+29/4/2026 13:54:36      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_277_260429135432\window_52\stderr.log                                 
+29/4/2026 13:54:25   4438 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_276_260429134149\run_live_status.log                                  
+29/4/2026 13:54:21  10259 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_276_260429134149\window_52\stdout.log                                 
+29/4/2026 13:41:54      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_276_260429134149\window_52\stderr.log                                 
+29/4/2026 13:41:43   4338 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_275_260429133127\run_live_status.log                                  
+29/4/2026 13:41:36  10315 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_275_260429133127\window_52\stdout.log                                 
+29/4/2026 13:31:31      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_275_260429133127\window_52\stderr.log                                 
+29/4/2026 13:31:20   4436 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_274_260429131858\run_live_status.log                                  
+29/4/2026 13:31:16  10181 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_274_260429131858\window_52\stdout.log                                 
+29/4/2026 13:19:02      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_274_260429131858\window_52\stderr.log                                 
+29/4/2026 13:18:51   4572 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_273_260429130316\run_live_status.log                                  
+29/4/2026 13:18:47   9885 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_273_260429130316\window_52\stdout.log                                 
+29/4/2026 13:03:25      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_273_260429130316\window_52\stderr.log                                 
+29/4/2026 13:03:09   4566 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_272_260429124009\run_live_status.log                                  
+29/4/2026 13:03:00   9888 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_272_260429124009\window_52\stdout.log                                 
+29/4/2026 12:40:34      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_272_260429124009\window_52\stderr.log                                 
+29/4/2026 12:40:08      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_after_filename_fix_stderr.log                                     
+29/4/2026 12:40:08      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_after_filename_fix_stdout.log                                     
+29/4/2026 00:47:05   1664 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_272_260429004703\run_live_status.log                                  
+29/4/2026 00:46:57   1664 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_272_260429004655\run_live_status.log                                  
+29/4/2026 00:46:48   4902 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_271_260429002257\run_live_status.log                                  
+29/4/2026 00:46:40   9516 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_271_260429002257\window_52\stdout.log                                 
+29/4/2026 00:23:06      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_271_260429002257\window_52\stderr.log                                 
+29/4/2026 00:22:50   4696 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_270_260428234535\run_live_status.log                                  
+29/4/2026 00:22:43  10069 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_270_260428234535\window_52\stdout.log                                 
+29/4/2026 00:22:43   3630 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_270_260428234535\window_52\2604282346\runtime_profile_260428234638.txt
+28/4/2026 23:46:04      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_270_260428234535\window_52\stderr.log                                 
+28/4/2026 23:45:33      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_metric_fix_stdout.log                                             
+28/4/2026 23:45:33      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\logs\autonomous_loop\batch_20_metric_fix_stderr.log                                             
+28/4/2026 18:27:24   1394 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_269_260428182723\run_live_status.log                                  
+28/4/2026 18:27:17   4838 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_268_260428180738\run_live_status.log                                  
+28/4/2026 18:27:03  10182 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_268_260428180738\window_52\stdout.log                                 
+28/4/2026 18:07:43      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_268_260428180738\window_52\stderr.log                                 
+28/4/2026 18:07:32   4821 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_267_260428174744\run_live_status.log                                  
+28/4/2026 18:07:26  10180 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_267_260428174744\window_52\stdout.log                                 
+28/4/2026 17:47:50      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_267_260428174744\window_52\stderr.log                                 
+28/4/2026 17:47:38   4802 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_266_260428172723\run_live_status.log                                  
+28/4/2026 17:47:30  10181 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_266_260428172723\window_52\stdout.log                                 
+28/4/2026 17:27:32      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_266_260428172723\window_52\stderr.log                                 
+28/4/2026 17:27:16   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_265_260428172715\run_live_status.log                                  
+28/4/2026 17:27:08   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_264_260428172706\run_live_status.log                                  
+28/4/2026 17:27:00   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_263_260428172658\run_live_status.log                                  
+28/4/2026 17:26:52   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_262_260428172650\run_live_status.log                                  
+28/4/2026 17:26:43   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_261_260428172641\run_live_status.log                                  
+28/4/2026 17:26:34   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_260_260428172633\run_live_status.log                                  
+28/4/2026 17:26:26   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_259_260428172625\run_live_status.log                                  
+28/4/2026 17:26:18   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_258_260428172616\run_live_status.log                                  
+28/4/2026 17:26:10   1320 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_257_260428172608\run_live_status.log                                  
+
+
+
+
+=== ARCHIVOS QUE MENCIONAN EXP_295 ===
+
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 16
+Line       :   "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 40
+Line       :     "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 57
+Line       : - last_run_id: `EXP_295`
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 72
+Line       : | EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 86
+Line       : reports\autonomous_loop_live_summary.md:8:- last_run_id: `EXP_295`
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 93
+Line       : reports\autonomous_loop_live_summary.md:23:| EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 94
+Line       : state\autonomous_loop_state.json:9:  "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
+LineNumber : 100
+Line       : state\autonomous_loop_state.json:33:    "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 16
+Line       :   "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 40
+Line       :     "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 57
+Line       : - last_run_id: `EXP_295`
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 72
+Line       : | EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 86
+Line       : reports\autonomous_loop_live_summary.md:8:- last_run_id: `EXP_295`
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 93
+Line       : reports\autonomous_loop_live_summary.md:23:| EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 94
+Line       : state\autonomous_loop_state.json:9:  "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_224041.txt
+LineNumber : 100
+Line       : state\autonomous_loop_state.json:33:    "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\autonomous_loop_live_summary.md
+LineNumber : 22
+Line       : | EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 19
+Line       : 29/4/2026 22:20:25       842 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv              
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 20
+Line       : 29/4/2026 22:20:25     10216 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv     
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 21
+Line       : 29/4/2026 22:20:25     26176 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv      
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 22
+Line       : 29/4/2026 22:20:25     46618 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv       
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 23
+Line       : 29/4/2026 22:20:25     62214 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 24
+Line       : 29/4/2026 22:20:25   2573522 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429215052.csv          
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 25
+Line       : 29/4/2026 22:20:24 318364691 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429215052.csv                
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 26
+Line       : 29/4/2026 22:18:57    202210 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429215052.csv          
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 27
+Line       : 29/4/2026 22:18:57      5666 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429215052.csv        
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 129
+Line       : 29/4/2026 22:20:33    226 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_status.json                        
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 130
+Line       : 29/4/2026 22:20:33  18873 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\experiment_manifest.json               
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 131
+Line       : 29/4/2026 22:20:33  17056 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coordinator_output.json                
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 132
+Line       : 29/4/2026 22:20:33   3932 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.partial.json           
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 133
+Line       : 29/4/2026 22:20:33  15905 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json                   
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 134
+Line       : 29/4/2026 22:20:33   1359 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\multi_window_derived_metrics.json      
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 135
+Line       : 29/4/2026 22:20:33    303 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_execution_plan.json             
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 136
+Line       : 29/4/2026 22:20:33    776 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_24\window_result.json           
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 137
+Line       : 29/4/2026 22:20:31    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_08\window_result.json           
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 138
+Line       : 29/4/2026 22:20:30    775 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_04\window_result.json           
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 139
+Line       : 29/4/2026 22:20:29    733 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\window_result.json           
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 140
+Line       : 29/4/2026 21:50:25   1349 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coder_output.json                      
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 141
+Line       : 29/4/2026 21:50:25    312 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\preflight_output.json                  
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 142
+Line       : 29/4/2026 21:50:23    354 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\change_set.json                        
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 143
+Line       : 29/4/2026 21:50:23   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\candidate_config.json                  
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 144
+Line       : 29/4/2026 21:50:23   1324 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\parent_config.json                     
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 145
+Line       : 29/4/2026 21:50:22    454 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\proposal_transition_classification.json
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 146
+Line       : 29/4/2026 21:50:22    418 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\proposal_materiality.json              
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 147
+Line       : 29/4/2026 21:50:22  17728 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\analyst_output.json                    
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 235
+Line       : 29/4/2026 22:20:33   4553 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_live_status.log                                  
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 236
+Line       : 29/4/2026 22:20:25  10474 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log                                 
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 237
+Line       : 29/4/2026 21:50:31      0 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stderr.log                                 
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\buscar_logs_reales_20260429_225334.txt
+LineNumber : 348
+Line       : === ARCHIVOS QUE MENCIONAN EXP_295 ===
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\ultimas_corridas_20260429_223121.txt
+LineNumber : 10
+Line       :   "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\ultimas_corridas_20260429_223121.txt
+LineNumber : 34
+Line       :     "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\ultimas_corridas_20260429_223121.txt
+LineNumber : 53
+Line       : - last_run_id: `EXP_295`
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\ultimas_corridas_20260429_223121.txt
+LineNumber : 68
+Line       : | EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_04\window_result.json
+LineNumber : 20
+Line       :     "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_04\window_result.json
+LineNumber : 21
+Line       :     "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_08\window_result.json
+LineNumber : 20
+Line       :     "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_08\window_result.json
+LineNumber : 21
+Line       :     "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_24\window_result.json
+LineNumber : 20
+Line       :     "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_24\window_result.json
+LineNumber : 21
+Line       :     "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 105
+Line       : Carpeta de salida: C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 106
+Line       : 01_target_regime_weeks         C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_01_target_regime_weeks_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 107
+Line       : 02_similar_spy_weeks           C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_02_similar_spy_weeks_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 108
+Line       : 03_hist_trades                 C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_03_hist_trades_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 109
+Line       : 04_hist_ticker_stats           C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_04_hist_ticker_stats_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 110
+Line       : 05_hist_winner_profile_overall C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_05_hist_winner_profile_overall_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 111
+Line       : 06_next_week_candidates        C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 112
+Line       : 07_next_week_real_trades       C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 113
+Line       : 08_summary_by_regime_week      C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\stdout.log
+LineNumber : 114
+Line       : 09_summary_total               C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\2604292150\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\window_result.json
+LineNumber : 17
+Line       :     "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\window_52\window_result.json
+LineNumber : 18
+Line       :     "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coder_output.json
+LineNumber : 33
+Line       :     "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_295.py"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\coordinator_output.json
+LineNumber : 54
+Line       :   "candidate_script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_295.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 4
+Line       :   "run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 5
+Line       :   "script_executed": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_295.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 6
+Line       :   "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_295.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 61
+Line       :       "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_w52.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 62
+Line       :       "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 63
+Line       :       "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 67
+Line       :         "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 69
+Line       :           "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 70
+Line       :           "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 71
+Line       :           "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 72
+Line       :           "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 129
+Line       :       "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_w52.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 130
+Line       :       "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 131
+Line       :       "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 135
+Line       :         "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 137
+Line       :           "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 138
+Line       :           "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 139
+Line       :           "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 140
+Line       :           "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 176
+Line       :       "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_w52.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 177
+Line       :       "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 178
+Line       :       "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 182
+Line       :         "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 184
+Line       :           "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 185
+Line       :           "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 186
+Line       :           "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 187
+Line       :           "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 223
+Line       :       "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_w52.py",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 224
+Line       :       "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stdout.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 225
+Line       :       "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\stderr.log",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 229
+Line       :         "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 231
+Line       :           "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 232
+Line       :           "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 233
+Line       :           "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260429215052.csv",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.json
+LineNumber : 234
+Line       :           "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_295_260429215020\\window_52\\2604292150\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260429215052.csv"
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\executor_output.partial.json
+LineNumber : 3
+Line       :   "run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\experiment_manifest.json
+LineNumber : 2
+Line       :   "run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_live_status.log
+LineNumber : 1
+Line       : [2026-04-29 21:50:20] RUN START run_id=EXP_295 run_dir=C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_live_status.log
+LineNumber : 11
+Line       : [2026-04-29 21:50:25] CODER result status=implemented effective_changes=1 candidate_script=spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_295.py
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020\run_live_status.log
+LineNumber : 26
+Line       : [2026-04-29 22:20:33] RUN END run_id=EXP_295 status=run_partial_valid decision_type=rejected accepted_or_rejected=rejected
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\state\autonomous_loop_state.json
+LineNumber : 33
+Line       :     "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\state\branch_exhausted_event.json
+LineNumber : 3
+Line       :   "last_run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\state\parameter_effect_memory.json
+LineNumber : 838
+Line       :         "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\state\research_state.json
+LineNumber : 1519
+Line       :       "run_id": "EXP_295",
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\trackers\agent_live_runs_master.csv
+LineNumber : 227
+Line       : EXP_295;2026-04-29 22:20:33;EXP_162;run_partial_valid;rejected;MAX_AVG_PROFILE_DISTANCE;0.15;;;;;;;;;;0;0;21;0;0;42;0;0;16;0;0;10;0;0;16;nan;nan;3,71047619048;nan;nan;779,2;nan;nan;3,34740125188;C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\trackers\experiment_log.csv
+LineNumber : 310
+Line       : EXP_295;2026-04-29 22:20:33;EXP_162;C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_162_260425235720\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_138_EXP_139_EXP_141_EXP_144_EXP_147_EXP_149_EXP_150_EXP_162.py;EXP_229;;MAX_AVG_PROFILE_DISTANCE;0.17;0.15;;;;Variación causal de semanas filtradas.;run_partial_valid;true;false;"{""no_op_detected"": false, ""active_logic_changed"": true, ""details"": [""effective_diff MAX_AVG_PROFILE_DISTANCE: 0.17 -> 0.15""]}";0;0;21;0;0;42;0;0;16;0;0;10;0;0;16;;;779,2;;;3,34740125188;rejected;decision_type=rejected, promotion_reason=, Faltan ventanas 24/52 validas y con profundidad 
+             real para validar robustez.;C:\Pythons\ML-Trading\Base_Archivos_SPY\runs\multi_agent_runs\EXP_295_260429215020
+
+Path       : C:\Pythons\ML-Trading\Base_Archivos_SPY\subspace_cooldowns.json
+LineNumber : 60
+Line       :         "EXP_295",
+
+
+
+

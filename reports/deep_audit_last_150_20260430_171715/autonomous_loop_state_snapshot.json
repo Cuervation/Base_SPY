@@ -1,0 +1,52 @@
+{
+  "loop_status": "completed",
+  "started_at": "2026-04-30T16:18:51",
+  "updated_at": "2026-04-30T16:47:24",
+  "iterations_completed": 150,
+  "consecutive_rejected_without_followup": 1,
+  "consecutive_operational_failures": 0,
+  "consecutive_operational_warnings": 0,
+  "consecutive_no_material_candidate": 0,
+  "last_run_id": "EXP_1277",
+  "last_successful_run_id": "",
+  "last_useful_run_id": "",
+  "current_parent_run_id": "EXP_396",
+  "selected_parent_run_id": "EXP_396",
+  "selected_parent_source": "research.parent_state.current_parent_run_id",
+  "parent_valid": true,
+  "stop_reason": "",
+  "pending_promotion_review": [],
+  "baseline_hash_before": "b02812129fbb22a66a76b390f7cdd4b227da29fa40d06aaa48c7728737c03af9",
+  "windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "forbidden_windows": [
+    156
+  ],
+  "recovered_stale_runs_at_start": [],
+  "last_run_status": "blocked_no_material_candidate",
+  "last_decision_type": "rejected",
+  "candidate_generation_escape_active": true,
+  "candidate_generation_escape_event": {
+    "at": "2026-04-30T16:47:19",
+    "level": "escape",
+    "reason": "too_many_no_material_candidate_escape",
+    "last_run_id": "EXP_1277",
+    "parent_run_id": "EXP_396",
+    "consecutive_no_material_candidate": 5,
+    "next_mode": "controlled_exploration",
+    "action": "force_controlled_exploration_and_research_state_escape"
+  },
+  "force_next_candidate_generation_mode": "controlled_exploration",
+  "allow_one_cooldown_override": true,
+  "last_nonfatal_event": "candidate_generation_escape",
+  "branch_exhausted_event": {
+    "at": "2026-04-30T16:47:05",
+    "last_run_id": "EXP_1276",
+    "reason": "too_many_rejections_without_followup",
+    "next_mode": "controlled_exploration"
+  }
+}

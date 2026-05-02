@@ -1,0 +1,119 @@
+﻿=== AUDITORIA APRENDIZAJE V2 ===
+Fecha: 20260429_223534
+Base: C:\Pythons\ML-Trading\Base_Archivos_SPY
+
+=====================================
+1) ESTADO ACTUAL DEL LOOP
+=====================================
+{
+  "loop_status": "running",
+  "started_at": "2026-04-29T19:20:49",
+  "updated_at": "2026-04-29T22:20:34",
+  "iterations_completed": 8,
+  "consecutive_rejected_without_followup": 0,
+  "consecutive_operational_failures": 0,
+  "consecutive_operational_warnings": 0,
+  "last_run_id": "EXP_295",
+  "last_successful_run_id": "",
+  "last_useful_run_id": "",
+  "current_parent_run_id": "",
+  "stop_reason": "",
+  "pending_promotion_review": [],
+  "baseline_hash_before": "b02812129fbb22a66a76b390f7cdd4b227da29fa40d06aaa48c7728737c03af9",
+  "windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "forbidden_windows": [
+    156
+  ],
+  "recovered_stale_runs_at_start": [
+    "EXP_272",
+    "EXP_272"
+  ],
+  "last_run_status": "run_partial_valid",
+  "last_decision_type": "rejected",
+  "branch_exhausted_event": {
+    "at": "2026-04-29T22:20:34",
+    "last_run_id": "EXP_295",
+    "reason": "too_many_rejections_without_followup",
+    "next_mode": "controlled_exploration"
+  },
+  "force_next_candidate_generation_mode": "controlled_exploration"
+}
+
+=====================================
+2) RESUMEN LIVE
+=====================================
+# Autonomous Loop Live Summary
+
+- loop_status: `running`
+- iterations_completed: `8`
+- consecutive_rejected_without_followup: `0`
+- consecutive_operational_failures: `0`
+- current_parent_run_id: ``
+- last_run_id: `EXP_295`
+- stop_reason: ``
+
+## Parent
+- selected_parent_run_id: `EXP_282`
+- selected_parent_source: `research.parent_state.current_parent_run_id`
+- parent_valid: `True`
+
+## Recent Runs
+| run_id | status | decision_type | next_action | followup | promotion |
+| --- | --- | --- | --- | --- | --- |
+| EXP_291 | run_ok | rejected | controlled_exploration | False | False |
+| EXP_292 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_293 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_294 | run_partial_valid | rejected | controlled_exploration | False | False |
+| EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+
+=====================================
+3) COLUMNAS REALES DEL EXPERIMENT_LOG
+=====================================
+No existe experiment_log.csv
+
+=====================================
+9) BUSQUEDA GLOBAL EN ARCHIVOS IMPORTANTES
+=====================================
+
+Patrones encontrados:
+
+reports\autonomous_loop_live_summary.md:7:- current_parent_run_id: ``
+reports\autonomous_loop_live_summary.md:8:- last_run_id: `EXP_295`
+reports\autonomous_loop_live_summary.md:12:- selected_parent_run_id: `EXP_282`
+reports\autonomous_loop_live_summary.md:13:- selected_parent_source: `research.parent_state.current_parent_run_id`
+reports\autonomous_loop_live_summary.md:19:| EXP_291 | run_ok | rejected | controlled_exploration | False | False |
+reports\autonomous_loop_live_summary.md:20:| EXP_292 | run_partial_valid | rejected | controlled_exploration | False | False |
+reports\autonomous_loop_live_summary.md:21:| EXP_293 | run_partial_valid | rejected | controlled_exploration | False | False |
+reports\autonomous_loop_live_summary.md:22:| EXP_294 | run_partial_valid | rejected | controlled_exploration | False | False |
+reports\autonomous_loop_live_summary.md:23:| EXP_295 | run_partial_valid | rejected | controlled_exploration | False | False |
+state\autonomous_loop_state.json:9:  "last_run_id": "EXP_295",
+state\autonomous_loop_state.json:12:  "current_parent_run_id": "",
+state\autonomous_loop_state.json:14:  "pending_promotion_review": [],
+state\autonomous_loop_state.json:26:    "EXP_272",
+state\autonomous_loop_state.json:27:    "EXP_272"
+state\autonomous_loop_state.json:31:  "branch_exhausted_event": {
+state\autonomous_loop_state.json:33:    "last_run_id": "EXP_295",
+state\autonomous_loop_state.json:34:    "reason": "too_many_rejections_without_followup",
+state\autonomous_loop_state.json:35:    "next_mode": "controlled_exploration"
+state\autonomous_loop_state.json:37:  "force_next_candidate_generation_mode": "controlled_exploration"
+
+
+
+
+=====================================
+10) VEREDICTO AUTOMATICO SIMPLE
+=====================================
+OK: el loop está running.
+OK: too_many_rejections_without_followup no frenó; activó controlled_exploration.
+OK: las últimas corridas aparecen rejected, sin follow-up y sin promotion.
+WARN: autonomous_loop_state tiene current_parent_run_id vacío, pero summary sí selecciona parent. Hay inconsistencia de auditoría.
+WARN: last_successful_run_id está vacío. Puede ser normal si ninguna corrida fue útil, pero complica auditar aprendizaje.
+WARN: last_useful_run_id está vacío. Si ninguna corrida aportó mejora/aprendizaje causal, todavía no hay aprendizaje estratégico útil.
+
+Archivo generado:
+C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\audit_aprendizaje_v2_20260429_223534.txt
