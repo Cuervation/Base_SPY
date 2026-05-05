@@ -296,7 +296,10 @@ for ($i = 1; $i -le $MaxIterations; $i++) {
     $eoPath = Join-Path $resolvedRunDir "executor_output.json"
     $eo = Read-JsonSafe -path $eoPath
     if ($eo -and $eo.windows) {
-      $w52 = $eo.windows.'52'
+      $w52 = $null
+      if ($eo.windows.PSObject.Properties.Name -contains '52') {
+        $w52 = $eo.windows.'52'
+      }
       if ($w52 -and $w52.metrics) {
         $w52AvgRet = To-DoubleSafe $w52.metrics.avg_net_return_pct
       }
