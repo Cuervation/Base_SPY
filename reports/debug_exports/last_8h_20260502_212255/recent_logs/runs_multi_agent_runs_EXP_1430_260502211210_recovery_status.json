@@ -1,0 +1,8 @@
+{
+  "status": "blocked_no_material_candidate_complete",
+  "reason": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+  "safe_for_strategy_analysis": false,
+  "safe_for_process_analysis": true,
+  "do_not_use_as_parent": true,
+  "updated_at": "2026-05-02T21:12:12"
+}

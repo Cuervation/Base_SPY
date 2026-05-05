@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-05-01T11:23:08",
+  "updated_at": "2026-05-04T00:00:00",
   "default_cooldown_iterations": 8,
   "cooldowns": [
     {
@@ -90,7 +90,7 @@
       "from_value": "0.6",
       "to_value": "0.63",
       "cooldown_active": false,
-      "cooldown_until_iteration": 358,
+      "cooldown_until_iteration": 1434,
       "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
       "reject_ratio": 0.0,
       "last_run_ids": [],
@@ -109,6 +109,78 @@
       "active_branch_id": "reboot_from_exp127",
       "activated_at": "2026-05-01T11:23:08",
       "branch_seed_run_id": "EXP_127"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": "0.5",
+      "to_value": "0.47",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1389,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": "0.9",
+      "to_value": "1.05",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1344,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": "0.15",
+      "to_value": "0.1",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1435,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": "0.17",
+      "to_value": "0.21",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "edge_dilution_learning_negative: EXP_1540 harmed 52w edge vs EXP_392",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_1540"
+      ],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": "28",
+      "to_value": "32",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "edge_dilution_learning_negative: EXP_1542 harmed 52w edge vs EXP_392",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_1542"
+      ],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": "28",
+      "to_value": "36",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "sister_transition_blocked_after_edge_dilution: do not repeat similarity expansion without a new quality filter",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_1542"
+      ],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
     }
   ]
 }

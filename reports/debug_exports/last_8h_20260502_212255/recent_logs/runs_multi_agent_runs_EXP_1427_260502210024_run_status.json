@@ -1,0 +1,13 @@
+{
+  "status": "run_ok",
+  "reason": "normal_completion",
+  "completed_windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "missing_artifacts": [],
+  "finalized": true,
+  "updated_at": "2026-05-02T21:07:19"
+}

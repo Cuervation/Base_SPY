@@ -1,0 +1,25 @@
+{
+  "requested_windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "allowed_windows": [
+    4,
+    8,
+    24,
+    52
+  ],
+  "progressive_windows_enabled": false,
+  "executed_windows": [
+    52,
+    4,
+    8,
+    24
+  ],
+  "blocked_windows": [],
+  "forbidden_windows": [
+    156
+  ]
+}

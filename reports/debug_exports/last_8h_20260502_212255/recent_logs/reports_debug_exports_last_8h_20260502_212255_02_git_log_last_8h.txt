@@ -1,0 +1,18 @@
+﻿7a1f34a (HEAD -> main, origin/main) Add Caveman skill
+ .agents/skills/caveman/SKILL.md | 74 +++++++++++++++++++++++++++++++++++++++++
+ skills-lock.json                | 11 ++++++
+ 2 files changed, 85 insertions(+)
+2762962 Make progressive 156w validation opt-in
+ run_multi_agent_executor_loop.ps1 | 2 ++
+ run_multi_agent_iteration.ps1     | 3 ++-
+ run_multi_agent_watchdog.ps1      | 9 ++++++---
+ 3 files changed, 10 insertions(+), 4 deletions(-)
+5e072ae Update agents guidance for conditional 156w validation
+ AGENTS.md | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+fb1cd7f Disable 156w evaluation by default
+ run_multi_agent_executor_loop.ps1 | 4 ++--
+ run_multi_agent_iteration.ps1     | 2 +-
+ run_multi_agent_iteration.py      | 4 ++--
+ run_multi_agent_watchdog.ps1      | 5 ++---
+ 4 files changed, 7 insertions(+), 8 deletions(-)

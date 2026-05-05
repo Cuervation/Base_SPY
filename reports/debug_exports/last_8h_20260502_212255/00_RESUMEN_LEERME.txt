@@ -1,0 +1,27 @@
+﻿Informe últimas 8 horas
+Generado: 2026-05-02 21:23:05
+Repo: C:\Pythons\ML-Trading\Base_Archivos_SPY
+
+Contenido:
+- 01_git_status_short.txt
+- 02_git_log_last_8h.txt
+- 03_git_log_last_15.txt
+- 04_git_diff_name_status.txt
+- 10_select_ps1_defaults.txt
+- 11_select_py_156_defaults.txt
+- 12_py_compile.txt
+- 20_recent_files_last_8h.txt
+- state_and_reports\
+- recent_logs\
+
+Objetivo:
+Auditar qué pasó en las últimas 8 horas, especialmente:
+- commits recientes
+- estado del repo
+- cambios sobre 156w default / opt-in
+- corridas recientes
+- logs y estado del loop
+
+Nota:
+Se excluyen .git, node_modules y __pycache__.
+Solo se copian logs/reportes recientes de hasta 5MB.

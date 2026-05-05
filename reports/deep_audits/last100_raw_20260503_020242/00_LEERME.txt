@@ -1,0 +1,14 @@
+﻿Auditoría últimas 100 corridas
+Generado: 2026-05-03 02:02:53
+Repo: C:\Pythons\ML-Trading\Base_Archivos_SPY
+
+Incluye:
+- git status/log/diff
+- validación 156 / AllowProgressiveWindows / low_depth_guard / ventana 52
+- state principal
+- experiment_log completo copiado
+- últimas 100 filas de experiment_log
+- archivos json/log/txt/md/csv de runs recientes encontrados
+
+ZIP:
+C:\Pythons\ML-Trading\Base_Archivos_SPY\reports\deep_audits\last100_raw_20260503_020242.zip

@@ -1,0 +1,883 @@
+{
+  "run_id": "EXP_1434",
+  "parent_run_id": "EXP_1422",
+  "parent_script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1422_260502203814\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_1422.py",
+  "baseline_reference": {
+    "run_id": "EXP_229",
+    "script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_229_260427220305\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_138_EXP_139_EXP_141_EXP_144_EXP_147_EXP_149_EXP_150_EXP_162_EXP_229.py",
+    "accepted_at": "2026-04-27T22:26:42",
+    "windows_metrics": {
+      "4": {
+        "weeks_run": 4,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 3,
+        "weeks_blocked_by_spy_channel_r2_gate": 3,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 1,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "8": {
+        "weeks_run": 8,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 7,
+        "weeks_blocked_by_spy_channel_r2_gate": 7,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 5,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "24": {
+        "weeks_run": 24,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 23,
+        "weeks_blocked_by_spy_channel_r2_gate": 22,
+        "weeks_blocked_by_avg_profile_distance_gate": 9,
+        "weeks_blocked_by_both_gates": 8,
+        "weeks_blocked_by_spy_channel_r2_only": 14,
+        "weeks_blocked_by_avg_profile_distance_only": 1,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "52": {
+        "weeks_run": 52,
+        "weeks_traded": 23,
+        "weeks_skipped_by_gates": 29,
+        "weeks_blocked_by_spy_channel_r2_gate": 26,
+        "weeks_blocked_by_avg_profile_distance_gate": 13,
+        "weeks_blocked_by_both_gates": 10,
+        "weeks_blocked_by_spy_channel_r2_only": 16,
+        "weeks_blocked_by_avg_profile_distance_only": 3,
+        "trades": 46,
+        "wins": 18,
+        "losses": 10,
+        "ties": 18,
+        "avg_net_return_pct": 3.824347826086958,
+        "total_net_pnl_dollars": 879.6000000000001,
+        "spy_avg_ret_1w_pct": 0.2224109342462957,
+        "spy_compare": 3.6019368918406593,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 3.565454545454544,
+            "spy_avg_ret_1w_pct": 0.27953506947595574,
+            "diff_pct": 3.2859194759785884
+          },
+          {
+            "year": 2026,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.0343200408062247,
+            "diff_pct": 10.554320040806225
+          }
+        ]
+      }
+    }
+  },
+  "main_change": null,
+  "dependent_change": null,
+  "expected_effect": "Sin propuesta valida: se evita emitir no-op.",
+  "gate_decision": "blocked_no_material_candidate",
+  "material_change_detected": false,
+  "proposal_validation": {
+    "main_parameter": "",
+    "from_value": null,
+    "to_value": null,
+    "normalized_from_value": "",
+    "normalized_to_value": "",
+    "material_change_detected": false,
+    "invalid_no_op": false,
+    "error": ""
+  },
+  "transition_classification": [],
+  "decision_type": "rejected",
+  "accepted_for_followup": false,
+  "promoted_to_baseline": false,
+  "promotion_reason": "",
+  "promotion_blockers": [
+    "no_material_candidate_found"
+  ],
+  "validation_phase": "multi_year",
+  "next_validation_phase": "multi_year",
+  "multi_year_validation": {
+    "status": "not_run",
+    "reason": "no_material_candidate_found",
+    "requested_windows": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "allowed_windows": [
+      4,
+      8,
+      24,
+      52
+    ]
+  },
+  "effective_change_check": {
+    "no_material_candidate_found": true,
+    "proposal_invalid": false,
+    "no_op_detected": true,
+    "active_logic_changed": false
+  },
+  "fallback_diagnosis": {
+    "implementation_check": "ENABLE_SPY_CHANNEL_R2_GATE=ON; MIN_SPY_CHANNEL_R2=0.6; ENABLE_AVG_PROFILE_DISTANCE_GATE=ON; MAX_AVG_PROFILE_DISTANCE=0.17; ENABLE_CLOSE_VS_SMA50_FILTER=ON; MAX_CLOSE_VS_SMA50_PCT=0.15",
+    "good_vs_bad_weeks": "available=True; good_weeks=5; bad_weeks=1; notes=feature_stats_present=True",
+    "winners_vs_losers": "available=True; winners=7; losers=4; ties_rule=0-1pct",
+    "rank_degradation": "available=True; rapid_degradation=True; ranks=2",
+    "parent_vs_baseline": "analysis_reference_run_id=EXP_1422; parent_w24_spy=8.955977994143222; parent_w52_spy=4.8802309097788825; parent_w52_avg_net=4.8325",
+    "gate_activity_snapshot": {
+      "available": true,
+      "spy_channel_r2_gate_pass": {
+        "fails": 26
+      },
+      "spy_channel_r2_gate_enabled": {
+        "enabled_ratio": 1.0
+      },
+      "avg_profile_distance_gate_pass": {
+        "fails": 35
+      },
+      "avg_profile_distance_gate_enabled": {
+        "enabled_ratio": 1.0
+      }
+    },
+    "category": "low_frequency_high_quality",
+    "reason": "Poca frecuencia pero calidad aceptable: conviene alivio controlado de filtros.",
+    "metrics_snapshot": {
+      "weeks_traded_52": 8.0,
+      "trades_52": 16.0,
+      "avg_net_return_pct_52": 4.8325,
+      "spy_compare_52": 4.8802309097788825,
+      "delta_avg_net_return_pct_vs_parent_52": null,
+      "delta_spy_compare_vs_parent_52": 0.0
+    },
+    "second_layer_required": true,
+    "second_layer_executed": true,
+    "branch_health": "stagnating",
+    "main_friction": "candidate_generation",
+    "current_mode": "safe_recovery_mode",
+    "mode_reason_hint": "watchdog_restarts_same_cause:loop_down",
+    "recommended_change_directions": [
+      "open_controlled_exploration_on_profile_mode",
+      "reactivate_disabled_gate",
+      "reduce_top_candidates"
+    ],
+    "orthogonal_force_active": false,
+    "orthogonal_force_basis": {
+      "recent_params_lookback": 8,
+      "recent_params_count": 2,
+      "recent_unique_params_count": 2,
+      "recent_unique_params": [
+        "MAX_CLOSE_VS_SMA50_PCT",
+        "MIN_SPY_CHANNEL_R2"
+      ]
+    },
+    "recent_exhausted_subspaces": [
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "normalized_from": "false",
+        "normalized_to": "true",
+        "count": 5,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_183",
+          "EXP_234",
+          "EXP_305",
+          "EXP_347",
+          "EXP_567"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.15",
+        "count": 7,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_199",
+          "EXP_295",
+          "EXP_296",
+          "EXP_297",
+          "EXP_615"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 305
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.19",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_209",
+          "EXP_210",
+          "EXP_338",
+          "EXP_573"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.22",
+        "count": 12,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_279",
+          "EXP_280",
+          "EXP_283",
+          "EXP_542",
+          "EXP_574"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 291
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.26",
+        "normalized_to": "0.17",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+        "normalized_from": "0.15",
+        "normalized_to": "0.1",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 1435
+      },
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "normalized_from": "0.6",
+        "normalized_to": "0.63",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 1434
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4",
+        "count": 10,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_226",
+          "EXP_227",
+          "EXP_285",
+          "EXP_288",
+          "EXP_292"
+        ],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5",
+        "count": 9,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_204",
+          "EXP_228",
+          "EXP_289",
+          "EXP_293",
+          "EXP_294"
+        ],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "4",
+        "count": 5,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_156",
+          "EXP_171",
+          "EXP_173",
+          "EXP_174",
+          "EXP_548"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "5",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_170",
+          "EXP_221",
+          "EXP_223",
+          "EXP_554"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "20",
+        "normalized_to": "16",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_151",
+          "EXP_157",
+          "EXP_275",
+          "EXP_284"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "24",
+        "normalized_to": "16",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "28",
+        "normalized_to": "16",
+        "count": 13,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_286",
+          "EXP_290",
+          "EXP_291",
+          "EXP_561",
+          "EXP_602"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 299
+      }
+    ],
+    "active_cooldown_subspaces": [
+      {
+        "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+        "normalized_from": "0.15",
+        "normalized_to": "0.1"
+      },
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "normalized_from": "0.6",
+        "normalized_to": "0.63"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5"
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "24",
+        "normalized_to": "16"
+      }
+    ],
+    "memory_hard_blocked_subspaces": [
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "normalized_from": "false",
+        "normalized_to": "true",
+        "reason": "parameter_effect_memory_exhausted attempts=5 accepted=1 rejected=4",
+        "attempts": 5,
+        "accepted": 1,
+        "rejected": 4
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.15",
+        "reason": "parameter_effect_memory_exhausted attempts=7 accepted=0 rejected=7",
+        "attempts": 7,
+        "accepted": 0,
+        "rejected": 7
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.19",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "attempts": 4,
+        "accepted": 0,
+        "rejected": 4
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.22",
+        "reason": "parameter_effect_memory_exhausted attempts=12 accepted=3 rejected=9",
+        "attempts": 12,
+        "accepted": 3,
+        "rejected": 9
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4",
+        "reason": "parameter_effect_memory_exhausted attempts=10 accepted=0 rejected=10",
+        "attempts": 10,
+        "accepted": 0,
+        "rejected": 10
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5",
+        "reason": "parameter_effect_memory_exhausted attempts=9 accepted=0 rejected=9",
+        "attempts": 9,
+        "accepted": 0,
+        "rejected": 9
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "4",
+        "reason": "parameter_effect_memory_exhausted attempts=5 accepted=1 rejected=4",
+        "attempts": 5,
+        "accepted": 1,
+        "rejected": 4
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "5",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "attempts": 4,
+        "accepted": 0,
+        "rejected": 4
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "20",
+        "normalized_to": "16",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=1 rejected=3",
+        "attempts": 4,
+        "accepted": 1,
+        "rejected": 3
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "28",
+        "normalized_to": "16",
+        "reason": "parameter_effect_memory_exhausted attempts=13 accepted=0 rejected=13",
+        "attempts": 13,
+        "accepted": 0,
+        "rejected": 13
+      }
+    ],
+    "parameter_effect_memory_used": [
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "attempts": 49,
+        "accept_ratio": 0.346939,
+        "avg_delta_w52_spy_compare": -0.724779,
+        "harmful_like": 5,
+        "strong_positive_like": 2
+      },
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "attempts": 36,
+        "accept_ratio": 0.611111,
+        "avg_delta_w52_spy_compare": -0.165181,
+        "harmful_like": 2,
+        "strong_positive_like": 1
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "attempts": 33,
+        "accept_ratio": 0.30303,
+        "avg_delta_w52_spy_compare": -0.105972,
+        "harmful_like": 4,
+        "strong_positive_like": 3
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "attempts": 30,
+        "accept_ratio": 0.233333,
+        "avg_delta_w52_spy_compare": -0.950226,
+        "harmful_like": 2,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+        "attempts": 12,
+        "accept_ratio": 0.5,
+        "avg_delta_w52_spy_compare": -0.0245,
+        "harmful_like": 2,
+        "strong_positive_like": 2
+      },
+      {
+        "parameter": "MIN_SIMILAR_WEEKS_REQUIRED",
+        "attempts": 7,
+        "accept_ratio": 1.0,
+        "avg_delta_w52_spy_compare": 0.0,
+        "harmful_like": 0,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "attempts": 5,
+        "accept_ratio": 0.2,
+        "avg_delta_w52_spy_compare": -1.150603,
+        "harmful_like": 1,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "PROFILE_EXPANSION_FACTOR",
+        "attempts": 2,
+        "accept_ratio": 0.0,
+        "avg_delta_w52_spy_compare": -0.404786,
+        "harmful_like": 2,
+        "strong_positive_like": 0
+      }
+    ]
+  },
+  "fallback_candidate_pool_considered": [
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.35,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.45,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.65,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.75,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.6,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.5,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.17,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.22,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 12,
+        "rejected": 9,
+        "accepted": 3,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_271",
+          "EXP_279",
+          "EXP_280",
+          "EXP_283",
+          "EXP_542",
+          "EXP_574"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=12 accepted=3 rejected=9",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 20,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 28,
+      "state": "discarded",
+      "reason": "blocked_by_current_mode",
+      "current_mode": "safe_recovery_mode",
+      "candidate_type": "controlled_exploration"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 16,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 4,
+        "rejected": 3,
+        "accepted": 1,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_151",
+          "EXP_157",
+          "EXP_275",
+          "EXP_284"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=4 accepted=1 rejected=3",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 2,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 4,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 999999,
+      "cooldown_reason": "recent_exhausted_subspace"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 5,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 999999,
+      "cooldown_reason": "recent_exhausted_subspace"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 3,
+      "state": "discarded",
+      "reason": "blocked_by_current_mode",
+      "current_mode": "safe_recovery_mode",
+      "candidate_type": "rank_adjustment"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.1,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 1435,
+      "cooldown_reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.1,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 1435,
+      "cooldown_reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.3,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.15,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 7,
+        "rejected": 7,
+        "accepted": 0,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_197",
+          "EXP_199",
+          "EXP_295",
+          "EXP_296",
+          "EXP_297",
+          "EXP_615"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=7 accepted=0 rejected=7",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.19,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 4,
+        "rejected": 4,
+        "accepted": 0,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_209",
+          "EXP_210",
+          "EXP_338",
+          "EXP_573"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.57,
+      "state": "discarded",
+      "reason": "transition_true_zigzag_reversal"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.63,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 1434,
+      "cooldown_reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline"
+    }
+  ],
+  "fallback_selected_reason": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
+  "learning_feedback": {
+    "hypothesis_discarded": [
+      "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad."
+    ],
+    "worsened_dimensions": [],
+    "next_change_type_recommendation": [
+      "controlled_exploration",
+      "gate_reactivation",
+      "rank_adjustment"
+    ],
+    "notes": [
+      "Se agotaron capa 1 y capa 2 del fallback sin candidato material válido."
+    ],
+    "meta_feedback_for_analyst": []
+  },
+  "status": "blocked_no_material_candidate",
+  "auditor_v2_evaluation": {
+    "process_reliability_score": 72.0,
+    "analyst_quality_score": 72.0,
+    "coordinator_quality_score": 72.0,
+    "research_effectiveness_score": 49.0,
+    "overall_agent_score": 66.25,
+    "research_value": "none",
+    "branch_health": "stagnating",
+    "learning_signal": "absent",
+    "stagnation_risk": "high",
+    "main_friction": "candidate_generation",
+    "recommended_next_action": "controlled_exploration",
+    "recommended_change_directions": [
+      "open_controlled_exploration_on_profile_mode",
+      "reactivate_disabled_gate",
+      "reduce_top_candidates"
+    ],
+    "why_this_direction": "La rama actual está agotada y requiere explorar una dirección controlada."
+  }
+}

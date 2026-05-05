@@ -1,0 +1,140 @@
+{
+  "status": "run_ok",
+  "run_id": "EXP_1427",
+  "executed_windows": [
+    52,
+    4,
+    8,
+    24
+  ],
+  "windows": {
+    "52": {
+      "status": "run_ok",
+      "metrics": {
+        "weeks_run": 52,
+        "weeks_traded": 8,
+        "weeks_skipped_by_gates": 44,
+        "weeks_blocked_by_spy_channel_r2_gate": 26,
+        "weeks_blocked_by_avg_profile_distance_gate": 35,
+        "weeks_blocked_by_both_gates": 17,
+        "weeks_blocked_by_spy_channel_r2_only": 9,
+        "weeks_blocked_by_avg_profile_distance_only": 18,
+        "trades": 16,
+        "wins": 7,
+        "losses": 4,
+        "ties": 5,
+        "avg_net_return_pct": 4.8325,
+        "total_net_pnl_dollars": 386.6,
+        "spy_avg_ret_1w_pct": -0.04773090977888286,
+        "spy_compare": 4.8802309097788825,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 4.8325,
+            "spy_avg_ret_1w_pct": -0.04773090977888286,
+            "diff_pct": 4.8802309097788825
+          }
+        ]
+      }
+    },
+    "4": {
+      "status": "run_ok",
+      "reason": "",
+      "metrics": {
+        "weeks_run": 4,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 3,
+        "weeks_blocked_by_spy_channel_r2_gate": 3,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 1,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "execution_mode": "derived_reuse",
+      "derived_from_window": 52
+    },
+    "8": {
+      "status": "run_ok",
+      "reason": "",
+      "metrics": {
+        "weeks_run": 8,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 7,
+        "weeks_blocked_by_spy_channel_r2_gate": 7,
+        "weeks_blocked_by_avg_profile_distance_gate": 5,
+        "weeks_blocked_by_both_gates": 5,
+        "weeks_blocked_by_spy_channel_r2_only": 2,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "execution_mode": "derived_reuse",
+      "derived_from_window": 52
+    },
+    "24": {
+      "status": "run_ok",
+      "reason": "",
+      "metrics": {
+        "weeks_run": 24,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 23,
+        "weeks_blocked_by_spy_channel_r2_gate": 22,
+        "weeks_blocked_by_avg_profile_distance_gate": 14,
+        "weeks_blocked_by_both_gates": 13,
+        "weeks_blocked_by_spy_channel_r2_only": 9,
+        "weeks_blocked_by_avg_profile_distance_only": 1,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "execution_mode": "derived_reuse",
+      "derived_from_window": 52
+    }
+  },
+  "last_completed_window": 24,
+  "updated_at": "2026-05-02T21:07:19",
+  "partial": false
+}

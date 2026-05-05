@@ -1,0 +1,1184 @@
+{
+  "role": "coordinator",
+  "status": "run_ok",
+  "gate_decision": "continue",
+  "decision_type": "rejected",
+  "accepted_for_followup": false,
+  "promoted_to_baseline": false,
+  "champion_for_followup": false,
+  "accepted_or_rejected": "rejected",
+  "validation_phase": "multi_year",
+  "next_validation_phase": "multi_year",
+  "material_change_detected": true,
+  "materiality": {
+    "material_change_detected": true,
+    "no_op_detected": false,
+    "material_parameters": [
+      "MAX_CLOSE_VS_SMA50_PCT"
+    ],
+    "details": [
+      {
+        "role": "main_change",
+        "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+        "from_value": 0.15,
+        "to_value": 0.1,
+        "normalized_from_value": "0.15",
+        "normalized_to_value": "0.1",
+        "material_change_detected": true
+      }
+    ]
+  },
+  "transition_classification": [
+    {
+      "role": "main_change",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.1,
+      "normalized_from_value": "0.15",
+      "normalized_to_value": "0.1",
+      "classification": "fresh_change",
+      "reason": "sin historial previo para este parametro",
+      "history_depth": 0,
+      "last_history_run_id": ""
+    }
+  ],
+  "reasons": [
+    "metric_no_effect_vs_parent: no cambia métricas 52w vs parent; no aceptar follow-up ni usar como parent."
+  ],
+  "promotion_reason": "metric_no_effect: corrida sin efecto material, no se acepta follow-up.",
+  "promotion_blockers": [
+    "metric_no_effect_vs_parent: no cambia métricas 52w vs parent, no aceptar follow-up ni usar como parent."
+  ],
+  "multi_year_validation": {
+    "pass": false,
+    "reason": "missing_or_insufficient_depth_window",
+    "window_weeks": 156,
+    "actual_weeks_run": null
+  },
+  "parent_run_id": "EXP_1422",
+  "parent_source": "state_tracking:research.parent_state.current_parent_run_id=EXP_1422",
+  "parent_script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1422_260502203814\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_1422.py",
+  "candidate_script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_1427.py",
+  "fallback_diagnosis": {
+    "implementation_check": "ENABLE_SPY_CHANNEL_R2_GATE=ON; MIN_SPY_CHANNEL_R2=0.6; ENABLE_AVG_PROFILE_DISTANCE_GATE=ON; MAX_AVG_PROFILE_DISTANCE=0.17; ENABLE_CLOSE_VS_SMA50_FILTER=ON; MAX_CLOSE_VS_SMA50_PCT=0.15",
+    "good_vs_bad_weeks": "available=True; good_weeks=5; bad_weeks=1; notes=feature_stats_present=True",
+    "winners_vs_losers": "available=True; winners=7; losers=4; ties_rule=0-1pct",
+    "rank_degradation": "available=True; rapid_degradation=True; ranks=2",
+    "parent_vs_baseline": "analysis_reference_run_id=EXP_1422; parent_w24_spy=8.955977994143222; parent_w52_spy=4.8802309097788825; parent_w52_avg_net=4.8325",
+    "gate_activity_snapshot": {
+      "available": true,
+      "spy_channel_r2_gate_pass": {
+        "fails": 26
+      },
+      "spy_channel_r2_gate_enabled": {
+        "enabled_ratio": 1.0
+      },
+      "avg_profile_distance_gate_pass": {
+        "fails": 35
+      },
+      "avg_profile_distance_gate_enabled": {
+        "enabled_ratio": 1.0
+      }
+    },
+    "category": "low_frequency_high_quality",
+    "reason": "Poca frecuencia pero calidad aceptable: conviene alivio controlado de filtros.",
+    "metrics_snapshot": {
+      "weeks_traded_52": 8.0,
+      "trades_52": 16.0,
+      "avg_net_return_pct_52": 4.8325,
+      "spy_compare_52": 4.8802309097788825,
+      "delta_avg_net_return_pct_vs_parent_52": null,
+      "delta_spy_compare_vs_parent_52": 0.0
+    },
+    "second_layer_required": true,
+    "second_layer_executed": true,
+    "branch_health": "stagnating",
+    "main_friction": "long_window_depth",
+    "current_mode": "safe_recovery_mode",
+    "mode_reason_hint": "watchdog_restarts_same_cause:loop_down",
+    "recommended_change_directions": [
+      "recalibrate_weekly_gate",
+      "fix_long_window_handling"
+    ],
+    "orthogonal_force_active": false,
+    "orthogonal_force_basis": {
+      "recent_params_lookback": 8,
+      "recent_params_count": 2,
+      "recent_unique_params_count": 1,
+      "recent_unique_params": [
+        "MIN_SPY_CHANNEL_R2"
+      ]
+    },
+    "recent_exhausted_subspaces": [
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "normalized_from": "false",
+        "normalized_to": "true",
+        "count": 5,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_183",
+          "EXP_234",
+          "EXP_305",
+          "EXP_347",
+          "EXP_567"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.15",
+        "count": 7,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_199",
+          "EXP_295",
+          "EXP_296",
+          "EXP_297",
+          "EXP_615"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 305
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.19",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_209",
+          "EXP_210",
+          "EXP_338",
+          "EXP_573"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.22",
+        "count": 12,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_279",
+          "EXP_280",
+          "EXP_283",
+          "EXP_542",
+          "EXP_574"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 291
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.26",
+        "normalized_to": "0.17",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "normalized_from": "0.6",
+        "normalized_to": "0.63",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 1434
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4",
+        "count": 10,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_226",
+          "EXP_227",
+          "EXP_285",
+          "EXP_288",
+          "EXP_292"
+        ],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5",
+        "count": 9,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_204",
+          "EXP_228",
+          "EXP_289",
+          "EXP_293",
+          "EXP_294"
+        ],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "4",
+        "count": 5,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_156",
+          "EXP_171",
+          "EXP_173",
+          "EXP_174",
+          "EXP_548"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "5",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_170",
+          "EXP_221",
+          "EXP_223",
+          "EXP_554"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "20",
+        "normalized_to": "16",
+        "count": 4,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_151",
+          "EXP_157",
+          "EXP_275",
+          "EXP_284"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 0
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "24",
+        "normalized_to": "16",
+        "count": null,
+        "reject_ratio": null,
+        "run_ids": [],
+        "cooldown_active": true,
+        "cooldown_until_iteration": 999999
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "28",
+        "normalized_to": "16",
+        "count": 13,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_286",
+          "EXP_290",
+          "EXP_291",
+          "EXP_561",
+          "EXP_602"
+        ],
+        "cooldown_active": false,
+        "cooldown_until_iteration": 299
+      }
+    ],
+    "active_cooldown_subspaces": [
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "normalized_from": "0.6",
+        "normalized_to": "0.63"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4"
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5"
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "24",
+        "normalized_to": "16"
+      }
+    ],
+    "memory_hard_blocked_subspaces": [
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "normalized_from": "false",
+        "normalized_to": "true",
+        "reason": "parameter_effect_memory_exhausted attempts=5 accepted=1 rejected=4",
+        "attempts": 5,
+        "accepted": 1,
+        "rejected": 4
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.15",
+        "reason": "parameter_effect_memory_exhausted attempts=7 accepted=0 rejected=7",
+        "attempts": 7,
+        "accepted": 0,
+        "rejected": 7
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.19",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "attempts": 4,
+        "accepted": 0,
+        "rejected": 4
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "normalized_from": "0.17",
+        "normalized_to": "0.22",
+        "reason": "parameter_effect_memory_exhausted attempts=12 accepted=3 rejected=9",
+        "attempts": 12,
+        "accepted": 3,
+        "rejected": 9
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "4",
+        "reason": "parameter_effect_memory_exhausted attempts=10 accepted=0 rejected=10",
+        "attempts": 10,
+        "accepted": 0,
+        "rejected": 10
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "2",
+        "normalized_to": "5",
+        "reason": "parameter_effect_memory_exhausted attempts=9 accepted=0 rejected=9",
+        "attempts": 9,
+        "accepted": 0,
+        "rejected": 9
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "4",
+        "reason": "parameter_effect_memory_exhausted attempts=5 accepted=1 rejected=4",
+        "attempts": 5,
+        "accepted": 1,
+        "rejected": 4
+      },
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "normalized_from": "3",
+        "normalized_to": "5",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "attempts": 4,
+        "accepted": 0,
+        "rejected": 4
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "20",
+        "normalized_to": "16",
+        "reason": "parameter_effect_memory_exhausted attempts=4 accepted=1 rejected=3",
+        "attempts": 4,
+        "accepted": 1,
+        "rejected": 3
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "normalized_from": "28",
+        "normalized_to": "16",
+        "reason": "parameter_effect_memory_exhausted attempts=13 accepted=0 rejected=13",
+        "attempts": 13,
+        "accepted": 0,
+        "rejected": 13
+      }
+    ],
+    "parameter_effect_memory_used": [
+      {
+        "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+        "attempts": 49,
+        "accept_ratio": 0.346939,
+        "avg_delta_w52_spy_compare": -0.724779,
+        "harmful_like": 5,
+        "strong_positive_like": 2
+      },
+      {
+        "parameter": "MIN_SPY_CHANNEL_R2",
+        "attempts": 36,
+        "accept_ratio": 0.611111,
+        "avg_delta_w52_spy_compare": -0.165181,
+        "harmful_like": 2,
+        "strong_positive_like": 1
+      },
+      {
+        "parameter": "MAX_AVG_PROFILE_DISTANCE",
+        "attempts": 33,
+        "accept_ratio": 0.30303,
+        "avg_delta_w52_spy_compare": -0.105972,
+        "harmful_like": 4,
+        "strong_positive_like": 3
+      },
+      {
+        "parameter": "TOP_SIMILAR_SPY_WEEKS",
+        "attempts": 30,
+        "accept_ratio": 0.233333,
+        "avg_delta_w52_spy_compare": -0.950226,
+        "harmful_like": 2,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+        "attempts": 11,
+        "accept_ratio": 0.545455,
+        "avg_delta_w52_spy_compare": -0.0245,
+        "harmful_like": 2,
+        "strong_positive_like": 2
+      },
+      {
+        "parameter": "MIN_SIMILAR_WEEKS_REQUIRED",
+        "attempts": 7,
+        "accept_ratio": 1.0,
+        "avg_delta_w52_spy_compare": 0.0,
+        "harmful_like": 0,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "ENABLE_CLOSE_VS_SMA50_FILTER",
+        "attempts": 5,
+        "accept_ratio": 0.2,
+        "avg_delta_w52_spy_compare": -1.150603,
+        "harmful_like": 1,
+        "strong_positive_like": 0
+      },
+      {
+        "parameter": "PROFILE_EXPANSION_FACTOR",
+        "attempts": 2,
+        "accept_ratio": 0.0,
+        "avg_delta_w52_spy_compare": -0.404786,
+        "harmful_like": 2,
+        "strong_positive_like": 0
+      }
+    ]
+  },
+  "fallback_candidate_pool_considered": [
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.35,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.45,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.65,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.75,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.6,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.5,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.17,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.22,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 12,
+        "rejected": 9,
+        "accepted": 3,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_271",
+          "EXP_279",
+          "EXP_280",
+          "EXP_283",
+          "EXP_542",
+          "EXP_574"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=12 accepted=3 rejected=9",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 20,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 28,
+      "state": "discarded",
+      "reason": "blocked_by_current_mode",
+      "current_mode": "safe_recovery_mode",
+      "candidate_type": "controlled_exploration"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": 20.0,
+      "to_value": 16,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 4,
+        "rejected": 3,
+        "accepted": 1,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_151",
+          "EXP_157",
+          "EXP_275",
+          "EXP_284"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=4 accepted=1 rejected=3",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 2,
+      "state": "discarded",
+      "reason": "no_op_equivalence"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 4,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 999999,
+      "cooldown_reason": "recent_exhausted_subspace"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 5,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 999999,
+      "cooldown_reason": "recent_exhausted_subspace"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": 2.0,
+      "to_value": 3,
+      "state": "discarded",
+      "reason": "blocked_by_current_mode",
+      "current_mode": "safe_recovery_mode",
+      "candidate_type": "rank_adjustment"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.1,
+      "state": "valid",
+      "reason": "material_candidate",
+      "candidate_type": "quality_tightening",
+      "current_mode": "safe_recovery_mode",
+      "is_orthogonal": true,
+      "parameter_recent_attempts": 4,
+      "transition_recent_attempts": 1,
+      "base_score": 3.6,
+      "mode_score_adjustment": 0.65,
+      "stage4_score_adjustment": 0.35,
+      "stage4_reasons": [
+        "orthogonal_bonus:+0.35"
+      ],
+      "transition_classification": "fresh_change",
+      "score": 4.6
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.1,
+      "state": "valid",
+      "reason": "material_candidate",
+      "candidate_type": "quality_tightening",
+      "current_mode": "safe_recovery_mode",
+      "is_orthogonal": true,
+      "parameter_recent_attempts": 4,
+      "transition_recent_attempts": 1,
+      "base_score": 3.6,
+      "mode_score_adjustment": 0.65,
+      "stage4_score_adjustment": 0.35,
+      "stage4_reasons": [
+        "orthogonal_bonus:+0.35"
+      ],
+      "transition_classification": "fresh_change",
+      "score": 4.6
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": 0.15,
+      "to_value": 0.3,
+      "state": "discarded",
+      "reason": "config_hash_already_tested_executed_run"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.15,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 7,
+        "rejected": 7,
+        "accepted": 0,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_197",
+          "EXP_199",
+          "EXP_295",
+          "EXP_296",
+          "EXP_297",
+          "EXP_615"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=7 accepted=0 rejected=7",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": 0.17,
+      "to_value": 0.19,
+      "state": "discarded",
+      "reason": "hard_blocked_exhausted_or_memory_subspace",
+      "exhausted_stats": {
+        "count": 4,
+        "rejected": 4,
+        "accepted": 0,
+        "reject_ratio": 1.0,
+        "run_ids": [
+          "EXP_209",
+          "EXP_210",
+          "EXP_338",
+          "EXP_573"
+        ],
+        "latest_status": "memory_hard_block",
+        "memory_reason": "parameter_effect_memory_exhausted attempts=4 accepted=0 rejected=4",
+        "current_effect_class": "exhausted"
+      }
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.57,
+      "state": "discarded",
+      "reason": "transition_true_zigzag_reversal"
+    },
+    {
+      "layer": "layer_2",
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": 0.6,
+      "to_value": 0.63,
+      "state": "discarded",
+      "reason": "cooldown_active",
+      "cooldown_until_iteration": 1434,
+      "cooldown_reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline"
+    }
+  ],
+  "fallback_selected_reason": "selected_by_score=4.6000 diagnosis=low_frequency_high_quality mode=safe_recovery_mode layer=layer_2 transition=fresh_change",
+  "learning_feedback": {
+    "hypothesis_discarded": [
+      "Refinamiento monotónico adicional en extensión del basket."
+    ],
+    "worsened_dimensions": [
+      "year_breakdown"
+    ],
+    "next_change_type_recommendation": [
+      "adjust_similar_weeks_window"
+    ],
+    "notes": [
+      "missing_or_insufficient_depth_window"
+    ],
+    "meta_feedback_for_analyst": [
+      "Priorizar cambios que reduzcan años no positivos vs SPY en 156 semanas.",
+      "Evitar repetir el mismo cambio sin hipótesis causal adicional."
+    ]
+  },
+  "effective_change_check": {
+    "no_op_detected": false,
+    "active_logic_changed": true,
+    "details": [
+      "effective_diff MAX_CLOSE_VS_SMA50_PCT: 0.15 -> 0.1"
+    ]
+  },
+  "compare": {
+    "executor_status": "run_ok",
+    "champion_for_followup": false,
+    "window_depth_validation": {
+      "24": {
+        "status": "run_ok",
+        "requested_weeks": 24,
+        "actual_weeks_run": 24,
+        "depth_ok": true
+      },
+      "52": {
+        "status": "run_ok",
+        "requested_weeks": 52,
+        "actual_weeks_run": 52,
+        "depth_ok": true
+      },
+      "156": {
+        "status": "",
+        "requested_weeks": 156,
+        "actual_weeks_run": null,
+        "depth_ok": false
+      }
+    },
+    "global_state_rule": {
+      "applies": false,
+      "short_windows_required": [
+        4,
+        8,
+        24,
+        52
+      ],
+      "short_windows_validation": {
+        "4": {
+          "valid": true,
+          "meta": {
+            "status": "run_ok",
+            "requested_weeks": 4,
+            "actual_weeks_run": 4,
+            "depth_ok": true
+          }
+        },
+        "8": {
+          "valid": true,
+          "meta": {
+            "status": "run_ok",
+            "requested_weeks": 8,
+            "actual_weeks_run": 8,
+            "depth_ok": true
+          }
+        },
+        "24": {
+          "valid": true,
+          "meta": {
+            "status": "run_ok",
+            "requested_weeks": 24,
+            "actual_weeks_run": 24,
+            "depth_ok": true
+          }
+        },
+        "52": {
+          "valid": true,
+          "meta": {
+            "status": "run_ok",
+            "requested_weeks": 52,
+            "actual_weeks_run": 52,
+            "depth_ok": true
+          }
+        }
+      },
+      "year_window_requested": 156,
+      "year_window_status": "",
+      "year_window_depth_ok": false,
+      "year_window_actual_weeks_run": null,
+      "notes": ""
+    },
+    "validation_phase": "multi_year",
+    "multi_year_validation": {
+      "pass": false,
+      "reason": "missing_or_insufficient_depth_window",
+      "window_weeks": 156,
+      "actual_weeks_run": null
+    },
+    "year_window_depth_warning": "window=156 depth insuficiente (actual=None)",
+    "long_window_required_for_promotion": true,
+    "long_window_depth_ok": false,
+    "promotion_only_blockers": [
+      "Falta ventana valida multi-anio (156 semanas reales). actual=None"
+    ],
+    "vs_last_valid_w52": {
+      "weeks_traded": {
+        "current": 8,
+        "reference": 8,
+        "delta": 0.0
+      },
+      "trades": {
+        "current": 16,
+        "reference": 16,
+        "delta": 0.0
+      },
+      "wins": {
+        "current": 7,
+        "reference": 7,
+        "delta": 0.0
+      },
+      "losses": {
+        "current": 4,
+        "reference": 4,
+        "delta": 0.0
+      },
+      "ties": {
+        "current": 5,
+        "reference": 5,
+        "delta": 0.0
+      },
+      "avg_net_return_pct": {
+        "current": 4.8325,
+        "reference": 4.8325,
+        "delta": 0.0
+      },
+      "total_net_pnl_dollars": {
+        "current": 386.6,
+        "reference": 386.6,
+        "delta": 0.0
+      },
+      "spy_compare": {
+        "current": 4.8802309097788825,
+        "reference": 4.8802309097788825,
+        "delta": 0.0
+      }
+    },
+    "effective_change_vs_parent_w52": {
+      "metric_no_effect": true,
+      "comparable_keys": [
+        "weeks_traded",
+        "trades",
+        "wins",
+        "losses",
+        "ties",
+        "avg_net_return_pct",
+        "total_net_pnl_dollars",
+        "spy_compare"
+      ],
+      "changed_keys": [],
+      "deltas": {
+        "weeks_traded": {
+          "current": 8.0,
+          "reference": 8.0,
+          "delta": 0.0
+        },
+        "trades": {
+          "current": 16.0,
+          "reference": 16.0,
+          "delta": 0.0
+        },
+        "wins": {
+          "current": 7.0,
+          "reference": 7.0,
+          "delta": 0.0
+        },
+        "losses": {
+          "current": 4.0,
+          "reference": 4.0,
+          "delta": 0.0
+        },
+        "ties": {
+          "current": 5.0,
+          "reference": 5.0,
+          "delta": 0.0
+        },
+        "avg_net_return_pct": {
+          "current": 4.8325,
+          "reference": 4.8325,
+          "delta": 0.0
+        },
+        "total_net_pnl_dollars": {
+          "current": 386.6,
+          "reference": 386.6,
+          "delta": 0.0
+        },
+        "spy_compare": {
+          "current": 4.8802309097788825,
+          "reference": 4.8802309097788825,
+          "delta": 0.0
+        }
+      }
+    },
+    "material_improvement_vs_parent_w52": {
+      "delta_spy_compare": 0.0,
+      "delta_avg_net_return_pct": 0.0,
+      "delta_total_net_pnl_dollars": 0.0,
+      "delta_trades": 0.0,
+      "improves_spy": false,
+      "improves_avg": false,
+      "improves_pnl_without_edge_decay": false,
+      "frequency_only": false,
+      "has_material_improvement": false
+    },
+    "vs_baseline_w52": {
+      "weeks_traded": {
+        "current": 8,
+        "reference": 23,
+        "delta": -15.0
+      },
+      "trades": {
+        "current": 16,
+        "reference": 46,
+        "delta": -30.0
+      },
+      "wins": {
+        "current": 7,
+        "reference": 18,
+        "delta": -11.0
+      },
+      "losses": {
+        "current": 4,
+        "reference": 10,
+        "delta": -6.0
+      },
+      "ties": {
+        "current": 5,
+        "reference": 18,
+        "delta": -13.0
+      },
+      "avg_net_return_pct": {
+        "current": 4.8325,
+        "reference": 3.824347826086958,
+        "delta": 1.008152
+      },
+      "total_net_pnl_dollars": {
+        "current": 386.6,
+        "reference": 879.6000000000001,
+        "delta": -493.0
+      },
+      "spy_compare": {
+        "current": 4.8802309097788825,
+        "reference": 3.6019368918406593,
+        "delta": 1.278294
+      }
+    },
+    "effective_change_vs_current_baseline_w52": {
+      "metric_no_effect": false,
+      "comparable_keys": [
+        "weeks_traded",
+        "trades",
+        "wins",
+        "losses",
+        "ties",
+        "avg_net_return_pct",
+        "total_net_pnl_dollars",
+        "spy_compare"
+      ],
+      "changed_keys": [
+        "weeks_traded",
+        "trades",
+        "wins",
+        "losses",
+        "ties",
+        "avg_net_return_pct",
+        "total_net_pnl_dollars",
+        "spy_compare"
+      ],
+      "deltas": {
+        "weeks_traded": {
+          "current": 8.0,
+          "reference": 23.0,
+          "delta": -15.0
+        },
+        "trades": {
+          "current": 16.0,
+          "reference": 46.0,
+          "delta": -30.0
+        },
+        "wins": {
+          "current": 7.0,
+          "reference": 18.0,
+          "delta": -11.0
+        },
+        "losses": {
+          "current": 4.0,
+          "reference": 10.0,
+          "delta": -6.0
+        },
+        "ties": {
+          "current": 5.0,
+          "reference": 18.0,
+          "delta": -13.0
+        },
+        "avg_net_return_pct": {
+          "current": 4.8325,
+          "reference": 3.824347826086958,
+          "delta": 1.0081521739
+        },
+        "total_net_pnl_dollars": {
+          "current": 386.6,
+          "reference": 879.6000000000001,
+          "delta": -493.0
+        },
+        "spy_compare": {
+          "current": 4.8802309097788825,
+          "reference": 3.6019368918406593,
+          "delta": 1.2782940179
+        }
+      }
+    },
+    "material_improvement_vs_current_baseline_w52": {
+      "delta_spy_compare": 1.278294,
+      "delta_avg_net_return_pct": 1.008152,
+      "delta_total_net_pnl_dollars": -493.0,
+      "delta_trades": -30.0,
+      "improves_spy": true,
+      "improves_avg": true,
+      "improves_pnl_without_edge_decay": false,
+      "frequency_only": false,
+      "has_material_improvement": true
+    },
+    "decision_type": "rejected",
+    "promotion_reason": "metric_no_effect: corrida sin efecto material; no se acepta follow-up.",
+    "promotion_blockers": [
+      "metric_no_effect_vs_parent: no cambia métricas 52w vs parent; no aceptar follow-up ni usar como parent."
+    ],
+    "do_not_use_as_parent": true,
+    "branch_anchor_allowed": false,
+    "duplicate_throttling": {
+      "lookback": 15,
+      "window_count": 16,
+      "blocked_duplicate_count": 0,
+      "blocked_duplicate_ratio": 0.0,
+      "active": false
+    }
+  },
+  "global_state_rule": {
+    "applies": false,
+    "short_windows_required": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "short_windows_validation": {
+      "4": {
+        "valid": true,
+        "meta": {
+          "status": "run_ok",
+          "requested_weeks": 4,
+          "actual_weeks_run": 4,
+          "depth_ok": true
+        }
+      },
+      "8": {
+        "valid": true,
+        "meta": {
+          "status": "run_ok",
+          "requested_weeks": 8,
+          "actual_weeks_run": 8,
+          "depth_ok": true
+        }
+      },
+      "24": {
+        "valid": true,
+        "meta": {
+          "status": "run_ok",
+          "requested_weeks": 24,
+          "actual_weeks_run": 24,
+          "depth_ok": true
+        }
+      },
+      "52": {
+        "valid": true,
+        "meta": {
+          "status": "run_ok",
+          "requested_weeks": 52,
+          "actual_weeks_run": 52,
+          "depth_ok": true
+        }
+      }
+    },
+    "year_window_requested": 156,
+    "year_window_status": "",
+    "year_window_depth_ok": false,
+    "year_window_actual_weeks_run": null,
+    "notes": ""
+  },
+  "auditor_v2_evaluation": {
+    "process_reliability_score": 79.0,
+    "analyst_quality_score": 84.0,
+    "coordinator_quality_score": 72.0,
+    "research_effectiveness_score": 54.0,
+    "overall_agent_score": 72.25,
+    "research_value": "low",
+    "branch_health": "stagnating",
+    "learning_signal": "weak",
+    "stagnation_risk": "high",
+    "main_friction": "long_window_depth",
+    "recommended_next_action": "controlled_exploration",
+    "recommended_change_directions": [
+      "recalibrate_weekly_gate",
+      "fix_long_window_handling"
+    ],
+    "why_this_direction": "No hay evidencia robusta suficiente; conviene exploración acotada."
+  },
+  "current_mode": "safe_recovery_mode",
+  "branch_governance": {
+    "branch_anchor_active": false,
+    "anchor_parameter": "",
+    "anchor_value": null,
+    "anchor_reason": "",
+    "anchor_hold_iterations": 0,
+    "yearly_gap_policy_triggered": false,
+    "duplicate_throttle_triggered": false,
+    "recent_duplicate_rate": 0.0,
+    "current_mode": "safe_recovery_mode",
+    "recommended_branch_mode": "controlled_exploration"
+  }
+}

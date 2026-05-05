@@ -1,0 +1,259 @@
+{
+  "version": 3,
+  "updated_at": "2026-04-27T22:26:42",
+  "project": "SPY context strategy",
+  "validation_phase": "multi_year",
+  "tie_rule": {
+    "tie_low_pct": 0.0,
+    "tie_high_pct": 1.0
+  },
+  "active_config": {
+    "REGIME_WEEKS_TO_RUN": 52.0,
+    "PARALLEL_REGIME_WORKERS": 2.0,
+    "ENABLE_SPY_CHANNEL_R2_GATE": true,
+    "MIN_SPY_CHANNEL_R2": 0.57,
+    "ENABLE_AVG_PROFILE_DISTANCE_GATE": true,
+    "MAX_AVG_PROFILE_DISTANCE": 0.17,
+    "ENABLE_CLOSE_VS_SMA50_FILTER": false,
+    "MAX_CLOSE_VS_SMA50_PCT": 1.5,
+    "TOP_CANDIDATES_NEXT_WEEK": 2.0,
+    "STRATEGY_FAMILY": "profile_match",
+    "MOMENTUM_MIN_RET_4W_PCT": -5.0,
+    "MOMENTUM_MAX_CLOSE_VS_SMA20W_PCT": 25.0,
+    "MOMENTUM_W_RET_4W": 0.45,
+    "MOMENTUM_W_RET_8W": 0.35,
+    "MOMENTUM_W_TREND": 0.2,
+    "TOP_SIMILAR_SPY_WEEKS": 28.0,
+    "MIN_SIMILAR_WEEKS_REQUIRED": 6,
+    "PROFILE_MODE": "p25_p75",
+    "PROFILE_EXPANSION_FACTOR": 0.1,
+    "ENABLE_VAR_CHANNEL_R2": true,
+    "ENABLE_VAR_CHANNEL_SLOPE_PCT": true,
+    "ENABLE_VAR_CLOSE_VS_SMA50_PCT": true,
+    "ENABLE_VAR_CLOSE_SMA_50_SLOPE_5D_PCT": true,
+    "ENABLE_VAR_WEEKLY_RANGE_PCT": true,
+    "ENABLE_VAR_RET_2W_PCT": true,
+    "ENABLE_VAR_CLOSE_VS_SMA4W_PCT": true,
+    "ENABLE_VAR_RET_4W_PCT": false,
+    "ENABLE_VAR_CLOSE_VS_SMA8W_PCT": false,
+    "ENABLE_VAR_CLOSE_VS_SMA20W_PCT": false,
+    "ENABLE_VAR_ATR_14W_PCT": false,
+    "ENABLE_VAR_VOLUME_RATIO_VS_SMA13W": false,
+    "ENABLE_VAR_DIST_TO_HIGH_26W_PCT": false,
+    "INITIAL_TP_PCT": 0.05,
+    "INITIAL_SL_PCT": 0.05,
+    "FIRST_LOCKED_SL_PCT": 0.01,
+    "TRAIL_STEP_PCT": 0.05
+  },
+  "validation_policy": {
+    "windows": [
+      4,
+      8,
+      24,
+      52,
+      156
+    ],
+    "must_compare_vs_spy": true,
+    "long_window_policy": {
+      "treat_insufficient_depth_as_non_fatal": true,
+      "minimum_usable_strong_window": 52,
+      "require_real_depth_for_156": true,
+      "run_156_policy": "cadence_only",
+      "run_156_cadence_useful_runs": 4,
+      "run_156_min_w52_spy_compare": 0.5,
+      "run_156_min_w52_weeks_traded": 20,
+      "run_156_min_w52_trades": 15
+    },
+    "runtime_performance": {
+      "window_reuse_enabled": true,
+      "fast_artifacts_enabled": true,
+      "xlsx_cadence_runs": 5,
+      "profile_cadence_runs": 10,
+      "strict_progressive_windows": true,
+      "tracker_xlsx_refresh_enabled": false,
+      "window_xlsx_artifacts_enabled": false
+    }
+  },
+  "baseline_reference": {
+    "run_id": "EXP_229",
+    "script": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_229_260427220305\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES_EXP_138_EXP_139_EXP_141_EXP_144_EXP_147_EXP_149_EXP_150_EXP_162_EXP_229.py",
+    "accepted_at": "2026-04-27T22:26:42",
+    "windows_metrics": {
+      "4": {
+        "weeks_run": 4,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 3,
+        "weeks_blocked_by_spy_channel_r2_gate": 3,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 1,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "8": {
+        "weeks_run": 8,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 7,
+        "weeks_blocked_by_spy_channel_r2_gate": 7,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 5,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "24": {
+        "weeks_run": 24,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 23,
+        "weeks_blocked_by_spy_channel_r2_gate": 22,
+        "weeks_blocked_by_avg_profile_distance_gate": 9,
+        "weeks_blocked_by_both_gates": 8,
+        "weeks_blocked_by_spy_channel_r2_only": 14,
+        "weeks_blocked_by_avg_profile_distance_only": 1,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 9.52,
+        "total_net_pnl_dollars": 95.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 11.455977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 11.455977994143222
+          }
+        ]
+      },
+      "52": {
+        "weeks_run": 52,
+        "weeks_traded": 23,
+        "weeks_skipped_by_gates": 29,
+        "weeks_blocked_by_spy_channel_r2_gate": 26,
+        "weeks_blocked_by_avg_profile_distance_gate": 13,
+        "weeks_blocked_by_both_gates": 10,
+        "weeks_blocked_by_spy_channel_r2_only": 16,
+        "weeks_blocked_by_avg_profile_distance_only": 3,
+        "trades": 46,
+        "wins": 18,
+        "losses": 10,
+        "ties": 18,
+        "avg_net_return_pct": 3.824347826086958,
+        "total_net_pnl_dollars": 879.6000000000001,
+        "spy_avg_ret_1w_pct": 0.2224109342462957,
+        "spy_compare": 3.6019368918406593,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 3.565454545454544,
+            "spy_avg_ret_1w_pct": 0.27953506947595574,
+            "diff_pct": 3.2859194759785884
+          },
+          {
+            "year": 2026,
+            "strategy_avg_net_return_pct": 9.52,
+            "spy_avg_ret_1w_pct": -1.0343200408062247,
+            "diff_pct": 10.554320040806225
+          }
+        ]
+      }
+    }
+  },
+  "state_tracking": {
+    "last_useful_run_id": "EXP_229",
+    "last_followup_run_id": "EXP_185",
+    "last_promoted_baseline_run_id": "EXP_229",
+    "last_successful_executor_run_id": "EXP_229",
+    "last_completed_initial_test_id": "TEST_C_ENABLE_SMA50_FILTER_1_0",
+    "last_promoted_baseline_at": "2026-04-27T22:26:42"
+  },
+  "research_governance": {
+    "enabled": true,
+    "embedded_in_coordinator": true,
+    "required_scores": [
+      "process_reliability_score",
+      "analyst_quality_score",
+      "coordinator_quality_score",
+      "research_effectiveness_score",
+      "overall_agent_score"
+    ],
+    "required_meta_fields": [
+      "research_value",
+      "branch_health",
+      "learning_signal",
+      "stagnation_risk",
+      "main_friction",
+      "recommended_next_action",
+      "recommended_change_directions"
+    ]
+  },
+  "promotion_policy": {
+    "accepted_for_followup_requires": [
+      "material_change_detected",
+      "useful_learning_or_evidence",
+      "usable_validation_depth"
+    ],
+    "promoted_to_baseline_requires": [
+      "robust_improvement_vs_parent",
+      "consistent_compare_vs_spy",
+      "not_short_term_only",
+      "enough_validation_depth"
+    ]
+  },
+  "notes": [
+    "Baseline limpio de reinicio multiagente.",
+    "No confundir last_followup_run_id con last_promoted_baseline_run_id.",
+    "Si 156 queda insufficient_depth pero 52 es valida, preservar la corrida como usable para follow-up.",
+    "TEST_A y TEST_B ya fueron completados; no relanzarlos salvo retry explicito y justificado."
+  ],
+  "baseline_script": "spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATES.py",
+  "last_accepted_run_id": "EXP_229",
+  "year1_milestone": {
+    "achieved": true,
+    "run_id": "EXP_068",
+    "at": "2026-04-22T01:14:52"
+  },
+  "branch_anchor": {
+    "active": false,
+    "parameter": "",
+    "value": null,
+    "hold_iterations": 3,
+    "remaining_iterations": 0,
+    "activated_run_id": "",
+    "activated_at": "",
+    "reason": "",
+    "locked_by_duplicate_throttling": false
+  }
+}

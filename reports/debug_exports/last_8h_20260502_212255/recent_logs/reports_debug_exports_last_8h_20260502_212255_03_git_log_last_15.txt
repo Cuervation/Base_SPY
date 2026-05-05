@@ -1,0 +1,8 @@
+﻿7a1f34a (HEAD -> main, origin/main) Add Caveman skill
+2762962 Make progressive 156w validation opt-in
+5e072ae Update agents guidance for conditional 156w validation
+fb1cd7f Disable 156w evaluation by default
+86a7ce6 Add lightweight Python validation workflow
+10cfbe4 Add README and Python requirements
+ccebe84 Initial clean SPY multi-agent repo with lightweight research history
+f42f3a3 Initial clean SPY multi-agent repo with lightweight research history

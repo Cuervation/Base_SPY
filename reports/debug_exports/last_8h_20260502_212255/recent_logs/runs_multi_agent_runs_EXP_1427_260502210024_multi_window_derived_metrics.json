@@ -1,0 +1,57 @@
+{
+  "enabled": true,
+  "source_window": 52,
+  "derived_windows": [
+    4,
+    8,
+    24
+  ],
+  "windows": {
+    "4": {
+      "status": "run_ok",
+      "reason": "",
+      "requested_weeks": 4,
+      "actual_weeks_run": 4,
+      "depth_ok": true,
+      "test_start_used": "2025-01-03",
+      "trades": 2,
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "pnl": 70.2,
+      "avg_net_return_pct": 7.02,
+      "spy_compare": 8.955977994143222
+    },
+    "8": {
+      "status": "run_ok",
+      "reason": "",
+      "requested_weeks": 8,
+      "actual_weeks_run": 8,
+      "depth_ok": true,
+      "test_start_used": "2025-01-03",
+      "trades": 2,
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "pnl": 70.2,
+      "avg_net_return_pct": 7.02,
+      "spy_compare": 8.955977994143222
+    },
+    "24": {
+      "status": "run_ok",
+      "reason": "",
+      "requested_weeks": 24,
+      "actual_weeks_run": 24,
+      "depth_ok": true,
+      "test_start_used": "2025-01-03",
+      "trades": 2,
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "pnl": 70.2,
+      "avg_net_return_pct": 7.02,
+      "spy_compare": 8.955977994143222
+    }
+  },
+  "created_at": "2026-05-02T21:00:27"
+}

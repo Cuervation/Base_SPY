@@ -1,0 +1,9 @@
+﻿ERROR en 03_git_diff_stat.txt
+git : warning: in the working copy of 'run_multi_agent_executor_loop.ps1', LF will be replaced by CRLF the next time 
+Git touches it
+En línea: 1 Carácter: 35
++ Save-Cmd "03_git_diff_stat.txt" { git diff --stat }
++                                   ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

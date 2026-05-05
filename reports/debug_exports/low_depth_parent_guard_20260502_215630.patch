@@ -1,0 +1,109 @@
+﻿diff --git a/run_multi_agent_iteration.py b/run_multi_agent_iteration.py
+index 3ad1761..3189e73 100644
+--- a/run_multi_agent_iteration.py
++++ b/run_multi_agent_iteration.py
+@@ -5582,6 +5582,39 @@ def evaluate_promotion_vs_parent(
+     }
+ 
+ 
++def evaluate_parent_depth_guard_52w(current_metrics: Dict[str, Any]) -> Dict[str, Any]:
++    w52_weeks_traded = to_float(current_metrics.get("weeks_traded"))
++    w52_trades = to_float(current_metrics.get("trades"))
++    excluded_ratio = None
++    if w52_weeks_traded is not None and float(w52_weeks_traded) >= 0:
++        excluded_ratio = max(0.0, 1.0 - (float(w52_weeks_traded) / 52.0))
++
++    weeks_ok = w52_weeks_traded is not None and float(w52_weeks_traded) >= 20.0
++    trades_ok = w52_trades is not None and float(w52_trades) >= 15.0
++    excluded_ok = excluded_ratio is not None and float(excluded_ratio) <= 0.50
++    passed = bool(weeks_ok and trades_ok and excluded_ok)
++
++    blockers: List[str] = []
++    if not weeks_ok:
++        blockers.append("w52_weeks_traded_below_parent_minimum")
++    if not trades_ok:
++        blockers.append("w52_trades_below_parent_minimum")
++    if not excluded_ok:
++        blockers.append("w52_excluded_ratio_above_parent_maximum")
++
++    return {
++        "pass": passed,
++        "reason": "" if passed else "low_depth_52w_not_allowed_as_parent",
++        "weeks_traded": w52_weeks_traded,
++        "trades": w52_trades,
++        "excluded_ratio": (round(float(excluded_ratio), 6) if excluded_ratio is not None else None),
++        "min_weeks_traded": 20.0,
++        "min_trades": 15.0,
++        "max_excluded_ratio": 0.50,
++        "blockers": blockers,
++    }
++
++
+ def decide_acceptance(
+     executor_output: Dict[str, Any],
+     last_valid_ctx: Optional[Dict[str, Any]],
+@@ -5603,6 +5636,12 @@ def decide_acceptance(
+     curr_w24, meta_w24 = get_window_metrics_if_valid_depth(executor_output, 24)
+     curr_w52, meta_w52 = get_window_metrics_if_valid_depth(executor_output, 52)
+     compare["window_depth_validation"] = {"24": meta_w24, "52": meta_w52}
++    parent_depth_guard = evaluate_parent_depth_guard_52w(curr_w52 or {})
++    compare["parent_depth_guard_52w"] = parent_depth_guard
++    if not bool(parent_depth_guard.get("pass", False)):
++        compare["do_not_use_as_parent"] = True
++        compare["branch_anchor_allowed"] = False
++        compare["parent_depth_guard_reason"] = clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))
+     depth_limited_rule = evaluate_depth_limited_followup_rule(
+         executor_output=executor_output,
+         year_validation_window_weeks=year_validation_window_weeks,
+@@ -5777,6 +5816,14 @@ def decide_acceptance(
+         compare["promotion_blockers"] = promotion_only_blockers
+         if long_depth_limited and strong_w52_signal:
+             compare["champion_for_followup"] = True
++        if not bool(parent_depth_guard.get("pass", False)):
++            compare["promotion_reason"] = "Corrida util para seguimiento, pero no elegible como parent fuerte por baja profundidad 52w."
++            compare["promotion_blockers"] = list(
++                dict.fromkeys(
++                    (compare.get("promotion_blockers") or [])
++                    + [clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))]
++                )
++            )
+         return "accepted_for_followup", ["Aceptado para seguimiento."] + promotion_only_blockers, compare
+ 
+     parent_metrics = {}
+@@ -5811,6 +5858,14 @@ def decide_acceptance(
+         if strong_w52_signal:
+             compare["champion_for_followup"] = True
+             followup_reasons.append("Marcada como champion_for_followup por señal fuerte en 52w con profundidad larga insuficiente.")
++        if not bool(parent_depth_guard.get("pass", False)):
++            compare["promotion_reason"] = "Pendiente validacion robusta en ventana larga real, pero no elegible como parent fuerte por baja profundidad 52w."
++            compare["promotion_blockers"] = list(
++                dict.fromkeys(
++                    (compare.get("promotion_blockers") or [])
++                    + [clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))]
++                )
++            )
+         return "accepted_for_followup", followup_reasons, compare
+ 
+     if followup_quality_blocks:
+@@ -6538,12 +6593,17 @@ def persist_governance_state(
+         p_state["current_parent_run_id"] = run_id
+         p_state["parent_source"] = "fresh_branch_run"
+         p_state["use_baseline_as_parent"] = False
++        if decision_type == "accepted_for_followup":
++            b_state["last_followup_run_id"] = run_id
++            r_state["last_followup_run_id"] = run_id
+     elif decision_type in {"accepted_for_followup", "promoted_to_baseline"} and do_not_use_as_parent:
++        parent_guard_reason = clean_text(compare_state.get("parent_depth_guard_reason", "")) or "low_depth_52w_not_allowed_as_parent"
+         p_state["last_rejected_parent_candidate_run_id"] = run_id
+-        p_state["last_rejected_parent_candidate_reason"] = "do_not_use_as_parent/metric_no_effect_or_no_material_improvement"
+-    if decision_type == "accepted_for_followup":
+-        b_state["last_followup_run_id"] = run_id
+-        r_state["last_followup_run_id"] = run_id
++        p_state["last_rejected_parent_candidate_reason"] = parent_guard_reason
++        p_state["last_followup_evidence_run_id"] = run_id
++        p_state["last_followup_evidence_reason"] = parent_guard_reason
++        r_state["last_followup_evidence_run_id"] = run_id
++        r_state["last_followup_evidence_reason"] = parent_guard_reason
+     if decision_type == "promoted_to_baseline":
+         b_state["last_promoted_baseline_run_id"] = run_id
+         r_state["last_promoted_baseline_run_id"] = run_id

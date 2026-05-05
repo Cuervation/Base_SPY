@@ -1,0 +1,355 @@
+{
+  "role": "executor",
+  "status": "run_ok",
+  "run_id": "EXP_1427",
+  "script_executed": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_1427.py",
+  "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_1427.py",
+  "windows_policy": {
+    "requested": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "progressive_plan": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "execution_order": [
+      52,
+      4,
+      8,
+      24
+    ],
+    "policy": "progressive_real_windows",
+    "strict_progressive_windows": true,
+    "window_reuse_enabled": true,
+    "multi_window_single_run": true,
+    "fast_artifacts_enabled": true,
+    "xlsx_cadence_runs": 5,
+    "profile_cadence_runs": 10,
+    "profile_this_run": false,
+    "long156_policy": "cadence_only",
+    "long156_cadence_useful_runs": 4,
+    "long156_useful_runs_since_last_real_156": 19,
+    "long156_thresholds": {
+      "min_w52_spy_compare": 0.5,
+      "min_w52_weeks_traded": 20.0,
+      "min_w52_trades": 15.0
+    },
+    "long156_decision": {
+      "requested": false,
+      "policy": "cadence_only",
+      "trigger": "not_requested",
+      "executed": null,
+      "threshold_met": null,
+      "cadence_met": null,
+      "useful_runs_since_last_real_156": 19,
+      "cadence_useful_runs_required": 4
+    }
+  },
+  "windows": {
+    "52": {
+      "status": "run_ok",
+      "window": 52,
+      "requested_weeks": 52,
+      "actual_weeks_run": 52,
+      "depth_ok": true,
+      "test_start_used": "2025-01-03",
+      "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_w52.py",
+      "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stdout.log",
+      "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stderr.log",
+      "outputs": {
+        "excel": "",
+        "txt": "",
+        "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52",
+        "csv": {
+          "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260502210031.csv",
+          "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260502210031.csv",
+          "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260502210031.csv",
+          "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260502210031.csv"
+        }
+      },
+      "metrics": {
+        "weeks_run": 52,
+        "weeks_traded": 8,
+        "weeks_skipped_by_gates": 44,
+        "weeks_blocked_by_spy_channel_r2_gate": 26,
+        "weeks_blocked_by_avg_profile_distance_gate": 35,
+        "weeks_blocked_by_both_gates": 17,
+        "weeks_blocked_by_spy_channel_r2_only": 9,
+        "weeks_blocked_by_avg_profile_distance_only": 18,
+        "trades": 16,
+        "wins": 7,
+        "losses": 4,
+        "ties": 5,
+        "avg_net_return_pct": 4.8325,
+        "total_net_pnl_dollars": 386.6,
+        "spy_avg_ret_1w_pct": -0.04773090977888286,
+        "spy_compare": 4.8802309097788825,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 4.8325,
+            "spy_avg_ret_1w_pct": -0.04773090977888286,
+            "diff_pct": 4.8802309097788825
+          }
+        ]
+      },
+      "errors": [],
+      "perf": {
+        "patch_dynamic_start_sec": 1.348011,
+        "patch_constants_sec": 0.00187,
+        "subprocess_exec_sec": 406.278333,
+        "artifact_discovery_sec": 0.003156,
+        "extract_metrics_sec": 1.491613,
+        "total_window_sec": 409.123069
+      },
+      "execution_mode": "executed_reuse_base"
+    },
+    "4": {
+      "status": "run_ok",
+      "window": 4,
+      "requested_weeks": 4,
+      "actual_weeks_run": 4,
+      "depth_ok": true,
+      "reason": "",
+      "trades": 2.0,
+      "weeks_traded": 1.0,
+      "test_start_used": "2025-01-03",
+      "derived_from_window": 52,
+      "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_w52.py",
+      "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stdout.log",
+      "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stderr.log",
+      "outputs": {
+        "excel": "",
+        "txt": "",
+        "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52",
+        "csv": {
+          "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260502210031.csv",
+          "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260502210031.csv",
+          "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260502210031.csv",
+          "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260502210031.csv"
+        }
+      },
+      "metrics": {
+        "weeks_run": 4,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 3,
+        "weeks_blocked_by_spy_channel_r2_gate": 3,
+        "weeks_blocked_by_avg_profile_distance_gate": 2,
+        "weeks_blocked_by_both_gates": 2,
+        "weeks_blocked_by_spy_channel_r2_only": 1,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "errors": [],
+      "execution_mode": "derived_reuse"
+    },
+    "8": {
+      "status": "run_ok",
+      "window": 8,
+      "requested_weeks": 8,
+      "actual_weeks_run": 8,
+      "depth_ok": true,
+      "reason": "",
+      "trades": 2.0,
+      "weeks_traded": 1.0,
+      "test_start_used": "2025-01-03",
+      "derived_from_window": 52,
+      "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_w52.py",
+      "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stdout.log",
+      "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stderr.log",
+      "outputs": {
+        "excel": "",
+        "txt": "",
+        "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52",
+        "csv": {
+          "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260502210031.csv",
+          "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260502210031.csv",
+          "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260502210031.csv",
+          "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260502210031.csv"
+        }
+      },
+      "metrics": {
+        "weeks_run": 8,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 7,
+        "weeks_blocked_by_spy_channel_r2_gate": 7,
+        "weeks_blocked_by_avg_profile_distance_gate": 5,
+        "weeks_blocked_by_both_gates": 5,
+        "weeks_blocked_by_spy_channel_r2_only": 2,
+        "weeks_blocked_by_avg_profile_distance_only": 0,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "errors": [],
+      "execution_mode": "derived_reuse"
+    },
+    "24": {
+      "status": "run_ok",
+      "window": 24,
+      "requested_weeks": 24,
+      "actual_weeks_run": 24,
+      "depth_ok": true,
+      "reason": "",
+      "trades": 2.0,
+      "weeks_traded": 1.0,
+      "test_start_used": "2025-01-03",
+      "derived_from_window": 52,
+      "command": "C:\\Users\\celestinoh\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -u C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\spy_context_asset_profile_configurable_regime_weeks_gated_close_vs_sma50_1_5_FIXED_GATE_EXP_w52.py",
+      "stdout_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stdout.log",
+      "stderr_log": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\stderr.log",
+      "outputs": {
+        "excel": "",
+        "txt": "",
+        "artifacts_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52",
+        "csv": {
+          "07_next_week_real_trades": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_07_next_week_real_trades_260502210031.csv",
+          "08_summary_by_regime_week": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_08_summary_by_regime_week_260502210031.csv",
+          "09_summary_total": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_09_summary_total_260502210031.csv",
+          "06_next_week_candidates": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1427_260502210024\\window_52\\2605022100\\spy_context_asset_profile_first_week_global_profile_v2_06_next_week_candidates_260502210031.csv"
+        }
+      },
+      "metrics": {
+        "weeks_run": 24,
+        "weeks_traded": 1,
+        "weeks_skipped_by_gates": 23,
+        "weeks_blocked_by_spy_channel_r2_gate": 22,
+        "weeks_blocked_by_avg_profile_distance_gate": 14,
+        "weeks_blocked_by_both_gates": 13,
+        "weeks_blocked_by_spy_channel_r2_only": 9,
+        "weeks_blocked_by_avg_profile_distance_only": 1,
+        "trades": 2,
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "avg_net_return_pct": 7.02,
+        "total_net_pnl_dollars": 70.2,
+        "spy_avg_ret_1w_pct": -1.9359779941432231,
+        "spy_compare": 8.955977994143222,
+        "spy_yearly_breakdown": [
+          {
+            "year": 2025,
+            "strategy_avg_net_return_pct": 7.02,
+            "spy_avg_ret_1w_pct": -1.9359779941432231,
+            "diff_pct": 8.955977994143222
+          }
+        ]
+      },
+      "errors": [],
+      "execution_mode": "derived_reuse"
+    }
+  },
+  "core_metrics": {
+    "weeks_run": 52,
+    "weeks_traded": 8,
+    "weeks_skipped_by_gates": 44,
+    "weeks_blocked_by_spy_channel_r2_gate": 26,
+    "weeks_blocked_by_avg_profile_distance_gate": 35,
+    "weeks_blocked_by_both_gates": 17,
+    "weeks_blocked_by_spy_channel_r2_only": 9,
+    "weeks_blocked_by_avg_profile_distance_only": 18,
+    "trades": 16,
+    "wins": 7,
+    "losses": 4,
+    "ties": 5,
+    "avg_net_return_pct": 4.8325,
+    "total_net_pnl_dollars": 386.6,
+    "spy_avg_ret_1w_pct": -0.04773090977888286,
+    "spy_compare": 4.8802309097788825,
+    "spy_yearly_breakdown": [
+      {
+        "year": 2025,
+        "strategy_avg_net_return_pct": 4.8325,
+        "spy_avg_ret_1w_pct": -0.04773090977888286,
+        "diff_pct": 4.8802309097788825
+      }
+    ]
+  },
+  "validation_depth_summary": {
+    "best_valid_window": 52,
+    "requested_windows": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "progressive_plan": [
+      4,
+      8,
+      24,
+      52
+    ],
+    "multi_year_real": false,
+    "notes": ""
+  },
+  "performance_profile": {
+    "profile_this_run": false,
+    "total_window_runtime_sec": 409.123069,
+    "top_hotspots": [
+      {
+        "window": 52,
+        "execution_mode": "executed_reuse_base",
+        "total_window_sec": 409.123069,
+        "patch_constants_sec": 0.00187,
+        "subprocess_exec_sec": 406.278333,
+        "extract_metrics_sec": 1.491613
+      },
+      {
+        "window": 4,
+        "execution_mode": "derived_reuse",
+        "total_window_sec": NaN,
+        "patch_constants_sec": null,
+        "subprocess_exec_sec": null,
+        "extract_metrics_sec": null
+      },
+      {
+        "window": 8,
+        "execution_mode": "derived_reuse",
+        "total_window_sec": NaN,
+        "patch_constants_sec": null,
+        "subprocess_exec_sec": null,
+        "extract_metrics_sec": null
+      }
+    ],
+    "multi_window_single_run": true,
+    "derived_windows": [
+      4,
+      8,
+      24
+    ]
+  },
+  "errors": []
+}

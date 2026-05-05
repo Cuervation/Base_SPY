@@ -4,6 +4,7 @@ from __future__ import annotations
 import atexit
 import argparse
 import csv
+from collections import Counter
 import json
 import math
 import os
@@ -215,7 +216,7 @@ def build_executor_output_from_partial(
     executor_status = classify_executor_run_status(windows_results, exec_errors)
     if any("blocked_window_not_allowed" in clean_text(e) for e in exec_errors):
         executor_status = "blocked_window_not_allowed"
-    core_window = "52" if "52" in windows_results else str(max(executed_windows))
+    core_window = "52" if "52" in windows_results else (str(max(executed_windows)) if executed_windows else "52")
     core_metrics = (windows_results.get(core_window, {}) or {}).get("metrics", {})
     depth_summary = build_validation_depth_summary(
         windows_results=windows_results,
@@ -503,6 +504,18 @@ def count_recent_status(rows: List[Dict[str, str]], statuses: set[str], lookback
     recent = sorted_rows[-max(1, int(lookback)) :] if sorted_rows else []
     target = {clean_text(s) for s in statuses}
     return sum(1 for r in recent if clean_text(r.get("status", "")) in target)
+
+
+def count_consecutive_status_from_end(rows: List[Dict[str, str]], statuses: set[str]) -> int:
+    sorted_rows = sorted(rows or [], key=lambda r: parse_run_id(r.get("run_id", "")))
+    target = {clean_text(s) for s in statuses}
+    streak = 0
+    for row in reversed(sorted_rows):
+        if clean_text(row.get("status", "")) in target:
+            streak += 1
+            continue
+        break
+    return streak
 
 
 def count_recent_useful_runs(rows: List[Dict[str, str]], lookback: int = 12) -> int:
@@ -1200,9 +1213,9 @@ def get_preferred_parent_context(
     research_state: Dict[str, Any],
     champion_runs: Optional[Dict[str, Any]] = None,
     rows: Optional[List[Dict[str, str]]] = None,
-) -> Tuple[Optional[Dict[str, Any]], str]:
+) -> Tuple[Optional[Dict[str, Any]], str, str, str]:
     if research_state_requests_baseline_parent(research_state):
-        return None, "current_baseline"
+        return None, "current_baseline", "", ""
 
     b_st = baseline.get("state_tracking", {}) if isinstance(baseline.get("state_tracking"), dict) else {}
     r_st = research_state.get("state_tracking", {}) if isinstance(research_state.get("state_tracking"), dict) else {}
@@ -1219,18 +1232,35 @@ def get_preferred_parent_context(
     best_ctx: Optional[Dict[str, Any]] = None
     best_src: str = ""
     best_rid: str = ""
+    rejected_startup_parent_run_id = ""
+    rejected_startup_parent_reason = ""
     for src, rid in ordered_candidates:
         if not rid or rid == "BASELINE_CLEAN" or rid in seen:
             continue
         seen.add(rid)
         ctx = get_run_context_by_run_id(repo, rid)
         if not ctx:
+            if not rejected_startup_parent_run_id:
+                rejected_startup_parent_run_id = rid
+                rejected_startup_parent_reason = "startup_parent_rejected_low_depth_52w"
+            continue
+        guard = evaluate_startup_parent_depth_guard_52w(ctx)
+        if not bool(guard.get("pass", False)):
+            if not rejected_startup_parent_run_id:
+                rejected_startup_parent_run_id = clean_text(guard.get("run_id", "")) or rid
+                rejected_startup_parent_reason = clean_text(guard.get("reason", "")) or "startup_parent_rejected_low_depth_52w"
             continue
         best_ctx = ctx
         best_src = src
         best_rid = clean_text(ctx.get("run_id", "")) or rid
         break
     champion_ctx, champion_src = get_best_champion_context(repo, champion_runs or {})
+    if champion_ctx and not bool(evaluate_startup_parent_depth_guard_52w(champion_ctx).get("pass", False)):
+        if not rejected_startup_parent_run_id:
+            champ_guard = evaluate_startup_parent_depth_guard_52w(champion_ctx)
+            rejected_startup_parent_run_id = clean_text(champ_guard.get("run_id", "")) or clean_text(champion_ctx.get("run_id", ""))
+            rejected_startup_parent_reason = clean_text(champ_guard.get("reason", "")) or "startup_parent_rejected_low_depth_52w"
+        champion_ctx = None
     if best_ctx and champion_ctx:
         current_parent_rid = clean_text(best_ctx.get("run_id", ""))
         if has_three_recent_worse_than_parent(rows or [], current_parent_rid):
@@ -1241,14 +1271,14 @@ def get_preferred_parent_context(
                     exclude_run_id=current_parent_rid,
                 )
                 if alt_ctx:
-                    return alt_ctx, f"{alt_src};trigger=three_recent_worse_than_parent:{current_parent_rid}"
-            return champion_ctx, f"{champion_src};trigger=three_recent_worse_than_parent:{current_parent_rid}"
-        return best_ctx, f"state_tracking:{best_src}={best_rid}"
+                    return alt_ctx, f"{alt_src};trigger=three_recent_worse_than_parent:{current_parent_rid}", rejected_startup_parent_run_id, rejected_startup_parent_reason
+            return champion_ctx, f"{champion_src};trigger=three_recent_worse_than_parent:{current_parent_rid}", rejected_startup_parent_run_id, rejected_startup_parent_reason
+        return best_ctx, f"state_tracking:{best_src}={best_rid}", rejected_startup_parent_run_id, rejected_startup_parent_reason
     if best_ctx:
-        return best_ctx, f"state_tracking:{best_src}={best_rid}"
+        return best_ctx, f"state_tracking:{best_src}={best_rid}", rejected_startup_parent_run_id, rejected_startup_parent_reason
     if champion_ctx:
-        return champion_ctx, champion_src
-    return None, "state_tracking_and_champion:none"
+        return champion_ctx, champion_src, rejected_startup_parent_run_id, rejected_startup_parent_reason
+    return None, "current_baseline", rejected_startup_parent_run_id, rejected_startup_parent_reason
 
 
 def default_clean_baseline(repo: Path) -> Dict[str, Any]:
@@ -2279,6 +2309,16 @@ def validate_main_change_materiality(proposal: Dict[str, Any]) -> Dict[str, Any]
     }
 
 
+def _next_change_dependency_requirement(parameter: str) -> Tuple[str, Any, str]:
+    param = clean_text(parameter)
+    dependency_map = {
+        "MAX_CLOSE_VS_SMA50_PCT": ("ENABLE_CLOSE_VS_SMA50_FILTER", True, "semantic_scale_metric"),
+        "MIN_SPY_CHANNEL_R2": ("ENABLE_SPY_CHANNEL_R2_GATE", True, "semantic_scale_metric"),
+        "MAX_AVG_PROFILE_DISTANCE": ("ENABLE_AVG_PROFILE_DISTANCE_GATE", True, "semantic_scale_metric"),
+    }
+    return dependency_map.get(param, ("", None, ""))
+
+
 def ensure_analyst_output_contract(proposal: Dict[str, Any], windows: List[int]) -> Dict[str, Any]:
     out = dict(proposal or {})
     main = out.get("main_change")
@@ -2298,6 +2338,8 @@ def ensure_analyst_output_contract(proposal: Dict[str, Any], windows: List[int])
         out["change_intent"] = infer_change_intent_from_mode(clean_text(out.get("research_mode_context", "")))
     if not clean_text(out.get("source", "")):
         out["source"] = "adaptive_fallback"
+    if not clean_text(out.get("proposal_source", "")):
+        out["proposal_source"] = clean_text(out.get("source", "")) or "adaptive_fallback"
 
     fd = out.get("fallback_diagnosis", {}) if isinstance(out.get("fallback_diagnosis"), dict) else {}
     impl = out.get("implementation_check") if isinstance(out.get("implementation_check"), dict) else {}
@@ -2379,6 +2421,7 @@ def build_no_material_candidate_proposal(
     current_mode: str = "refine_current_branch",
     fallback_diagnosis: Optional[Dict[str, Any]] = None,
     fallback_candidate_pool_considered: Optional[List[Dict[str, Any]]] = None,
+    candidate_generation_diagnostic_output: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     last_run_id = ""
     if last_valid_ctx:
@@ -2390,6 +2433,7 @@ def build_no_material_candidate_proposal(
     return {
         "role": "analyst",
         "status": "no_material_candidate_found",
+        "proposal_status": "no_material_candidate_found",
         "mode": mode_to_analyst_style(current_mode),
         "research_mode_context": normalize_research_mode(current_mode),
         "change_intent": infer_change_intent_from_mode(current_mode),
@@ -2411,6 +2455,20 @@ def build_no_material_candidate_proposal(
         "fallback_diagnosis": fallback_diagnosis,
         "fallback_candidate_pool_considered": fallback_candidate_pool_considered,
         "fallback_selected_reason": reason,
+        "candidate_generation_diagnostic_output": candidate_generation_diagnostic_output or {},
+        "next_change_present": False,
+        "next_change_consumed": False,
+        "next_change_rejected": False,
+        "next_change_rejected_reason": "",
+        "next_change_zigzag_override": False,
+        "next_change_zigzag_override_reason": "",
+        "next_change_recent_feedback_override": False,
+        "recent_feedback_ignored_reason": "",
+        "original_recent_feedback_reason": "",
+        "original_rejection_reason": "",
+        "next_change_parameter": "",
+        "next_change_from": None,
+        "next_change_to": None,
         "selection_trace": {
             "current_mode": normalize_research_mode(current_mode),
             "change_intent": infer_change_intent_from_mode(current_mode),
@@ -2426,11 +2484,102 @@ def build_no_material_candidate_proposal(
     }
 
 
+def apply_next_change_trace(proposal: Dict[str, Any], next_change_audit: Dict[str, Any]) -> Dict[str, Any]:
+    out = dict(proposal or {})
+    audit = dict(next_change_audit or {})
+    next_change_present = bool(audit.get("next_change_present", False))
+    if not next_change_present:
+        next_change_present = bool(
+            clean_text(audit.get("next_change_parameter", ""))
+            or audit.get("next_change_from") is not None
+            or audit.get("next_change_to") is not None
+        )
+
+    out.update(
+        {
+            "next_change_present": next_change_present,
+            "next_change_consumed": bool(audit.get("next_change_consumed", False)),
+            "next_change_rejected": bool(audit.get("next_change_rejected", False)),
+            "next_change_rejected_reason": clean_text(audit.get("next_change_rejected_reason", "")),
+            "next_change_zigzag_override": bool(audit.get("next_change_zigzag_override", False)),
+            "next_change_zigzag_override_reason": clean_text(audit.get("next_change_zigzag_override_reason", "")),
+            "next_change_recent_feedback_override": bool(audit.get("next_change_recent_feedback_override", False)),
+            "recent_feedback_ignored_reason": clean_text(audit.get("recent_feedback_ignored_reason", "")),
+            "original_recent_feedback_reason": clean_text(audit.get("original_recent_feedback_reason", "")),
+            "original_rejection_reason": clean_text(audit.get("original_rejection_reason", "")),
+            "next_change_parameter": clean_text(audit.get("next_change_parameter", "")),
+            "next_change_from": audit.get("next_change_from"),
+            "next_change_to": audit.get("next_change_to"),
+        }
+    )
+    if next_change_present:
+        if bool(out.get("next_change_consumed", False)):
+            out["proposal_source"] = "next_change"
+        elif bool(out.get("next_change_rejected", False)):
+            out["proposal_source"] = "fallback_after_next_change_rejected"
+
+    cgd = out.get("candidate_generation_diagnostic_output")
+    if isinstance(cgd, dict):
+        cgd.update(
+            {
+                "next_change_present": next_change_present,
+                "next_change_consumed": bool(out.get("next_change_consumed", False)),
+                "next_change_rejected": bool(out.get("next_change_rejected", False)),
+                "next_change_rejected_reason": clean_text(out.get("next_change_rejected_reason", "")),
+                "next_change_zigzag_override": bool(out.get("next_change_zigzag_override", False)),
+                "next_change_zigzag_override_reason": clean_text(out.get("next_change_zigzag_override_reason", "")),
+                "next_change_recent_feedback_override": bool(out.get("next_change_recent_feedback_override", False)),
+                "recent_feedback_ignored_reason": clean_text(out.get("recent_feedback_ignored_reason", "")),
+                "original_recent_feedback_reason": clean_text(out.get("original_recent_feedback_reason", "")),
+                "original_rejection_reason": clean_text(out.get("original_rejection_reason", "")),
+                "next_change_parameter": clean_text(out.get("next_change_parameter", "")),
+                "next_change_from": out.get("next_change_from"),
+                "next_change_to": out.get("next_change_to"),
+                "proposal_source": clean_text(out.get("proposal_source", "")),
+            }
+        )
+        out["candidate_generation_diagnostic_output"] = cgd
+    return out
+
+
 def get_window_metrics_from_ctx(ctx: Optional[Dict[str, Any]], window: int) -> Dict[str, Any]:
     if not ctx:
         return {}
     eo = ctx.get("executor_output") or {}
     return (eo.get("windows", {}).get(str(window), {}) or {}).get("metrics", {}) or {}
+
+
+def evaluate_startup_parent_depth_guard_52w(candidate_ctx: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    metrics_52 = get_window_metrics_from_ctx(candidate_ctx, 52)
+    weeks_traded = to_float(metrics_52.get("weeks_traded"))
+    trades = to_float(metrics_52.get("trades"))
+    excluded_ratio = None
+    if weeks_traded is not None and float(weeks_traded) >= 0:
+        excluded_ratio = max(0.0, 1.0 - (float(weeks_traded) / 52.0))
+
+    weeks_ok = weeks_traded is not None and float(weeks_traded) >= 20.0
+    trades_ok = trades is not None and float(trades) >= 15.0
+    excluded_ok = excluded_ratio is not None and float(excluded_ratio) <= 0.50
+    passed = bool(weeks_ok and trades_ok and excluded_ok)
+
+    blockers: List[str] = []
+    if not weeks_ok:
+        blockers.append("w52_weeks_traded_below_parent_minimum")
+    if not trades_ok:
+        blockers.append("w52_trades_below_parent_minimum")
+    if not excluded_ok:
+        blockers.append("w52_excluded_ratio_above_parent_maximum")
+
+    run_id = clean_text((candidate_ctx or {}).get("run_id", ""))
+    return {
+        "pass": passed,
+        "reason": "" if passed else "startup_parent_rejected_low_depth_52w",
+        "run_id": run_id,
+        "weeks_traded": weeks_traded,
+        "trades": trades,
+        "excluded_ratio": (round(float(excluded_ratio), 6) if excluded_ratio is not None else None),
+        "blockers": blockers,
+    }
 
 
 def diagnose_parent_outcome_for_fallback(
@@ -2565,6 +2714,7 @@ def collect_recent_coordinator_feedback(rows: List[Dict[str, str]], lookback: in
         "blocked_no_material_candidate",
     }
     blocked_transitions: set[Tuple[str, str, str]] = set()
+    blocked_transition_details: List[Dict[str, str]] = []
     rejected_executed_transitions: set[Tuple[str, str, str]] = set()
     blocked_notes: List[str] = []
     for r in recent:
@@ -2581,17 +2731,113 @@ def collect_recent_coordinator_feedback(rows: List[Dict[str, str]], lookback: in
                     rejected_executed_transitions.add((param_exec, from_norm_exec, to_norm_exec))
             continue
         param = clean_text(r.get("main_parameter", ""))
+        from_norm = normalize_scalar(r.get("main_from"))
         to_norm = normalize_scalar(r.get("main_to"))
         if param:
             blocked_transitions.add((param, to_norm, status))
         note = clean_text(r.get("notes", ""))
+        if param:
+            blocked_transition_details.append(
+                {
+                    "run_id": clean_text(r.get("run_id", "")),
+                    "parameter": param,
+                    "from": from_norm,
+                    "to": to_norm,
+                    "status": status,
+                    "reason": note,
+                }
+            )
         if note:
             blocked_notes.append(note)
     return {
         "recent_blocked_transitions": blocked_transitions,
+        "recent_blocked_transition_details": blocked_transition_details,
         "recent_rejected_executed_transitions": rejected_executed_transitions,
         "recent_blocked_notes": blocked_notes[:10],
         "recent_rows_count": len(recent),
+    }
+
+
+def is_recent_feedback_only_zigzag_for_same_next_change(
+    recent_feedback: Dict[str, Any],
+    parameter: str,
+    from_value: Any,
+    to_value: Any,
+    next_change: Dict[str, Any],
+) -> Dict[str, Any]:
+    param = clean_text(parameter)
+    from_norm = normalize_scalar(from_value)
+    to_norm = normalize_scalar(to_value)
+    details = recent_feedback.get("recent_blocked_transition_details", []) if isinstance(recent_feedback, dict) else []
+    if not isinstance(details, list):
+        details = []
+
+    matching_param_to = [
+        d for d in details
+        if clean_text(d.get("parameter", "")) == param and normalize_scalar(d.get("to")) == to_norm
+    ]
+    if not matching_param_to:
+        legacy_matches = [
+            x for x in (recent_feedback.get("recent_blocked_transitions", set()) if isinstance(recent_feedback, dict) else set())
+            if len(x) >= 3 and clean_text(x[0]) == param and normalize_scalar(x[1]) == to_norm
+        ]
+        matching_param_to = [
+            {
+                "run_id": "",
+                "parameter": param,
+                "from": "",
+                "to": to_norm,
+                "status": clean_text(x[2]),
+                "reason": "",
+            }
+            for x in legacy_matches
+        ]
+    if not matching_param_to:
+        return {"allowed": False, "reason": "no_matching_recent_feedback", "original_reason": ""}
+
+    same_transition = [d for d in matching_param_to if normalize_scalar(d.get("from")) == from_norm]
+    if not same_transition:
+        return {
+            "allowed": False,
+            "reason": "recent_feedback_different_transition",
+            "original_reason": "; ".join(
+                f"{clean_text(d.get('run_id', ''))}:{clean_text(d.get('status', ''))}:{clean_text(d.get('reason', ''))}"
+                for d in matching_param_to
+            ),
+        }
+
+    override_reason = clean_text(next_change.get("override_reason", "")) or clean_text(next_change.get("evidence_reason", ""))
+    evidence_items = next_change.get("evidence", [])
+    has_override = bool(next_change.get("allow_zigzag_countermove", False)) and bool(override_reason)
+    has_evidence = isinstance(evidence_items, list) and bool(evidence_items)
+    if not has_override or not has_evidence:
+        return {
+            "allowed": False,
+            "reason": "missing_zigzag_override_evidence",
+            "original_reason": "; ".join(
+                f"{clean_text(d.get('run_id', ''))}:{clean_text(d.get('status', ''))}:{clean_text(d.get('reason', ''))}"
+                for d in same_transition
+            ),
+        }
+
+    if any(clean_text(d.get("status", "")) != "blocked_zigzag" for d in same_transition):
+        return {
+            "allowed": False,
+            "reason": "recent_feedback_has_non_zigzag_block",
+            "original_reason": "; ".join(
+                f"{clean_text(d.get('run_id', ''))}:{clean_text(d.get('status', ''))}:{clean_text(d.get('reason', ''))}"
+                for d in same_transition
+            ),
+        }
+
+    original_reason = "; ".join(
+        f"{clean_text(d.get('run_id', ''))}:{clean_text(d.get('status', ''))}:{clean_text(d.get('reason', ''))}"
+        for d in same_transition
+    )
+    return {
+        "allowed": True,
+        "reason": "previous_blocked_zigzag_same_transition_with_evidence_override",
+        "original_reason": original_reason,
     }
 
 
@@ -3114,6 +3360,218 @@ def candidate_type_from_parameter(parameter: str) -> str:
     return "controlled_exploration"
 
 
+def candidate_family_from_parameter(parameter: str) -> str:
+    p = clean_text(parameter)
+    if p in {"ENABLE_CLOSE_VS_SMA50_FILTER", "MAX_CLOSE_VS_SMA50_PCT"}:
+        return "asset_extension_filter"
+    if p in {"MIN_SPY_CHANNEL_R2", "ENABLE_SPY_CHANNEL_R2_GATE"}:
+        return "spy_regime_filter"
+    if p in {"MAX_AVG_PROFILE_DISTANCE", "ENABLE_AVG_PROFILE_DISTANCE_GATE"}:
+        return "profile_distance"
+    if p == "TOP_CANDIDATES_NEXT_WEEK":
+        return "rank_basket_selection"
+    if p == "TOP_SIMILAR_SPY_WEEKS":
+        return "similar_spy_window"
+    return "controlled_exploration"
+
+
+def build_exploratory_candidate_specs(parent_cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    specs: List[Dict[str, Any]] = []
+
+    top_sim = to_float(parent_cfg.get("TOP_SIMILAR_SPY_WEEKS"))
+    if top_sim is not None:
+        for v in [
+            round(min(52.0, max(8.0, top_sim + 4.0)), 3),
+            round(min(52.0, max(8.0, top_sim + 8.0)), 3),
+        ]:
+            specs.append(
+                {
+                    "parameter": "TOP_SIMILAR_SPY_WEEKS",
+                    "to_value": v,
+                    "candidate_type": "weekly_gate_recalibration",
+                    "candidate_family": "similar_spy_window",
+                    "hypothesis": "Explorar una ventana mas amplia de semanas similares sin repetir el subespacio agotado.",
+                    "meaning": "Ajuste exploratorio de TOP_SIMILAR_SPY_WEEKS.",
+                    "purpose": "Buscar ortogonalidad de matching temporal.",
+                    "why_improve": "Puede abrir una familia no agotada de similaridad SPY.",
+                    "expected_effect": "Cambio exploratorio en la base de semanas comparables.",
+                }
+            )
+
+    dist_thr = to_float(parent_cfg.get("MAX_AVG_PROFILE_DISTANCE"))
+    if dist_thr is not None:
+        for v in [
+            round(max(0.08, dist_thr + 0.04), 3),
+            round(max(0.08, dist_thr - 0.01), 3),
+        ]:
+            specs.append(
+                {
+                    "parameter": "MAX_AVG_PROFILE_DISTANCE",
+                    "to_value": v,
+                    "candidate_type": "weekly_gate_recalibration",
+                    "candidate_family": "profile_distance",
+                    "hypothesis": "Explorar una distancia de perfil fuera del vecindario ya agotado.",
+                    "meaning": "Ajuste exploratorio de MAX_AVG_PROFILE_DISTANCE.",
+                    "purpose": "Abrir una rama ortogonal en matching de perfil.",
+                    "why_improve": "Puede recuperar señal sin reusar transiciones exhaustas.",
+                    "expected_effect": "Filtrado distinto de semanas por distancia de perfil.",
+                }
+            )
+
+    r2_thr = to_float(parent_cfg.get("MIN_SPY_CHANNEL_R2"))
+    if r2_thr is not None:
+        for v in [
+            round(max(0.30, r2_thr - 0.01), 3),
+            round(max(0.30, r2_thr - 0.02), 3),
+        ]:
+            specs.append(
+                {
+                    "parameter": "MIN_SPY_CHANNEL_R2",
+                    "to_value": v,
+                    "candidate_type": "weekly_gate_recalibration",
+                    "candidate_family": "spy_regime_filter",
+                    "hypothesis": "Explorar un umbral SPY un poco mas laxo sin volver al vecindario agotado.",
+                    "meaning": "Ajuste exploratorio de MIN_SPY_CHANNEL_R2.",
+                    "purpose": "Buscar otra zona operativa de gating SPY.",
+                    "why_improve": "Puede recuperar frecuencia sin caer en no-op.",
+                    "expected_effect": "Cambio exploratorio en semanas habilitadas por el gate SPY.",
+                }
+            )
+
+    top_curr = int(round(to_float(parent_cfg.get("TOP_CANDIDATES_NEXT_WEEK")) or 5))
+    if top_curr > 1:
+        for v in [max(1, top_curr - 1), min(8, top_curr + 1)]:
+            if v == top_curr:
+                continue
+            specs.append(
+                {
+                    "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+                    "to_value": v,
+                    "candidate_type": "rank_adjustment",
+                    "candidate_family": "rank_basket_selection",
+                    "hypothesis": "Explorar una capacidad semanal distinta fuera de los valores ya quemados.",
+                    "meaning": "Ajuste exploratorio de TOP_CANDIDATES_NEXT_WEEK.",
+                    "purpose": "Mover la frontera calidad/frecuencia desde una rama nueva.",
+                    "why_improve": "Puede abrir una rama ortogonal de basket selection.",
+                    "expected_effect": "Cambio exploratorio en el numero de candidatos semanales.",
+                }
+            )
+
+    return specs
+
+
+def build_candidate_generation_diagnostic_output(
+    parent_run_id: str,
+    proposal_status: str,
+    fallback_candidate_pool_considered: List[Dict[str, Any]],
+    fallback_diagnosis: Optional[Dict[str, Any]] = None,
+    selected_proposal: Optional[Dict[str, Any]] = None,
+    force_axis_reset: bool = False,
+    force_new_candidate_family: bool = False,
+    consecutive_no_material_candidate: int = 0,
+) -> Dict[str, Any]:
+    fallback_diagnosis = fallback_diagnosis or {}
+    pool = list(fallback_candidate_pool_considered or [])
+    rejection_counts = Counter(clean_text(x.get("reason", "")) for x in pool if clean_text(x.get("state", "")) == "discarded")
+    selected_candidate = None
+    if isinstance(selected_proposal, dict):
+        main = selected_proposal.get("main_change") or {}
+        dep = selected_proposal.get("dependent_change") or {}
+        selected_candidate = {
+            "candidate_axis": clean_text(main.get("parameter", "")),
+            "proposed_change": f"{normalize_scalar(main.get('from_value'))}->{normalize_scalar(main.get('to_value'))}",
+            "candidate_family": candidate_family_from_parameter(main.get("parameter", "")),
+            "proposal_source": clean_text(selected_proposal.get("proposal_source", selected_proposal.get("source", proposal_status))),
+            "proposal_status": clean_text(selected_proposal.get("status", proposal_status)),
+            "candidate_is_exploratory": bool(selected_proposal.get("candidate_is_exploratory", False)),
+            "exploratory_reason": clean_text(selected_proposal.get("exploratory_reason", "")),
+            "bypassed_soft_cooldown": bool(selected_proposal.get("bypassed_soft_cooldown", False)),
+            "hard_block_bypassed": bool(selected_proposal.get("hard_block_bypassed", False)),
+            "next_change_consumed": bool(selected_proposal.get("next_change_consumed", False)),
+            "next_change_rejected": bool(selected_proposal.get("next_change_rejected", False)),
+            "next_change_rejected_reason": clean_text(selected_proposal.get("next_change_rejected_reason", "")),
+            "next_change_zigzag_override": bool(selected_proposal.get("next_change_zigzag_override", False)),
+            "next_change_zigzag_override_reason": clean_text(selected_proposal.get("next_change_zigzag_override_reason", "")),
+            "original_rejection_reason": clean_text(selected_proposal.get("original_rejection_reason", "")),
+            "next_change_parameter": clean_text(selected_proposal.get("next_change_parameter", "")),
+            "next_change_from": selected_proposal.get("next_change_from"),
+            "next_change_to": selected_proposal.get("next_change_to"),
+            "main_change": {
+                "parameter": clean_text(main.get("parameter", "")),
+                "from_value": main.get("from_value"),
+                "to_value": main.get("to_value"),
+            },
+            "dependent_change": {
+                "parameter": clean_text(dep.get("parameter", "")),
+                "from_value": dep.get("from_value"),
+                "to_value": dep.get("to_value"),
+            }
+            if clean_text(dep.get("parameter", ""))
+            else None,
+        }
+
+    normalized_candidates: List[Dict[str, Any]] = []
+    for item in pool:
+        param = clean_text(item.get("parameter", ""))
+        reason = clean_text(item.get("reason", ""))
+        state = clean_text(item.get("state", ""))
+        exhausted_stats = item.get("exhausted_stats", {}) if isinstance(item.get("exhausted_stats", {}), dict) else {}
+        normalized_candidates.append(
+            {
+                "candidate_axis": param,
+                "proposed_change": f"{normalize_scalar(item.get('from_value'))}->{normalize_scalar(item.get('to_value'))}",
+                "candidate_family": candidate_family_from_parameter(param),
+                "rejected_by": reason if state == "discarded" else "",
+                "rejection_reason": reason if state == "discarded" else "",
+                "was_duplicate": reason in {"duplicate_recent_proposal", "config_hash_already_tested_executed_run"},
+                "was_no_op": reason == "no_op_equivalence",
+                "was_in_cooldown": reason == "cooldown_active",
+                "was_hard_blocked": reason in {
+                    "hard_blocked_exhausted_or_memory_subspace",
+                    "blocked_by_current_mode",
+                    "branch_anchor_locked",
+                },
+                "was_metric_no_effect_axis": reason == "metric_no_effect" or clean_text(exhausted_stats.get("current_effect_class", "")) == "exhausted_no_effect",
+                "was_orthogonal_candidate_available": bool(item.get("is_orthogonal", False)),
+                "state": state,
+                "layer": clean_text(item.get("layer", "")),
+                "candidate_type": clean_text(item.get("candidate_type", "")),
+                "bypassed_soft_cooldown": bool(item.get("bypassed_soft_cooldown", False)),
+            }
+        )
+
+    valid_count = sum(1 for item in pool if clean_text(item.get("state", "")) == "valid")
+    rejected_count = sum(1 for item in pool if clean_text(item.get("state", "")) == "discarded")
+    return {
+        "parent_run_id": clean_text(parent_run_id),
+        "candidate_pool_size": int(len(pool)),
+        "valid_candidate_count": int(valid_count),
+        "rejected_candidate_count": int(rejected_count),
+        "rejection_counts_by_reason": dict(sorted(rejection_counts.items())),
+        "candidates": normalized_candidates,
+        "selected_candidate": selected_candidate,
+        "proposal_status": clean_text(proposal_status),
+        "proposal_source": clean_text((selected_proposal or {}).get("proposal_source", "")) if isinstance(selected_proposal, dict) else "",
+        "force_axis_reset": bool(force_axis_reset),
+        "force_new_candidate_family": bool(force_new_candidate_family),
+        "bypassed_soft_cooldown": bool(selected_proposal.get("bypassed_soft_cooldown", False)) if isinstance(selected_proposal, dict) else False,
+        "hard_block_bypassed": bool(selected_proposal.get("hard_block_bypassed", False)) if isinstance(selected_proposal, dict) else False,
+        "candidate_is_exploratory": bool(selected_proposal.get("candidate_is_exploratory", False)) if isinstance(selected_proposal, dict) else False,
+        "exploratory_reason": clean_text(selected_proposal.get("exploratory_reason", "")) if isinstance(selected_proposal, dict) else "",
+        "next_change_consumed": bool(selected_proposal.get("next_change_consumed", False)) if isinstance(selected_proposal, dict) else False,
+        "next_change_rejected": bool(selected_proposal.get("next_change_rejected", False)) if isinstance(selected_proposal, dict) else False,
+        "next_change_rejected_reason": clean_text(selected_proposal.get("next_change_rejected_reason", "")) if isinstance(selected_proposal, dict) else "",
+        "next_change_zigzag_override": bool(selected_proposal.get("next_change_zigzag_override", False)) if isinstance(selected_proposal, dict) else False,
+        "next_change_zigzag_override_reason": clean_text(selected_proposal.get("next_change_zigzag_override_reason", "")) if isinstance(selected_proposal, dict) else "",
+        "original_rejection_reason": clean_text(selected_proposal.get("original_rejection_reason", "")) if isinstance(selected_proposal, dict) else "",
+        "next_change_parameter": clean_text(selected_proposal.get("next_change_parameter", "")) if isinstance(selected_proposal, dict) else "",
+        "next_change_from": selected_proposal.get("next_change_from") if isinstance(selected_proposal, dict) else None,
+        "next_change_to": selected_proposal.get("next_change_to") if isinstance(selected_proposal, dict) else None,
+        "consecutive_no_material_candidate": int(consecutive_no_material_candidate),
+        "fallback_diagnosis": fallback_diagnosis,
+    }
+
+
 def count_recent_transition_attempts(
     rows: List[Dict[str, str]],
     parameter: str,
@@ -3328,7 +3786,16 @@ def select_analyst_proposal(
     for p in recent_params:
         recent_param_counts[p] = int(recent_param_counts.get(p, 0)) + 1
     recent_unique_params = sorted({clean_text(p) for p in recent_params if clean_text(p)})
-    orthogonal_force_active = bool(len(recent_params) >= 6 and len(recent_unique_params) <= 2)
+    branch_force_orthogonal = bool(
+        branch_state.get("force_new_candidate_family", False)
+        or branch_state.get("force_axis_reset", False)
+        or branch_state.get("avoid_last_candidate_family", "")
+    )
+    orthogonal_force_active = bool(branch_force_orthogonal or (len(recent_params) >= 6 and len(recent_unique_params) <= 2))
+    no_material_recent_streak = count_consecutive_status_from_end(
+        rows,
+        {"blocked_no_material_candidate", "no_material_candidate_found"},
+    )
     last_useful_param = get_recent_useful_main_parameter(rows, lookback=12)
 
     def _already_tested(cfg: Dict[str, Any]) -> bool:
@@ -3573,6 +4040,345 @@ def select_analyst_proposal(
             key=lambda kv: (-int(to_float((kv[1] or {}).get("attempts")) or 0), kv[0]),
         )[:8]
     ]
+
+    next_change_audit: Dict[str, Any] = {
+        "next_change_present": False,
+        "proposal_source": "adaptive_fallback",
+        "next_change_consumed": False,
+        "next_change_rejected": False,
+        "next_change_rejected_reason": "",
+        "next_change_zigzag_override": False,
+        "next_change_zigzag_override_reason": "",
+        "next_change_recent_feedback_override": False,
+        "recent_feedback_ignored_reason": "",
+        "original_recent_feedback_reason": "",
+        "original_rejection_reason": "",
+        "next_change_parameter": "",
+        "next_change_from": None,
+        "next_change_to": None,
+    }
+
+    def _try_prepared_next_change() -> Optional[Dict[str, Any]]:
+        nonlocal next_change_audit
+        next_change_path = Path("state") / "next_change.json"
+        next_change_raw = load_json(next_change_path, {})
+        if not isinstance(next_change_raw, dict) or clean_text(next_change_raw.get("status", "")) != "prepared":
+            return None
+        next_change_audit["next_change_present"] = True
+
+        next_change = next_change_raw.get("recommended_next_change", {})
+        if not isinstance(next_change, dict):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "next_change_missing_recommended_next_change",
+                }
+            )
+            return None
+
+        spec_parent = clean_text(next_change_raw.get("parent_run_id", ""))
+        if spec_parent and spec_parent != clean_text(last_run_id):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "next_change_parent_mismatch",
+                    "next_change_parameter": clean_text(next_change.get("parameter", "")),
+                    "next_change_from": next_change.get("from_value"),
+                    "next_change_to": next_change.get("to_value"),
+                }
+            )
+            return None
+
+        param = clean_text(next_change.get("parameter", ""))
+        from_value = next_change.get("from_value")
+        to_value = next_change.get("to_value")
+        if not param:
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "next_change_missing_parameter",
+                }
+            )
+            return None
+
+        next_change_audit.update(
+            {
+                "next_change_parameter": param,
+                "next_change_from": from_value,
+                "next_change_to": to_value,
+            }
+        )
+
+        if normalize_scalar(from_value) == normalize_scalar(to_value):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": f"next_change_no_op:{param}:{normalize_scalar(from_value)}->{normalize_scalar(to_value)}",
+                }
+            )
+            return None
+
+        dep_param, dep_value, dep_reason = _next_change_dependency_requirement(param)
+        if dep_param and normalize_scalar(parent_cfg.get(dep_param)) != normalize_scalar(dep_value):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": f"dependency_gate_disabled:{dep_param}={normalize_scalar(dep_value)}",
+                }
+            )
+            return None
+
+        proposal_cfg = dict(parent_cfg)
+        proposal_cfg[param] = to_value
+        if _already_tested(proposal_cfg):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "config_hash_already_tested_executed_run",
+                }
+            )
+            return None
+
+        ex_key = (param, normalize_scalar(from_value), normalize_scalar(to_value))
+        if ex_key in active_cooldown_keys:
+            cd_entry = get_subspace_cooldown_entry(subspace_cooldowns, param, from_value, to_value, create_if_missing=False) or {}
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "cooldown_active",
+                    "cooldown_until_iteration": int(to_float(cd_entry.get("cooldown_until_iteration")) or 0),
+                    "cooldown_reason": clean_text(cd_entry.get("reason", "")),
+                }
+            )
+            return None
+        if ex_key in exhausted_keys:
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "hard_blocked_exhausted_or_memory_subspace",
+                }
+            )
+            return None
+
+        blocked_match = [
+            x for x in recent_feedback.get("recent_blocked_transitions", set())
+            if x[0] == param and x[1] == normalize_scalar(to_value)
+        ]
+        if blocked_match:
+            recent_feedback_override = is_recent_feedback_only_zigzag_for_same_next_change(
+                recent_feedback=recent_feedback,
+                parameter=param,
+                from_value=from_value,
+                to_value=to_value,
+                next_change=next_change,
+            )
+            if bool(recent_feedback_override.get("allowed", False)):
+                next_change_audit.update(
+                    {
+                        "next_change_recent_feedback_override": True,
+                        "recent_feedback_ignored_reason": clean_text(recent_feedback_override.get("reason", "")),
+                        "original_recent_feedback_reason": clean_text(recent_feedback_override.get("original_reason", "")),
+                    }
+                )
+            else:
+                next_change_audit.update(
+                    {
+                        "next_change_rejected": True,
+                        "next_change_rejected_reason": "recent_coordinator_block_feedback",
+                        "original_recent_feedback_reason": clean_text(recent_feedback_override.get("original_reason", "")),
+                    }
+                )
+                return None
+
+        proposal = {
+            "role": "analyst",
+            "status": "proposal_ready",
+            "proposal_status": "proposal_ready",
+            "proposal_source": "next_change",
+            "mode": mode_to_analyst_style(current_mode),
+            "research_mode_context": current_mode,
+            "change_intent": infer_change_intent_from_mode(current_mode),
+            "source": "next_change",
+            "queue_test_id": "",
+            "parent_run_id": last_run_id,
+            "analysis_reference_run_id": last_run_id,
+            "diagnosis": (
+                "next_change preparado consumido antes de adaptive_fallback; se prioriza cambio controlado validado."
+            ),
+            "hypothesis": clean_text(next_change.get("why", "")) or clean_text(next_change.get("why_improve", "")) or "next_change",
+            "main_change": {
+                "parameter": param,
+                "from_value": from_value,
+                "to_value": to_value,
+                "meaning": clean_text(next_change.get("family", "")) or clean_text(next_change.get("meaning", "")),
+                "purpose": clean_text(next_change.get("why", "")) or clean_text(next_change.get("purpose", "")),
+                "why_improve": clean_text(next_change.get("why", "")) or clean_text(next_change.get("why_improve", "")),
+            },
+            "dependent_change": None,
+            "expected_effect": clean_text(next_change.get("expected_effect", "")) or "next_change_consumed",
+            "compare_windows": windows,
+            "compare_vs_spy": True,
+            "prioritize_robustness_over_short_term": True,
+            "revert_explicit": False,
+            "revert_justification": "",
+            "proposal_config": proposal_cfg,
+            "fallback_diagnosis": fallback_diagnosis,
+            "fallback_candidate_pool_considered": [],
+            "fallback_selected_reason": "next_change_consumed",
+            "candidate_is_exploratory": False,
+            "exploratory_reason": "",
+            "bypassed_soft_cooldown": False,
+            "hard_block_bypassed": False,
+            "next_change_consumed": True,
+            "next_change_rejected": False,
+            "next_change_rejected_reason": "",
+            "next_change_parameter": param,
+            "next_change_from": from_value,
+            "next_change_to": to_value,
+        }
+        anchor_eval = evaluate_branch_anchor_conflict(proposal, anchor_state)
+        if bool(anchor_eval.get("blocked", False)):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "branch_anchor_locked",
+                }
+            )
+            return None
+
+        materiality_check = validate_main_change_materiality(proposal)
+        if not bool(materiality_check.get("material_change_detected", False)):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "non_material_candidate",
+                }
+            )
+            return None
+
+        transition_eval = classify_param_transition(rows, proposal, parent_cfg)
+        transition_details = transition_eval.get("details", [])
+        transition_class = ""
+        if transition_details:
+            transition_class = clean_text(transition_details[0].get("classification", ""))
+        if transition_class in {"no_op_equivalence", "duplicate_recent_proposal"}:
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": f"transition_{transition_class}",
+                }
+            )
+            return None
+        if transition_class == "true_zigzag_reversal":
+            allow_zigzag_countermove = bool(next_change.get("allow_zigzag_countermove", False))
+            override_reason = clean_text(next_change.get("override_reason", "")) or clean_text(
+                next_change.get("evidence_reason", "")
+            )
+            evidence_items = next_change.get("evidence", [])
+            if not allow_zigzag_countermove or not override_reason or not isinstance(evidence_items, list) or not evidence_items:
+                next_change_audit.update(
+                    {
+                        "next_change_rejected": True,
+                        "next_change_rejected_reason": "transition_true_zigzag_reversal",
+                    }
+                )
+                return None
+            next_change_audit.update(
+                {
+                    "next_change_zigzag_override": True,
+                    "next_change_zigzag_override_reason": override_reason,
+                    "original_rejection_reason": "transition_true_zigzag_reversal",
+                }
+            )
+
+        candidate_type = candidate_type_from_parameter(param)
+        if mode_hard_block_candidate(
+            current_mode=current_mode,
+            candidate_type=candidate_type,
+            parameter=param,
+        ):
+            next_change_audit.update(
+                {
+                    "next_change_rejected": True,
+                    "next_change_rejected_reason": "blocked_by_current_mode",
+                }
+            )
+            return None
+
+        parameter_recent_attempts = count_recent_parameter_attempts(
+            rows=rows,
+            parameter=param,
+            lookback=50,
+            current_parent_run_id="",
+        )
+        transition_recent_attempts = count_recent_transition_attempts(
+            rows=rows,
+            parameter=param,
+            from_value=from_value,
+            to_value=to_value,
+            lookback=50,
+            current_parent_run_id="",
+        )
+        effect_entry = (
+            get_parameter_effect_entry(
+                parameter_effect_memory,
+                param,
+                from_value,
+                to_value,
+                create_if_missing=False,
+            )
+            or {}
+        )
+        proposal["selection_trace"] = {
+            "current_mode": current_mode,
+            "change_intent": proposal.get("change_intent"),
+            "selection_reason": "next_change_consumed",
+            "orthogonal_force_active": False,
+            "selected_is_orthogonal": False,
+            "recommended_change_directions": recommended_change_directions[:3],
+            "historical_memory_used": {
+                "parameter_effect_summary_top": fallback_diagnosis.get("parameter_effect_memory_used", [])[:5],
+                "chosen_transition_effect_memory": {
+                    "parameter": param,
+                    "from_value": normalize_scalar(from_value),
+                    "to_value": normalize_scalar(to_value),
+                    "current_effect_class": clean_text(effect_entry.get("current_effect_class", "")),
+                    "total_attempts": int(to_float(effect_entry.get("total_attempts")) or 0),
+                    "accepted_count": int(to_float(effect_entry.get("accepted_count")) or 0),
+                    "rejected_count": int(to_float(effect_entry.get("rejected_count")) or 0),
+                    "avg_delta_w52_spy_compare": to_float(effect_entry.get("avg_delta_w52_spy_compare")),
+                    "avg_delta_w52_trades": to_float(effect_entry.get("avg_delta_w52_trades")),
+                    "avg_delta_w52_avg_net_return_pct": to_float(effect_entry.get("avg_delta_w52_avg_net_return_pct")),
+                },
+                "active_cooldown_subspaces": fallback_diagnosis.get("active_cooldown_subspaces", [])[:8],
+            },
+            "alternatives_discarded": [],
+        }
+        proposal["candidate_generation_diagnostic_output"] = build_candidate_generation_diagnostic_output(
+            parent_run_id=last_run_id,
+            proposal_status=proposal["proposal_status"],
+            fallback_candidate_pool_considered=[],
+            fallback_diagnosis=fallback_diagnosis,
+            selected_proposal=proposal,
+            force_axis_reset=bool(branch_state.get("force_axis_reset", False)),
+            force_new_candidate_family=bool(branch_state.get("force_new_candidate_family", False)),
+            consecutive_no_material_candidate=int(no_material_recent_streak),
+        )
+        next_change_audit.update(
+            {
+                "proposal_source": "next_change",
+                "next_change_consumed": True,
+                "next_change_rejected": False,
+                "next_change_rejected_reason": "",
+            }
+        )
+        return proposal
+
+    next_change_proposal = _try_prepared_next_change()
+    if isinstance(next_change_proposal, dict):
+        next_change_proposal = apply_next_change_trace(next_change_proposal, next_change_audit)
+        next_change_proposal.pop("_selection_meta", None)
+        return next_change_proposal
 
     fallback_candidates = [
         {
@@ -4476,11 +5282,379 @@ def select_analyst_proposal(
             },
             "alternatives_discarded": top_alternatives,
         }
+        selected["proposal_status"] = clean_text(selected.get("status", "proposal_ready")) or "proposal_ready"
+        selected["candidate_generation_diagnostic_output"] = build_candidate_generation_diagnostic_output(
+            parent_run_id=last_run_id,
+            proposal_status=selected["proposal_status"],
+            fallback_candidate_pool_considered=fallback_candidate_pool_considered,
+            fallback_diagnosis=fallback_diagnosis,
+            selected_proposal=selected,
+            force_axis_reset=bool(branch_state.get("force_axis_reset", False)),
+            force_new_candidate_family=bool(branch_state.get("force_new_candidate_family", False)),
+            consecutive_no_material_candidate=int(no_material_recent_streak),
+        )
+        selected = apply_next_change_trace(selected, next_change_audit)
         selected.pop("_selection_meta", None)
         return selected
 
+    exploratory_trigger = bool(
+        branch_force_orthogonal
+        or no_material_recent_streak >= 5
+        or len([x for x in fallback_candidate_pool_considered if clean_text(x.get("state", "")) == "valid"]) == 0
+    )
+    if exploratory_trigger:
+        exploratory_candidates = build_exploratory_candidate_specs(parent_cfg)
+        exploratory_selected: Optional[Dict[str, Any]] = None
+        exploratory_reason = "candidate_pool_exhausted_need_orthogonal_axis"
+        for candidate in exploratory_candidates:
+            param = str(candidate.get("parameter", ""))
+            if not param:
+                continue
+            from_value = parent_cfg.get(param)
+            to_value = candidate.get("to_value")
+            candidate_family = clean_text(candidate.get("candidate_family", "")) or candidate_family_from_parameter(param)
+            if normalize_scalar(from_value) == normalize_scalar(to_value):
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "no_op_equivalence",
+                        "candidate_family": candidate_family,
+                    }
+                )
+                continue
+
+            ex_key = (param, normalize_scalar(from_value), normalize_scalar(to_value))
+            if ex_key in exhausted_keys:
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "hard_blocked_exhausted_or_memory_subspace",
+                        "candidate_family": candidate_family,
+                        "exhausted_stats": exhausted_subspaces.get(ex_key, {}),
+                    }
+                )
+                continue
+
+            proposal_cfg = dict(parent_cfg)
+            proposal_cfg[param] = to_value
+            if _already_tested(proposal_cfg):
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "config_hash_already_tested_executed_run",
+                        "candidate_family": candidate_family,
+                    }
+                )
+                continue
+
+            blocked_key = (param, normalize_scalar(to_value))
+            blocked_match = [
+                x for x in recent_feedback.get("recent_blocked_transitions", set())
+                if x[0] == blocked_key[0] and x[1] == blocked_key[1]
+            ]
+            if blocked_match:
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "recent_coordinator_block_feedback",
+                        "candidate_family": candidate_family,
+                        "blocked_feedback": [f"{b[0]}:{b[1]}:{b[2]}" for b in blocked_match],
+                    }
+                )
+                continue
+
+            proposal = {
+                "role": "analyst",
+                "status": "controlled_exploration_exploratory_candidate",
+                "proposal_status": "controlled_exploration_exploratory_candidate",
+                "mode": mode_to_analyst_style(current_mode),
+                "research_mode_context": current_mode,
+                "change_intent": infer_change_intent_from_mode(current_mode),
+                "source": "adaptive_fallback",
+                "fallback_layer_used": "layer_3",
+                "queue_test_id": "",
+                "parent_run_id": last_run_id,
+                "analysis_reference_run_id": last_run_id,
+                "diagnosis": (
+                    "Exploratory fallback activo: la capa 1 y 2 quedaron saturadas; "
+                    "se intenta una rama ortogonal segura."
+                ),
+                "hypothesis": "candidate_pool_exhausted_need_orthogonal_axis",
+                "main_change": {
+                    "parameter": param,
+                    "from_value": from_value,
+                    "to_value": to_value,
+                    "meaning": clean_text(candidate.get("meaning", "")),
+                    "purpose": clean_text(candidate.get("purpose", "")),
+                    "why_improve": clean_text(candidate.get("why_improve", "")),
+                },
+                "dependent_change": None,
+                "expected_effect": clean_text(candidate.get("expected_effect", "")),
+                "compare_windows": windows,
+                "compare_vs_spy": True,
+                "prioritize_robustness_over_short_term": True,
+                "revert_explicit": False,
+                "revert_justification": "",
+                "proposal_config": proposal_cfg,
+                "fallback_diagnosis": fallback_diagnosis,
+                "fallback_candidate_pool_considered": [],
+                "fallback_selected_reason": exploratory_reason,
+                "candidate_is_exploratory": True,
+                "exploratory_reason": exploratory_reason,
+                "bypassed_soft_cooldown": bool(ex_key in active_cooldown_keys),
+                "hard_block_bypassed": False,
+            }
+            anchor_eval = evaluate_branch_anchor_conflict(proposal, anchor_state)
+            if bool(anchor_eval.get("blocked", False)):
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "branch_anchor_locked",
+                        "candidate_family": candidate_family,
+                        "anchor_reasons": anchor_eval.get("reasons", []),
+                    }
+                )
+                continue
+
+            materiality_check = validate_main_change_materiality(proposal)
+            if not bool(materiality_check.get("material_change_detected", False)):
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "non_material_candidate",
+                        "candidate_family": candidate_family,
+                    }
+                )
+                continue
+
+            transition_eval = classify_param_transition(rows, proposal, parent_cfg)
+            transition_details = transition_eval.get("details", [])
+            transition_class = ""
+            if transition_details:
+                transition_class = clean_text(transition_details[0].get("classification", ""))
+            if transition_class in {"no_op_equivalence", "duplicate_recent_proposal", "true_zigzag_reversal"}:
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": f"transition_{transition_class}",
+                        "candidate_family": candidate_family,
+                    }
+                )
+                continue
+
+            candidate_type = clean_text(candidate.get("candidate_type", "")) or "controlled_exploration"
+            if mode_hard_block_candidate(
+                current_mode=current_mode,
+                candidate_type=candidate_type,
+                parameter=param,
+            ):
+                fallback_candidate_pool_considered.append(
+                    {
+                        "layer": "layer_3",
+                        "parameter": param,
+                        "from_value": from_value,
+                        "to_value": to_value,
+                        "state": "discarded",
+                        "reason": "blocked_by_current_mode",
+                        "candidate_family": candidate_family,
+                        "current_mode": current_mode,
+                        "candidate_type": candidate_type,
+                    }
+                )
+                continue
+
+            parameter_recent_attempts = count_recent_parameter_attempts(
+                rows=rows,
+                parameter=param,
+                lookback=50,
+                current_parent_run_id="",
+            )
+            transition_recent_attempts = count_recent_transition_attempts(
+                rows=rows,
+                parameter=param,
+                from_value=from_value,
+                to_value=to_value,
+                lookback=50,
+                current_parent_run_id="",
+            )
+            is_orthogonal = int(recent_param_counts.get(param, 0)) == 0
+            effect_entry = (
+                get_parameter_effect_entry(
+                    parameter_effect_memory,
+                    param,
+                    from_value,
+                    to_value,
+                    create_if_missing=False,
+                )
+                or {}
+            )
+            bypassed_soft_cooldown = bool(ex_key in active_cooldown_keys)
+            score = score_fallback_candidate(
+                diagnosis_category=diagnosis_category,
+                candidate_type=candidate_type,
+                parameter=param,
+                from_value=from_value,
+                to_value=to_value,
+                transition_classification=(transition_class or "fresh_change"),
+                layer="layer_3",
+                behavior_diag=behavior_diag,
+                branch_health=branch_health,
+                exhausted_subspaces=exhausted_subspaces,
+                parameter_effect_entry=effect_entry,
+                parameter_effect_summary=parameter_effect_summary,
+                parameter_recent_attempts=parameter_recent_attempts,
+                cooldown_active=False if bypassed_soft_cooldown else bool(ex_key in active_cooldown_keys),
+            )
+            mode_adj = mode_score_adjustment(
+                current_mode=current_mode,
+                candidate_type=candidate_type,
+                parameter=param,
+                transition_classification=(transition_class or "fresh_change"),
+                parameter_recent_attempts=parameter_recent_attempts,
+                recent_param_counts=recent_param_counts,
+                last_useful_param=last_useful_param,
+            )
+            stage4_adj, stage4_reasons = stage4_candidate_adjustment(
+                parameter=param,
+                from_value=from_value,
+                to_value=to_value,
+                candidate_type=candidate_type,
+                current_mode=current_mode,
+                branch_health=branch_health,
+                main_friction=main_friction,
+                recommended_dirs=recommended_change_directions,
+                parameter_recent_attempts=parameter_recent_attempts,
+                transition_recent_attempts=transition_recent_attempts,
+                recent_param_counts=recent_param_counts,
+                parameter_effect_entry=effect_entry,
+                orthogonal_force_active=orthogonal_force_active,
+            )
+            score = score + mode_adj + stage4_adj
+            proposal["_selection_meta"] = {
+                "layer": "layer_3",
+                "candidate_type": candidate_type,
+                "is_orthogonal": bool(is_orthogonal),
+                "parameter_recent_attempts": int(parameter_recent_attempts),
+                "transition_recent_attempts": int(transition_recent_attempts),
+                "base_score": round(score - mode_adj - stage4_adj, 6),
+                "mode_score_adjustment": round(mode_adj, 6),
+                "stage4_score_adjustment": round(stage4_adj, 6),
+                "stage4_reasons": list(stage4_reasons),
+            }
+            proposal["bypassed_soft_cooldown"] = bypassed_soft_cooldown
+            proposal["hard_block_bypassed"] = False
+            candidate_entry = {
+                "layer": "layer_3",
+                "parameter": param,
+                "from_value": from_value,
+                "to_value": to_value,
+                "state": "valid",
+                "reason": "controlled_exploration_exploratory_candidate",
+                "candidate_type": candidate_type,
+                "candidate_family": candidate_family,
+                "current_mode": current_mode,
+                "is_orthogonal": bool(is_orthogonal),
+                "parameter_recent_attempts": int(parameter_recent_attempts),
+                "transition_recent_attempts": int(transition_recent_attempts),
+                "base_score": round(score - mode_adj - stage4_adj, 6),
+                "mode_score_adjustment": round(mode_adj, 6),
+                "stage4_score_adjustment": round(stage4_adj, 6),
+                "stage4_reasons": stage4_reasons,
+                "transition_classification": transition_class or "fresh_change",
+                "score": round(score, 6),
+                "bypassed_soft_cooldown": bypassed_soft_cooldown,
+            }
+            fallback_candidate_pool_considered.append(candidate_entry)
+            candidate_evaluations.append(
+                {
+                    "proposal": proposal,
+                    "score": float(score),
+                    "layer": "layer_3",
+                    "parameter": param,
+                    "from_value": from_value,
+                    "to_value": to_value,
+                    "candidate_type": candidate_type,
+                    "is_orthogonal": bool(is_orthogonal),
+                }
+            )
+            if score > selected_score:
+                exploratory_selected = proposal
+                selected = proposal
+                selected_score = score
+                selected_is_orthogonal = bool(is_orthogonal)
+                selected_reason = (
+                    f"controlled_exploration_exploratory_candidate score={score:.4f} diagnosis={diagnosis_category} "
+                    f"mode={current_mode} transition={candidate_entry['transition_classification']}"
+                )
+
+        if exploratory_selected is not None:
+            selected = exploratory_selected
+            selected["fallback_diagnosis"] = fallback_diagnosis
+            selected["fallback_candidate_pool_considered"] = fallback_candidate_pool_considered
+            selected["fallback_selected_reason"] = selected_reason
+            selected["change_intent"] = infer_change_intent_from_mode(current_mode)
+            selected["selection_trace"] = {
+                "current_mode": current_mode,
+                "change_intent": selected.get("change_intent"),
+                "selection_reason": selected_reason,
+                "orthogonal_force_active": bool(orthogonal_force_active),
+                "selected_is_orthogonal": bool(selected_is_orthogonal),
+                "recommended_change_directions": recommended_change_directions[:3],
+                "historical_memory_used": {
+                    "parameter_effect_summary_top": fallback_diagnosis.get("parameter_effect_memory_used", [])[:5],
+                    "chosen_transition_effect_memory": {
+                        "parameter": clean_text((selected.get("main_change") or {}).get("parameter", "")),
+                        "from_value": normalize_scalar((selected.get("main_change") or {}).get("from_value")),
+                        "to_value": normalize_scalar((selected.get("main_change") or {}).get("to_value")),
+                    },
+                    "active_cooldown_subspaces": fallback_diagnosis.get("active_cooldown_subspaces", [])[:8],
+                },
+                "alternatives_discarded": [],
+            }
+            selected["candidate_generation_diagnostic_output"] = build_candidate_generation_diagnostic_output(
+                parent_run_id=last_run_id,
+                proposal_status=selected["status"],
+                fallback_candidate_pool_considered=fallback_candidate_pool_considered,
+                fallback_diagnosis=fallback_diagnosis,
+                selected_proposal=selected,
+                force_axis_reset=bool(branch_state.get("force_axis_reset", False)),
+                force_new_candidate_family=bool(branch_state.get("force_new_candidate_family", False)),
+                consecutive_no_material_candidate=int(no_material_recent_streak),
+            )
+            selected = apply_next_change_trace(selected, next_change_audit)
+            selected.pop("_selection_meta", None)
+            return selected
+
     fallback_diagnosis["second_layer_executed"] = True
-    return build_no_material_candidate_proposal(
+    no_material_proposal = build_no_material_candidate_proposal(
         parent_cfg=parent_cfg,
         last_valid_ctx=last_valid_ctx,
         windows=windows,
@@ -4496,7 +5670,20 @@ def select_analyst_proposal(
         fallback_diagnosis=fallback_diagnosis,
         fallback_candidate_pool_considered=fallback_candidate_pool_considered,
         current_mode=current_mode,
+        candidate_generation_diagnostic_output=build_candidate_generation_diagnostic_output(
+            parent_run_id=last_run_id,
+            proposal_status="no_material_candidate_found",
+            fallback_candidate_pool_considered=fallback_candidate_pool_considered,
+            fallback_diagnosis=fallback_diagnosis,
+            selected_proposal=None,
+            force_axis_reset=bool(branch_state.get("force_axis_reset", False)),
+            force_new_candidate_family=bool(branch_state.get("force_new_candidate_family", False)),
+            consecutive_no_material_candidate=int(no_material_recent_streak),
+        ),
     )
+    no_material_proposal["proposal_status"] = "no_material_candidate_found"
+    no_material_proposal = apply_next_change_trace(no_material_proposal, next_change_audit)
+    return no_material_proposal
 
 def changed_params_from_proposal(proposal: Dict[str, Any]) -> List[str]:
     out = []
@@ -4762,6 +5949,48 @@ def is_explicit_revert_allowed(proposal: Dict[str, Any], rows: List[Dict[str, st
     if not param:
         return False
     return param == str(last.get("main_parameter", "")) or param == str(last.get("dependent_parameter", ""))
+
+
+def is_next_change_zigzag_override_allowed(proposal: Dict[str, Any]) -> bool:
+    proposal_source = clean_text(proposal.get("proposal_source", "")) or clean_text(proposal.get("source", ""))
+    if proposal_source != "next_change":
+        return False
+    if not bool(proposal.get("next_change_consumed", False)) and not bool(proposal.get("next_change_zigzag_override", False)):
+        return False
+    override_reason = clean_text(proposal.get("next_change_zigzag_override_reason", "")) or clean_text(
+        proposal.get("override_reason", "")
+    ) or clean_text(proposal.get("evidence_reason", ""))
+    if not override_reason:
+        return False
+    original_rejection_reason = clean_text(proposal.get("original_rejection_reason", "")) or clean_text(
+        proposal.get("next_change_rejected_reason", "")
+    )
+    if original_rejection_reason != "transition_true_zigzag_reversal":
+        return False
+    next_change_path = Path("state") / "next_change.json"
+    next_change_raw = load_json(next_change_path, {})
+    if not isinstance(next_change_raw, dict) or clean_text(next_change_raw.get("status", "")) != "prepared":
+        return False
+    next_change = next_change_raw.get("recommended_next_change", {})
+    if not isinstance(next_change, dict):
+        return False
+    if clean_text(next_change_raw.get("parent_run_id", "")) != clean_text(proposal.get("parent_run_id", "")):
+        return False
+    if clean_text(next_change.get("parameter", "")) != clean_text((proposal.get("main_change") or {}).get("parameter", "")):
+        return False
+    if normalize_scalar(next_change.get("from_value")) != normalize_scalar((proposal.get("main_change") or {}).get("from_value")):
+        return False
+    if normalize_scalar(next_change.get("to_value")) != normalize_scalar((proposal.get("main_change") or {}).get("to_value")):
+        return False
+    if not bool(next_change.get("allow_zigzag_countermove", False)):
+        return False
+    override_reason = clean_text(next_change.get("override_reason", "")) or clean_text(next_change.get("evidence_reason", ""))
+    if not override_reason:
+        return False
+    evidence_items = next_change.get("evidence", [])
+    if not isinstance(evidence_items, list) or not evidence_items:
+        return False
+    return True
 
 
 def run_preflight(
@@ -5582,6 +6811,39 @@ def evaluate_promotion_vs_parent(
     }
 
 
+def evaluate_parent_depth_guard_52w(current_metrics: Dict[str, Any]) -> Dict[str, Any]:
+    w52_weeks_traded = to_float(current_metrics.get("weeks_traded"))
+    w52_trades = to_float(current_metrics.get("trades"))
+    excluded_ratio = None
+    if w52_weeks_traded is not None and float(w52_weeks_traded) >= 0:
+        excluded_ratio = max(0.0, 1.0 - (float(w52_weeks_traded) / 52.0))
+
+    weeks_ok = w52_weeks_traded is not None and float(w52_weeks_traded) >= 20.0
+    trades_ok = w52_trades is not None and float(w52_trades) >= 15.0
+    excluded_ok = excluded_ratio is not None and float(excluded_ratio) <= 0.50
+    passed = bool(weeks_ok and trades_ok and excluded_ok)
+
+    blockers: List[str] = []
+    if not weeks_ok:
+        blockers.append("w52_weeks_traded_below_parent_minimum")
+    if not trades_ok:
+        blockers.append("w52_trades_below_parent_minimum")
+    if not excluded_ok:
+        blockers.append("w52_excluded_ratio_above_parent_maximum")
+
+    return {
+        "pass": passed,
+        "reason": "" if passed else "low_depth_52w_not_allowed_as_parent",
+        "weeks_traded": w52_weeks_traded,
+        "trades": w52_trades,
+        "excluded_ratio": (round(float(excluded_ratio), 6) if excluded_ratio is not None else None),
+        "min_weeks_traded": 20.0,
+        "min_trades": 15.0,
+        "max_excluded_ratio": 0.50,
+        "blockers": blockers,
+    }
+
+
 def decide_acceptance(
     executor_output: Dict[str, Any],
     last_valid_ctx: Optional[Dict[str, Any]],
@@ -5603,6 +6865,12 @@ def decide_acceptance(
     curr_w24, meta_w24 = get_window_metrics_if_valid_depth(executor_output, 24)
     curr_w52, meta_w52 = get_window_metrics_if_valid_depth(executor_output, 52)
     compare["window_depth_validation"] = {"24": meta_w24, "52": meta_w52}
+    parent_depth_guard = evaluate_parent_depth_guard_52w(curr_w52 or {})
+    compare["parent_depth_guard_52w"] = parent_depth_guard
+    if not bool(parent_depth_guard.get("pass", False)):
+        compare["do_not_use_as_parent"] = True
+        compare["branch_anchor_allowed"] = False
+        compare["parent_depth_guard_reason"] = clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))
     depth_limited_rule = evaluate_depth_limited_followup_rule(
         executor_output=executor_output,
         year_validation_window_weeks=year_validation_window_weeks,
@@ -5777,6 +7045,14 @@ def decide_acceptance(
         compare["promotion_blockers"] = promotion_only_blockers
         if long_depth_limited and strong_w52_signal:
             compare["champion_for_followup"] = True
+        if not bool(parent_depth_guard.get("pass", False)):
+            compare["promotion_reason"] = "Corrida util para seguimiento, pero no elegible como parent fuerte por baja profundidad 52w."
+            compare["promotion_blockers"] = list(
+                dict.fromkeys(
+                    (compare.get("promotion_blockers") or [])
+                    + [clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))]
+                )
+            )
         return "accepted_for_followup", ["Aceptado para seguimiento."] + promotion_only_blockers, compare
 
     parent_metrics = {}
@@ -5811,6 +7087,14 @@ def decide_acceptance(
         if strong_w52_signal:
             compare["champion_for_followup"] = True
             followup_reasons.append("Marcada como champion_for_followup por señal fuerte en 52w con profundidad larga insuficiente.")
+        if not bool(parent_depth_guard.get("pass", False)):
+            compare["promotion_reason"] = "Pendiente validacion robusta en ventana larga real, pero no elegible como parent fuerte por baja profundidad 52w."
+            compare["promotion_blockers"] = list(
+                dict.fromkeys(
+                    (compare.get("promotion_blockers") or [])
+                    + [clean_text(parent_depth_guard.get("reason", "low_depth_52w_not_allowed_as_parent"))]
+                )
+            )
         return "accepted_for_followup", followup_reasons, compare
 
     if followup_quality_blocks:
@@ -6538,12 +7822,17 @@ def persist_governance_state(
         p_state["current_parent_run_id"] = run_id
         p_state["parent_source"] = "fresh_branch_run"
         p_state["use_baseline_as_parent"] = False
+        if decision_type == "accepted_for_followup":
+            b_state["last_followup_run_id"] = run_id
+            r_state["last_followup_run_id"] = run_id
     elif decision_type in {"accepted_for_followup", "promoted_to_baseline"} and do_not_use_as_parent:
+        parent_guard_reason = clean_text(compare_state.get("parent_depth_guard_reason", "")) or "low_depth_52w_not_allowed_as_parent"
         p_state["last_rejected_parent_candidate_run_id"] = run_id
-        p_state["last_rejected_parent_candidate_reason"] = "do_not_use_as_parent/metric_no_effect_or_no_material_improvement"
-    if decision_type == "accepted_for_followup":
-        b_state["last_followup_run_id"] = run_id
-        r_state["last_followup_run_id"] = run_id
+        p_state["last_rejected_parent_candidate_reason"] = parent_guard_reason
+        p_state["last_followup_evidence_run_id"] = run_id
+        p_state["last_followup_evidence_reason"] = parent_guard_reason
+        r_state["last_followup_evidence_run_id"] = run_id
+        r_state["last_followup_evidence_reason"] = parent_guard_reason
     if decision_type == "promoted_to_baseline":
         b_state["last_promoted_baseline_run_id"] = run_id
         r_state["last_promoted_baseline_run_id"] = run_id
@@ -7681,14 +8970,14 @@ def main() -> int:
     run_log(f"RUN START run_id={run_id} run_dir={run_dir}")
 
     baseline_parent_requested = research_state_requests_baseline_parent(research_state)
-    latest_valid, parent_source = get_preferred_parent_context(
+    latest_valid, parent_source, rejected_startup_parent_run_id, rejected_startup_parent_reason = get_preferred_parent_context(
         repo,
         baseline,
         research_state,
         champion_runs=champion_runs,
         rows=rows,
     )
-    if not latest_valid and not baseline_parent_requested:
+    if not latest_valid and not baseline_parent_requested and parent_source != "current_baseline":
         latest_valid = get_latest_valid_run_context(repo)
         parent_source = "scan_latest_valid" if latest_valid else "baseline_reference"
     elif not latest_valid:
@@ -7705,7 +8994,9 @@ def main() -> int:
         "CONTEXT "
         f"validation_phase={validation_phase} parent_run_id={parent_run_id} "
         f"parent_script={parent_script.name} "
-        f"parent_source={parent_source}"
+        f"parent_source={parent_source} "
+        f"rejected_startup_parent_run_id={rejected_startup_parent_run_id} "
+        f"rejected_startup_parent_reason={rejected_startup_parent_reason}"
     )
     run_log(
         "CONTEXT branch_anchor "
@@ -7913,6 +9204,9 @@ def main() -> int:
         proposal["hypothesis"] = invalid_msg
     proposal = ensure_analyst_output_contract(proposal, windows)
     save_json(run_dir / "analyst_output.json", proposal)
+    candidate_generation_diagnostic = proposal.get("candidate_generation_diagnostic_output")
+    if isinstance(candidate_generation_diagnostic, dict) and candidate_generation_diagnostic:
+        save_json(run_dir / "candidate_generation_diagnostic_output.json", candidate_generation_diagnostic)
     main_ch = proposal.get("main_change") or {}
     dep_ch = proposal.get("dependent_change") or {}
     run_log(
@@ -8324,7 +9618,19 @@ def main() -> int:
         exit_ctx["reason"] = clean_text("; ".join(anchor_reasons))
         return 0
 
-    revert_allowed = is_explicit_revert_allowed(proposal, rows)
+    proposal_source = clean_text(proposal.get("proposal_source", "")) or clean_text(proposal.get("source", ""))
+    next_change_consumed = bool(proposal.get("next_change_consumed", False))
+    next_change_zigzag_override = bool(proposal.get("next_change_zigzag_override", False))
+    next_change_zigzag_override_allowed = is_next_change_zigzag_override_allowed(proposal)
+    original_rejection_reason = clean_text(proposal.get("original_rejection_reason", "")) or clean_text(
+        proposal.get("next_change_rejected_reason", "")
+    )
+    main_change_obj = proposal.get("main_change") or {}
+    main_parameter = clean_text(main_change_obj.get("parameter", ""))
+    main_from = normalize_scalar(main_change_obj.get("from_value"))
+    main_to = normalize_scalar(main_change_obj.get("to_value"))
+    transition_class = clean_text(transition_eval.get("details", [{}])[0].get("classification", "")) if transition_eval.get("details") else ""
+    revert_allowed = is_explicit_revert_allowed(proposal, rows) or next_change_zigzag_override_allowed
     duplicate_transition_details = [
         d for d in (transition_eval.get("details", []) or [])
         if clean_text(d.get("classification", "")) == "duplicate_recent_proposal"
@@ -8430,6 +9736,17 @@ def main() -> int:
     transition_blocks = transition_eval.get("block_reasons", [])
     has_zigzag_block = bool(transition_eval.get("blocked", False))
     if has_zigzag_block and not revert_allowed:
+        run_log(
+            "COORDINATOR blocked_zigzag precheck "
+            f"proposal_source={proposal_source} "
+            f"next_change_consumed={next_change_consumed} "
+            f"next_change_zigzag_override={next_change_zigzag_override} "
+            f"next_change_zigzag_override_allowed={next_change_zigzag_override_allowed} "
+            f"original_rejection_reason={original_rejection_reason} "
+            f"transition_class={transition_class} "
+            f"parameter={main_parameter} from={main_from} to={main_to} "
+            f"hard_block_bypassed=False"
+        )
         coordinator_output = {
             "role": "coordinator",
             "status": "blocked_zigzag",
@@ -8531,7 +9848,17 @@ def main() -> int:
         exit_ctx["reason"] = "blocked_true_zigzag_reversal"
         return 0
     if has_zigzag_block and revert_allowed:
-        run_log("COORDINATOR zigzag override: revert_explicit=true con justificacion valida.")
+        if bool(proposal.get("next_change_zigzag_override", False)):
+            run_log(
+                "COORDINATOR zigzag_override_allowed "
+                f"parameter={main_parameter} from={main_from} to={main_to} "
+                f"reason={clean_text(proposal.get('next_change_zigzag_override_reason', '')) or clean_text(proposal.get('override_reason', '')) or clean_text(proposal.get('evidence_reason', ''))}"
+            )
+            run_log(
+                "COORDINATOR zigzag override: next_change override activo con justificacion valida."
+            )
+        else:
+            run_log("COORDINATOR zigzag override: revert_explicit=true con justificacion valida.")
     run_log("COORDINATOR continue: cambio material valido y sin conflicto zig-zag bloqueante.")
 
     candidate_cfg = dict(proposal.get("proposal_config") or parent_cfg)
@@ -9356,7 +10683,7 @@ def main() -> int:
     executor_status = classify_executor_run_status(windows_results, exec_errors)
     if any("blocked_window_not_allowed" in clean_text(e) for e in (exec_errors or [])):
         executor_status = "blocked_window_not_allowed"
-    core_window = "52" if "52" in windows_results else str(max(windows_sorted))
+    core_window = "52" if "52" in windows_results else (str(max(windows_sorted)) if windows_sorted else "52")
     core_metrics = (windows_results.get(core_window, {}) or {}).get("metrics", {})
     validation_depth_summary = build_validation_depth_summary(
         windows_results=windows_results,

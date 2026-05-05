@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "updated_at": "2026-05-04T00:00:00",
+  "parent_run_id": "EXP_392",
+  "status": "prepared",
+  "recommended_next_change": {
+    "parameter": "TOP_SIMILAR_SPY_WEEKS",
+    "from_value": "28",
+    "to_value": "24",
+    "family": "matching_tightening",
+    "why": "tightening de matching sin expansion de universo",
+    "allow_zigzag_countermove": true,
+    "override_reason": "evidence_driven_tightening_after_edge_dilution",
+    "evidence": [
+      "EXP_1542 TOP_SIMILAR_SPY_WEEKS 28 -> 32 was harmful / edge_dilution",
+      "Tightening 28 -> 24 tests the opposite causal direction after edge dilution"
+    ],
+    "expected_effects": {
+      "spy_compare": "up_or_stable",
+      "avg_net_return_pct": "up_or_stable",
+      "trades": "down_or_stable",
+      "robustness_52w": "up_or_stable"
+    },
+    "risk": "puede bajar pool y frecuencia demasiado",
+    "measurement": [
+      "weeks_traded",
+      "trades",
+      "excluded_ratio",
+      "spy_compare",
+      "avg_net_return_pct",
+      "total_net_pnl_dollars"
+    ],
+    "decision_rule": "aceptar solo si mejora edge sin romper frecuencia/robustez"
+  }
+}

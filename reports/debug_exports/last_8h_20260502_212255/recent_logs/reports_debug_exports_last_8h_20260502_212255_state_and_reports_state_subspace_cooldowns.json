@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "updated_at": "2026-05-02T21:20:20",
+  "default_cooldown_iterations": 8,
+  "cooldowns": [
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": "2",
+      "to_value": "4",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "recent_exhausted_subspace",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_285",
+        "EXP_288",
+        "EXP_292"
+      ],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change",
+      "active_branch_id": "reboot_from_exp127",
+      "activated_at": "2026-05-01T11:23:08",
+      "branch_seed_run_id": "EXP_127"
+    },
+    {
+      "parameter": "TOP_CANDIDATES_NEXT_WEEK",
+      "from_value": "2",
+      "to_value": "5",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "recent_exhausted_subspace",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_289",
+        "EXP_293",
+        "EXP_294"
+      ],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change",
+      "active_branch_id": "reboot_from_exp127",
+      "activated_at": "2026-05-01T11:23:08",
+      "branch_seed_run_id": "EXP_127"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": "28",
+      "to_value": "16",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 299,
+      "reason": "exhausted_transition: repeats>=3 and reject_ratio>=0.75 and no_incremental_improvement",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_286",
+        "EXP_290",
+        "EXP_291"
+      ],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": "0.17",
+      "to_value": "0.15",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 305,
+      "reason": "exhausted_transition: repeats>=3 and reject_ratio>=0.75 and no_incremental_improvement",
+      "reject_ratio": 1.0,
+      "last_run_ids": [
+        "EXP_295",
+        "EXP_296",
+        "EXP_297"
+      ],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change"
+    },
+    {
+      "parameter": "MAX_AVG_PROFILE_DISTANCE",
+      "from_value": "0.17",
+      "to_value": "0.22",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 291,
+      "reason": "exhausted_transition: repeats>=3 and reject_ratio>=0.75 and no_incremental_improvement",
+      "reject_ratio": 0.75,
+      "last_run_ids": [
+        "EXP_271",
+        "EXP_279",
+        "EXP_280",
+        "EXP_283"
+      ],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": "0.6",
+      "to_value": "0.63",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1434,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "TOP_SIMILAR_SPY_WEEKS",
+      "from_value": "24",
+      "to_value": "16",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 999999,
+      "reason": "recent_exhausted_subspace",
+      "reject_ratio": 1.0,
+      "last_run_ids": [],
+      "override_only_if": "evidence_based_retry_explicit | new_parent_champion | orthogonal_context_change",
+      "active_branch_id": "reboot_from_exp127",
+      "activated_at": "2026-05-01T11:23:08",
+      "branch_seed_run_id": "EXP_127"
+    },
+    {
+      "parameter": "MIN_SPY_CHANNEL_R2",
+      "from_value": "0.5",
+      "to_value": "0.47",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1389,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": "0.9",
+      "to_value": "1.05",
+      "cooldown_active": false,
+      "cooldown_until_iteration": 1344,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    },
+    {
+      "parameter": "MAX_CLOSE_VS_SMA50_PCT",
+      "from_value": "0.15",
+      "to_value": "0.1",
+      "cooldown_active": true,
+      "cooldown_until_iteration": 1435,
+      "reason": "metric_no_effect: transition produced identical 52w metrics vs parent/current_baseline",
+      "reject_ratio": 0.0,
+      "last_run_ids": [],
+      "override_only_if": "new_parent_champion | changed_feature_set | explicit_human_override"
+    }
+  ]
+}

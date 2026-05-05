@@ -1,0 +1,10 @@
+﻿ M iteration_review_last_15.md
+ M run_analysis_current.csv
+ M run_analysis_current.md
+ M state/champion_runs.json
+ M state/parameter_effect_memory.json
+ M state/research_state.json
+ M state/subspace_cooldowns.json
+ M trackers/agent_live_runs_master.csv
+ M trackers/experiment_log.csv
+?? reports/debug_exports/

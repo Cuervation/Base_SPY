@@ -1,20 +1,20 @@
 {
-  "loop_status": "completed",
-  "started_at": "2026-04-30T22:44:49",
-  "updated_at": "2026-05-01T01:36:10",
-  "iterations_completed": 30,
-  "consecutive_rejected_without_followup": 0,
+  "loop_status": "completed_with_warnings",
+  "started_at": "2026-05-05T00:24:32",
+  "updated_at": "2026-05-05T00:37:35",
+  "iterations_completed": 1,
+  "consecutive_rejected_without_followup": 1,
   "consecutive_operational_failures": 0,
   "consecutive_operational_warnings": 0,
   "consecutive_no_material_candidate": 0,
-  "last_run_id": "EXP_1290",
-  "last_successful_run_id": "EXP_1290",
-  "last_useful_run_id": "EXP_1290",
-  "current_parent_run_id": "EXP_1290",
-  "selected_parent_run_id": "BASELINE_CLEAN",
-  "selected_parent_source": "current_baseline",
+  "last_run_id": "EXP_1546",
+  "last_successful_run_id": "",
+  "last_useful_run_id": "",
+  "current_parent_run_id": "EXP_392",
+  "selected_parent_run_id": "EXP_392",
+  "selected_parent_source": "research.parent_state.current_parent_run_id=EXP_392",
   "parent_valid": true,
-  "stop_reason": "",
+  "stop_reason": "warnings_present",
   "pending_promotion_review": [],
   "baseline_hash_before": "b02812129fbb22a66a76b390f7cdd4b227da29fa40d06aaa48c7728737c03af9",
   "windows": [
@@ -26,38 +26,10 @@
   "forbidden_windows": [
     156
   ],
-  "recovered_stale_runs_at_start": [],
-  "last_run_status": "run_ok",
-  "last_decision_type": "accepted_for_followup",
-  "last_candidate_generation_failure": {
-    "at": "2026-05-01T01:08:06",
-    "cgf_id": "CGF_000030",
-    "original_run_id": "EXP_1290",
-    "parent_run_id": "EXP_1288",
-    "status": "blocked_no_material_candidate",
-    "reason": "No existen candidatos materiales validos luego de agotar capa 1 y capa 2. Ver fallback_candidate_pool_considered para trazabilidad.",
-    "escape_level": "parent_reset",
-    "consecutive_no_material_candidate": 10,
-    "quarantined_run_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\candidate_generation_failures\\CGF_000030_EXP_1290_260501010806",
-    "original_run_dir": "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\runs\\multi_agent_runs\\EXP_1290_260501010804",
-    "candidate_family": "",
-    "candidate_axis": "",
-    "experiment_log_rows_removed": 1,
-    "action": "quarantine_no_material_candidate_run",
-    "moved": true
-  },
-  "candidate_generation_escape_active": true,
-  "candidate_generation_escape_event": {
-    "at": "2026-05-01T01:08:06",
-    "level": "parent_reset",
-    "reason": "too_many_no_material_candidate_parent_reset",
-    "last_run_id": "EXP_1290",
-    "parent_run_id": "EXP_1288",
-    "consecutive_no_material_candidate": 10,
-    "next_mode": "controlled_exploration",
-    "action": "reset_parent_to_baseline_clean_for_candidate_generation"
-  },
-  "force_next_candidate_generation_mode": "controlled_exploration",
-  "allow_one_cooldown_override": true,
-  "last_nonfatal_event": "candidate_generation_escape"
+  "recovered_stale_runs_at_start": [
+    "EXP_1539",
+    "EXP_1541"
+  ],
+  "last_run_status": "run_partial_valid",
+  "last_decision_type": "rejected"
 }

@@ -1,0 +1,117 @@
+﻿
+  run_multi_agent_executor_loop.ps1:1:param(
+  run_multi_agent_executor_loop.ps1:2:  [string]$PythonExe = "python",
+> run_multi_agent_executor_loop.ps1:3:  [string]$EvaluationWindows = "4,8,24,52",
+  run_multi_agent_executor_loop.ps1:4:  [int]$YearValidationWindowWeeks = 156,
+  run_multi_agent_executor_loop.ps1:5:  [string]$Long156Policy = "cadence_only",
+  run_multi_agent_executor_loop.ps1:6:  [int]$Long156CadenceUsefulRuns = 4,
+  run_multi_agent_executor_loop.ps1:11:  [int]$ProfileCadenceRuns = 10,
+  run_multi_agent_executor_loop.ps1:12:  [bool]$DisableFastArtifacts = $false,
+  run_multi_agent_executor_loop.ps1:13:  [bool]$DisableWindowReuse = $false,
+> run_multi_agent_executor_loop.ps1:14:  [switch]$AllowProgressiveWindows,
+  run_multi_agent_executor_loop.ps1:15:  [int]$MinYearsVsSpy = 2,
+  run_multi_agent_executor_loop.ps1:16:  [int]$MaxNonPositiveYearsVsSpy = 0,
+  run_multi_agent_executor_loop.ps1:17:  [int]$TimeoutSecPerRun = 5400,
+  run_multi_agent_executor_loop.ps1:167:$sessionLog = Join-Path $logsDir ("executor_loop_" + $sessionTs + ".log")
+  run_multi_agent_executor_loop.ps1:168:
+  run_multi_agent_executor_loop.ps1:169:LogLine $sessionLog "EXECUTOR LOOP start"
+> run_multi_agent_executor_loop.ps1:170:LogLine $sessionLog "params: max_iter=$MaxIterations 
+eval_windows=$EvaluationWindows year_window=$YearValidationWindowWeeks long156_policy=$Long156Policy 
+long156_cadence=$Long156CadenceUsefulRuns long156_min_w52_spy=$Long156MinW52SpyCompare 
+long156_min_w52_weeks_traded=$Long156MinW52WeeksTraded long156_min_w52_trades=$Long156MinW52Trades 
+xlsx_cadence=$XlsxCadenceRuns profile_cadence=$ProfileCadenceRuns disable_fast_artifacts=$DisableFastArtifacts 
+disable_window_reuse=$DisableWindowReuse min_years_vs_spy=$MinYearsVsSpy 
+max_nonpositive_years_vs_spy=$MaxNonPositiveYearsVsSpy min_weeks_traded=$MinWeeksTraded min_trades=$MinTrades 
+min_avg_ret=$MinAvgNetReturnPct max_excluded_ratio=$MaxExcludedWeeksRatio require_beat_spy=$RequireBeatSpy 
+req_passes=$RequiredConsecutivePasses"
+  run_multi_agent_executor_loop.ps1:171:
+  run_multi_agent_executor_loop.ps1:172:$streak = 0
+  run_multi_agent_executor_loop.ps1:173:$lastRunDir = ""
+  run_multi_agent_executor_loop.ps1:187:    "-ExecutionPolicy","Bypass",
+  run_multi_agent_executor_loop.ps1:188:    "-File",".\run_multi_agent_iteration.ps1",
+  run_multi_agent_executor_loop.ps1:189:    "-PythonExe",$PythonExe,
+> run_multi_agent_executor_loop.ps1:190:    "-EvaluationWindows",$EvaluationWindows,
+  run_multi_agent_executor_loop.ps1:191:    "-YearValidationWindowWeeks",$YearValidationWindowWeeks,
+  run_multi_agent_executor_loop.ps1:192:    "-Long156Policy",$Long156Policy,
+  run_multi_agent_executor_loop.ps1:193:    "-Long156CadenceUsefulRuns",$Long156CadenceUsefulRuns,
+  run_multi_agent_executor_loop.ps1:202:  )
+  run_multi_agent_executor_loop.ps1:203:  if ($DisableFastArtifacts) { $iterArgs += "-DisableFastArtifacts" }
+  run_multi_agent_executor_loop.ps1:204:  if ($DisableWindowReuse) { $iterArgs += "-DisableWindowReuse" }
+> run_multi_agent_executor_loop.ps1:205:  if ($AllowProgressiveWindows) { $iterArgs += "-AllowProgressiveWindows" }
+  run_multi_agent_executor_loop.ps1:206:  $p = Start-Process -FilePath 
+"C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" `
+  run_multi_agent_executor_loop.ps1:207:    -ArgumentList $iterArgs `
+  run_multi_agent_executor_loop.ps1:208:    -WorkingDirectory $repo `
+  run_multi_agent_iteration.ps1:3:  [string]$BaselineJson = "state/current_baseline.json",
+  run_multi_agent_iteration.ps1:4:  [string]$ExperimentLog = "trackers/experiment_log.csv",
+  run_multi_agent_iteration.ps1:5:  [string]$DependenciesJson = "config/parameter_dependencies.json",
+> run_multi_agent_iteration.ps1:6:  [string]$EvaluationWindows = "4,8,24,52",
+  run_multi_agent_iteration.ps1:7:  [int]$YearValidationWindowWeeks = 156,
+  run_multi_agent_iteration.ps1:8:  [string]$Long156Policy = "cadence_only",
+  run_multi_agent_iteration.ps1:9:  [int]$Long156CadenceUsefulRuns = 4,
+  run_multi_agent_iteration.ps1:14:  [int]$ProfileCadenceRuns = 10,
+  run_multi_agent_iteration.ps1:15:  [switch]$DisableFastArtifacts,
+  run_multi_agent_iteration.ps1:16:  [switch]$DisableWindowReuse,
+> run_multi_agent_iteration.ps1:17:  [switch]$AllowProgressiveWindows,
+  run_multi_agent_iteration.ps1:18:  [int]$MinYearsVsSpy = 2,
+  run_multi_agent_iteration.ps1:19:  [int]$MaxNonPositiveYearsVsSpy = 0,
+  run_multi_agent_iteration.ps1:20:  [double]$TieLowPct = 0.0,
+  run_multi_agent_iteration.ps1:62:    "--baseline-json", "$BaselineJson",
+  run_multi_agent_iteration.ps1:63:    "--experiment-log", "$ExperimentLog",
+  run_multi_agent_iteration.ps1:64:    "--dependencies-json", "$DependenciesJson",
+> run_multi_agent_iteration.ps1:65:    "--evaluation-windows", "$EvaluationWindows",
+  run_multi_agent_iteration.ps1:66:    "--year-validation-window-weeks", "$YearValidationWindowWeeks",
+  run_multi_agent_iteration.ps1:67:    "--long156-policy", "$Long156Policy",
+  run_multi_agent_iteration.ps1:68:  "--long156-cadence-useful-runs", "$Long156CadenceUsefulRuns",
+  run_multi_agent_iteration.ps1:79:)
+  run_multi_agent_iteration.ps1:80:if ($DisableFastArtifacts) { $argList += "--disable-fast-artifacts" }
+  run_multi_agent_iteration.ps1:81:if ($DisableWindowReuse) { $argList += "--disable-window-reuse" }
+> run_multi_agent_iteration.ps1:82:if ($AllowProgressiveWindows) { $argList += "--allow-progressive-windows" }
+  run_multi_agent_iteration.ps1:83:if ($DryRun) { $argList += "--dry-run" }
+  run_multi_agent_iteration.ps1:84:
+  run_multi_agent_iteration.ps1:85:& $py $script @argList
+  run_multi_agent_watchdog.ps1:4:  [int]$HardStuckMinutes = 90,
+  run_multi_agent_watchdog.ps1:5:  [double]$CpuDeltaThreshold = 0.05,
+  run_multi_agent_watchdog.ps1:6:  [string]$PythonExe = "python",
+> run_multi_agent_watchdog.ps1:7:  [string]$EvaluationWindows = "4,8,24,52",
+  run_multi_agent_watchdog.ps1:8:  [int]$YearValidationWindowWeeks = 156,
+  run_multi_agent_watchdog.ps1:9:  [string]$Long156Policy = "threshold_or_cadence",
+  run_multi_agent_watchdog.ps1:10:  [int]$Long156CadenceUsefulRuns = 3,
+  run_multi_agent_watchdog.ps1:15:  [int]$ProfileCadenceRuns = 10,
+  run_multi_agent_watchdog.ps1:16:  [bool]$DisableFastArtifacts = $false,
+  run_multi_agent_watchdog.ps1:17:  [bool]$DisableWindowReuse = $false,
+> run_multi_agent_watchdog.ps1:18:  [switch]$AllowProgressiveWindows,
+  run_multi_agent_watchdog.ps1:19:  [int]$MinYearsVsSpy = 2,
+  run_multi_agent_watchdog.ps1:20:  [int]$MaxNonPositiveYearsVsSpy = 0,
+  run_multi_agent_watchdog.ps1:21:  [int]$TimeoutSecPerRun = 5400,
+  run_multi_agent_watchdog.ps1:150:      "-ExecutionPolicy", "Bypass",
+  run_multi_agent_watchdog.ps1:151:      "-File", $loopScript,
+  run_multi_agent_watchdog.ps1:152:      "-PythonExe", $PythonExe,
+> run_multi_agent_watchdog.ps1:153:      "-EvaluationWindows", $EvaluationWindows,
+  run_multi_agent_watchdog.ps1:154:      "-YearValidationWindowWeeks", $YearValidationWindowWeeks,
+  run_multi_agent_watchdog.ps1:155:      "-Long156Policy", $Long156Policy,
+  run_multi_agent_watchdog.ps1:156:      "-Long156CadenceUsefulRuns", $Long156CadenceUsefulRuns,
+  run_multi_agent_watchdog.ps1:170:      "-MaxExcludedWeeksRatio", $MaxExcludedWeeksRatio,
+  run_multi_agent_watchdog.ps1:171:      "-RequiredConsecutivePasses", $RequiredConsecutivePasses
+  run_multi_agent_watchdog.ps1:172:    )
+> run_multi_agent_watchdog.ps1:173:  if ($AllowProgressiveWindows) { $launchArgs += "-AllowProgressiveWindows" }
+  run_multi_agent_watchdog.ps1:174:  $p = Start-Process -FilePath 
+"C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" `
+  run_multi_agent_watchdog.ps1:175:    -ArgumentList $launchArgs `
+  run_multi_agent_watchdog.ps1:176:    -WorkingDirectory $repo `
+  run_multi_agent_watchdog.ps1:509:Resolve-Long156PolicyFromBaseline
+  run_multi_agent_watchdog.ps1:510:
+  run_multi_agent_watchdog.ps1:511:LogLine "WATCHDOG start"
+> run_multi_agent_watchdog.ps1:512:LogLine ("params: check_interval_min={0} stale_min={1} hard_stuck_min={2} 
+eval_windows={3} year_window={4} long156_policy={5} long156_cadence={6} long156_min_w52_spy={7} 
+long156_min_w52_weeks_traded={8} long156_min_w52_trades={9} xlsx_cadence={10} profile_cadence={11} 
+disable_fast_artifacts={12} disable_window_reuse={13} min_years_vs_spy={14} max_nonpositive_years_vs_spy={15}" -f 
+$CheckIntervalMinutes, $StaleMinutes, $HardStuckMinutes, $EvaluationWindows, $YearValidationWindowWeeks, 
+$Long156Policy, $Long156CadenceUsefulRuns, $Long156MinW52SpyCompare, $Long156MinW52WeeksTraded, $Long156MinW52Trades, 
+$XlsxCadenceRuns, $ProfileCadenceRuns, $DisableFastArtifacts, $DisableWindowReuse, $MinYearsVsSpy, 
+$MaxNonPositiveYearsVsSpy)
+  run_multi_agent_watchdog.ps1:513:
+  run_multi_agent_watchdog.ps1:514:$sleepSec = [int]($CheckIntervalMinutes * 60)
+  run_multi_agent_watchdog.ps1:515:
+
+

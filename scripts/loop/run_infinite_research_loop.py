@@ -351,15 +351,28 @@ def parent_candidate_contexts(repo: Path, research_state: Dict[str, Any], champi
     return ordered
 
 
-def select_parent_context(repo: Path, research_state: Dict[str, Any], champion_runs: Dict[str, Any]) -> Tuple[Optional[Dict[str, Any]], str]:
+def select_parent_context(
+    repo: Path,
+    research_state: Dict[str, Any],
+    champion_runs: Dict[str, Any],
+) -> Tuple[Optional[Dict[str, Any]], str, str, str]:
     if rmi.research_state_requests_baseline_parent(research_state):
-        return None, "current_baseline"
+        return None, "current_baseline", "", ""
 
     candidates = parent_candidate_contexts(repo, research_state, champion_runs)
+    rejected_startup_parent_run_id = ""
+    rejected_startup_parent_reason = ""
     if candidates:
-        src, ctx = candidates[0]
-        return ctx, src
-    return None, "baseline_fallback"
+        for src, ctx in candidates:
+            guard = rmi.evaluate_startup_parent_depth_guard_52w(ctx)
+            if not bool(guard.get("pass", False)):
+                if not rejected_startup_parent_run_id:
+                    rejected_startup_parent_run_id = rmi.clean_text(guard.get("run_id", "")) or rmi.clean_text((ctx or {}).get("run_id", ""))
+                    rejected_startup_parent_reason = rmi.clean_text(guard.get("reason", "")) or "startup_parent_rejected_low_depth_52w"
+                continue
+            rid = rmi.clean_text((ctx or {}).get("run_id", ""))
+            return ctx, f"{src}={rid}" if rid else src, rejected_startup_parent_run_id, rejected_startup_parent_reason
+    return None, "current_baseline", rejected_startup_parent_run_id, rejected_startup_parent_reason
 
 
 def preflight_supervisor_state(repo: Path, config: Dict[str, Any]) -> Dict[str, Any]:
@@ -379,9 +392,13 @@ def preflight_supervisor_state(repo: Path, config: Dict[str, Any]) -> Dict[str, 
     champion_runs = load_json(champion_runs_path, {})
     if not isinstance(champion_runs, dict):
         champion_runs = {}
-    parent_ctx, parent_source = select_parent_context(repo, research_state, champion_runs)
+    parent_ctx, parent_source, rejected_startup_parent_run_id, rejected_startup_parent_reason = select_parent_context(
+        repo, research_state, champion_runs
+    )
     parent_valid = bool(parent_ctx) or parent_source == "current_baseline"
     parent_run_id = rmi.clean_text((parent_ctx or {}).get("run_id", "")) if parent_ctx else ""
+    if not parent_run_id and parent_source == "current_baseline":
+        parent_run_id = "BASELINE_CLEAN"
     effective_windows = parse_windows(config.get("windows", []))
     return {
         "research_state_path": research_state_path,
@@ -389,6 +406,8 @@ def preflight_supervisor_state(repo: Path, config: Dict[str, Any]) -> Dict[str, 
         "parent_source": parent_source,
         "parent_valid": parent_valid,
         "selected_parent_run_id": parent_run_id,
+        "rejected_startup_parent_run_id": rejected_startup_parent_run_id,
+        "rejected_startup_parent_reason": rejected_startup_parent_reason,
         "effective_windows": effective_windows,
         "forbidden_windows": parse_windows(config.get("forbidden_windows", [])),
         "baseline_parent_requested": rmi.research_state_requests_baseline_parent(research_state),
@@ -839,7 +858,9 @@ def run_one_iteration(repo: Path, config: Dict[str, Any], baseline_hash_before: 
     if not isinstance(champion_runs, dict):
         champion_runs = {}
 
-    parent_ctx, parent_source = select_parent_context(repo, research_state, champion_runs)
+    parent_ctx, parent_source, rejected_startup_parent_run_id, rejected_startup_parent_reason = select_parent_context(
+        repo, research_state, champion_runs
+    )
     parent_run_id = rmi.clean_text((parent_ctx or {}).get("run_id", "")) or (
         "BASELINE_CLEAN" if parent_source == "current_baseline" else ""
     )
@@ -853,6 +874,8 @@ def run_one_iteration(repo: Path, config: Dict[str, Any], baseline_hash_before: 
             "run_dir": "",
             "parent_run_id": parent_run_id,
             "parent_source": parent_source,
+            "rejected_startup_parent_run_id": rejected_startup_parent_run_id,
+            "rejected_startup_parent_reason": rejected_startup_parent_reason,
             "parent_valid": False,
             "windows": list(config.get("windows", [])),
             "forbidden_windows": list(config.get("forbidden_windows", [])),
@@ -865,6 +888,8 @@ def run_one_iteration(repo: Path, config: Dict[str, Any], baseline_hash_before: 
             "dry_run": True,
             "parent_run_id": parent_run_id,
             "parent_source": parent_source,
+            "rejected_startup_parent_run_id": rejected_startup_parent_run_id,
+            "rejected_startup_parent_reason": rejected_startup_parent_reason,
             "parent_valid": parent_valid,
             "baseline_hash_before": baseline_hash_before,
             "windows": list(config.get("windows", [])),
@@ -1167,6 +1192,10 @@ def apply_candidate_generation_escape(
             branch["escape_level"] = level
             branch["allow_one_cooldown_override"] = True
             branch["escape_event_at"] = event["at"]
+            if level in {"escape", "parent_reset", "axis_reset", "diagnostic_only"}:
+                branch["force_axis_reset"] = True
+                branch["force_new_candidate_family"] = True
+                branch["avoid_last_candidate_family"] = branch.get("last_candidate_family", "")
         parent_state = research_state.setdefault("parent_state", {})
         if isinstance(parent_state, dict) and level in {"parent_reset", "axis_reset", "diagnostic_only"}:
             parent_state["parent_exhausted_for_generation"] = True
@@ -1524,8 +1553,8 @@ def run_loop(repo: Path, config: Dict[str, Any], max_iterations: int, dry_run: b
                         escape_level_for_quarantine = "diagnostic_only"
                     elif no_mat == thresholds["axis_reset"]:
                         escape_level_for_quarantine = "axis_reset"
-                    elif no_mat == thresholds["parent_reset"]:
-                        escape_level_for_quarantine = "parent_reset"
+                    elif no_mat >= thresholds["parent_reset"]:
+                        escape_level_for_quarantine = "escape"
                     elif no_mat == thresholds["escape"]:
                         escape_level_for_quarantine = "escape"
 
@@ -1534,15 +1563,51 @@ def run_loop(repo: Path, config: Dict[str, Any], max_iterations: int, dry_run: b
 
                 if bool(ce_cfg.get("enabled", True)):
                     thresholds = candidate_escape_thresholds(config)
-                    if no_mat >= thresholds["diagnostic_only"]:
-                        apply_candidate_generation_escape(repo, config, loop_state, result, reason="too_many_no_material_candidate_diagnostic_only", level="diagnostic_only")
-                        write_candidate_generation_diagnostic(repo, config, loop_state, result, recent_results, reason="candidate_generation_exhausted", final=True)
-                        final_payload["status"] = "PASS_WITH_WARNINGS"
-                        final_payload["stop_reason"] = "candidate_generation_exhausted"
-                        final_payload["recommendation"] = "audit_candidate_generation_before_more_runs"
-                        final_payload["last_nonfatal_event"] = "candidate_generation_exhausted"
+                    if no_mat >= thresholds["parent_reset"]:
+                        apply_candidate_generation_escape(
+                            repo,
+                            config,
+                            loop_state,
+                            result,
+                            reason="candidate_generation_exhausted_needs_review",
+                            level="escape",
+                        )
+                        write_candidate_generation_diagnostic(
+                            repo,
+                            config,
+                            loop_state,
+                            result,
+                            recent_results,
+                            reason="candidate_generation_exhausted_needs_review",
+                            final=True,
+                        )
+                        final_payload["status"] = "STOPPED_FOR_REVIEW"
+                        final_payload["stop_reason"] = "candidate_generation_exhausted_needs_review"
+                        final_payload["recommendation"] = "stop_branch"
+                        final_payload["last_nonfatal_event"] = "candidate_generation_exhausted_needs_review"
                         _refresh_reports()
                         break
+                    elif no_mat >= thresholds["escape"]:
+                        apply_candidate_generation_escape(
+                            repo,
+                            config,
+                            loop_state,
+                            result,
+                            reason="candidate_generation_forced_orthogonal_after_no_material_streak",
+                            level="escape",
+                        )
+                        write_candidate_generation_diagnostic(
+                            repo,
+                            config,
+                            loop_state,
+                            result,
+                            recent_results,
+                            reason="candidate_generation_forced_orthogonal_after_no_material_streak",
+                            final=False,
+                        )
+                        _refresh_reports()
+                        time.sleep(float(config.get("sleep_seconds_between_runs", 5)))
+                        continue
                     elif no_mat == thresholds["axis_reset"]:
                         apply_candidate_generation_escape(repo, config, loop_state, result, reason="too_many_no_material_candidate_axis_reset", level="axis_reset")
                         write_candidate_generation_diagnostic(repo, config, loop_state, result, recent_results, reason="candidate_generation_axis_reset", final=False)
@@ -1670,6 +1735,8 @@ def run_loop(repo: Path, config: Dict[str, Any], max_iterations: int, dry_run: b
                     final_payload["recommendation"] = "review_pending_promotion"
                 elif stop_reason in {"fix_process_before_more_research", "blocked_preflight", "coordinator_output_invalid"}:
                     final_payload["recommendation"] = "fix_process_before_more_research"
+                elif stop_reason == "candidate_generation_exhausted_needs_review":
+                    final_payload["recommendation"] = "stop_branch"
                 elif stop_reason == "too_many_rejections_without_followup":
                     final_payload["recommendation"] = "stop_branch"
                 elif stop_reason == "too_many_operational_warnings":
@@ -1728,6 +1795,15 @@ def main() -> int:
         return 2
 
     preflight = preflight_supervisor_state(repo, config)
+    if preflight.get("rejected_startup_parent_run_id"):
+        print(
+            "STARTUP_PARENT "
+            f"rejected_startup_parent_run_id={preflight.get('rejected_startup_parent_run_id', '')} "
+            f"rejected_startup_parent_reason={preflight.get('rejected_startup_parent_reason', '')} "
+            f"selected_parent_run_id={preflight.get('selected_parent_run_id', '')} "
+            f"selected_parent_source={preflight.get('parent_source', '')}",
+            flush=True,
+        )
     if not preflight["parent_valid"]:
         print(
             "ERROR: parent_valid=false; refusing to start supervisor before any run.",

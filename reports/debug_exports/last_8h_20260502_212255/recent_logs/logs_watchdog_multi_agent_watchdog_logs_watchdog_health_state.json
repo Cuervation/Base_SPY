@@ -1,0 +1,35 @@
+﻿{
+    "last_restart_reason":  "loop_down",
+    "last_stale_min":  0.789,
+    "health_class":  "loop_healthy",
+    "last_check":  "2026-05-02T21:08:13.4345299-03:00",
+    "safe_mode_active":  true,
+    "last_decision":  "continue",
+    "no_useful_delta_cause":  "admin_stagnation",
+    "py_cpu":  {
+
+               },
+    "last_seen_run_id":  "EXP_1427",
+    "hard_stuck_detected":  false,
+    "last_reason":  "healthy",
+    "no_useful_delta_checks":  0,
+    "last_loop_pid":  30528,
+    "restart_history":  [
+                            {
+                                "at":  "2026-05-02T16:37:51.3877789-03:00",
+                                "reason":  "loop_down"
+                            },
+                            {
+                                "at":  "2026-05-02T18:08:00.3260087-03:00",
+                                "reason":  "loop_down"
+                            },
+                            {
+                                "at":  "2026-05-02T19:53:07.7207033-03:00",
+                                "reason":  "loop_down"
+                            }
+                        ],
+    "last_successful_iteration_at":  "2026-05-02T21:08:13.4345299-03:00",
+    "restart_count_last_24h":  3,
+    "last_activity_path":  "C:\\Pythons\\ML-Trading\\Base_Archivos_SPY\\logs\\loop\\multi_agent_loop_logs\\executor_loop_260502195309.log",
+    "no_useful_delta_recent":  false
+}

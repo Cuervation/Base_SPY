@@ -1,0 +1,367 @@
+﻿
+  run_multi_agent_iteration.py:1299:        },
+  run_multi_agent_iteration.py:1300:        "validation_policy": {
+> run_multi_agent_iteration.py:1301:            "windows": [4, 8, 24, 52],
+  run_multi_agent_iteration.py:1302:            "must_compare_vs_spy": True,
+  run_multi_agent_iteration.py:1303:            "long_window_policy": {
+  run_multi_agent_iteration.py:1304:                "treat_insufficient_depth_as_non_fatal": True,
+  run_multi_agent_iteration.py:1305:                "minimum_usable_strong_window": 52,
+> run_multi_agent_iteration.py:1306:                "require_real_depth_for_156": True,
+> run_multi_agent_iteration.py:1307:                "run_156_policy": "cadence_only",
+> run_multi_agent_iteration.py:1308:                "run_156_cadence_useful_runs": 4,
+> run_multi_agent_iteration.py:1309:                "run_156_min_w52_spy_compare": 0.5,
+> run_multi_agent_iteration.py:1310:                "run_156_min_w52_weeks_traded": 20,
+> run_multi_agent_iteration.py:1311:                "run_156_min_w52_trades": 15,
+  run_multi_agent_iteration.py:1312:            },
+  run_multi_agent_iteration.py:1313:            "runtime_performance": {
+  run_multi_agent_iteration.py:1372:            "Baseline limpio de reinicio multiagente.",
+  run_multi_agent_iteration.py:1373:            "No confundir last_followup_run_id con last_promoted_baseline_run_id.",
+> run_multi_agent_iteration.py:1374:            "Si 156 queda insufficient_depth pero 52 es valida, preservar la 
+corrida como usable para follow-up.",
+  run_multi_agent_iteration.py:1375:        ],
+  run_multi_agent_iteration.py:1376:    }
+  run_multi_agent_iteration.py:1468:            "do_not_treat_insufficient_depth_as_fatal_by_default": True,
+  run_multi_agent_iteration.py:1469:            "do_not_confuse_duplicate_with_true_zigzag": True,
+> run_multi_agent_iteration.py:1470:            "preserve_52w_evidence_if_156_not_real": True,
+  run_multi_agent_iteration.py:1471:        },
+  run_multi_agent_iteration.py:1472:    }
+  run_multi_agent_iteration.py:2692:
+  run_multi_agent_iteration.py:2693:    windows = (last_valid_ctx.get("executor_output") or {}).get("windows", {}) or 
+{}
+> run_multi_agent_iteration.py:2694:    preferred = ["52", "24", "8", "4", "156"]
+  run_multi_agent_iteration.py:2695:    xlsx_path: Optional[Path] = None
+  run_multi_agent_iteration.py:2696:    artifacts_dir: Optional[Path] = None
+  run_multi_agent_iteration.py:5286:
+  run_multi_agent_iteration.py:5287:    best_valid_window = max(valid_windows) if valid_windows else None
+> run_multi_agent_iteration.py:5288:    p156 = windows_results.get("156", {}) or {}
+> run_multi_agent_iteration.py:5289:    s156 = clean_text(p156.get("status", ""))
+> run_multi_agent_iteration.py:5290:    d156 = bool(p156.get("depth_ok", False))
+> run_multi_agent_iteration.py:5291:    req156 = int(to_float(p156.get("requested_weeks")) or 156)
+> run_multi_agent_iteration.py:5292:    act156 = to_float(p156.get("actual_weeks_run"))
+  run_multi_agent_iteration.py:5293:    multi_year_real = False
+> run_multi_agent_iteration.py:5294:    if p156:
+> run_multi_agent_iteration.py:5295:        if s156 == "run_ok" and d156 and act156 is not None and int(round(act156)) 
+>= req156 and req156 >= 156:
+  run_multi_agent_iteration.py:5296:            multi_year_real = True
+  run_multi_agent_iteration.py:5297:
+  run_multi_agent_iteration.py:5298:    notes: List[str] = []
+> run_multi_agent_iteration.py:5299:    if 156 in requested and p156 and not multi_year_real:
+> run_multi_agent_iteration.py:5300:        if s156 == "insufficient_depth":
+> run_multi_agent_iteration.py:5301:            notes.append("window_156_insufficient_depth_non_fatal")
+> run_multi_agent_iteration.py:5302:        elif s156 and s156 != "run_ok":
+> run_multi_agent_iteration.py:5303:            notes.append(f"window_156_status={s156}")
+  run_multi_agent_iteration.py:5304:        else:
+> run_multi_agent_iteration.py:5305:            notes.append("window_156_not_real_depth")
+> run_multi_agent_iteration.py:5306:    if best_valid_window == 52 and 156 in requested and not multi_year_real:
+  run_multi_agent_iteration.py:5307:        notes.append("preserve_52w_evidence")
+  run_multi_agent_iteration.py:5308:
+  run_multi_agent_iteration.py:5664:        compare["w24_spy_warning"] = "No supera SPY en 24 semanas (no bloquea fase 
+year1)."
+  run_multi_agent_iteration.py:5665:
+> run_multi_agent_iteration.py:5666:    long_window_required_for_promotion = int(year_validation_window_weeks) >= 156
+  run_multi_agent_iteration.py:5667:    long_window_depth_ok = bool(meta_year.get("depth_ok", False)) and 
+bool(year_metrics)
+  run_multi_agent_iteration.py:5668:    compare["long_window_required_for_promotion"] = 
+long_window_required_for_promotion
+  run_multi_agent_iteration.py:5801:        if bool(depth_limited_rule.get("applies", False)):
+  run_multi_agent_iteration.py:5802:            followup_reasons.append(
+> run_multi_agent_iteration.py:5803:                "Regla global aplicada: 4/8/24/52 validas + 156 insufficient_depth 
+=> parent util y sin reinicio de cola inicial."
+  run_multi_agent_iteration.py:5804:            )
+  run_multi_agent_iteration.py:5805:        compare["decision_type"] = "accepted_for_followup"
+  run_multi_agent_iteration.py:5922:    meta_feedback_for_analyst: List[str] = []
+  run_multi_agent_iteration.py:5923:    if "year_breakdown" in worsened:
+> run_multi_agent_iteration.py:5924:        meta_feedback_for_analyst.append("Priorizar cambios que reduzcan años no 
+positivos vs SPY en 156 semanas.")
+  run_multi_agent_iteration.py:5925:    if "frequency" in worsened and "edge" not in worsened:
+  run_multi_agent_iteration.py:5926:        meta_feedback_for_analyst.append("Evitar sobre-filtrado: recuperar 
+frecuencia sin degradar compare vs SPY.")
+  run_multi_agent_iteration.py:6815:            out.append(int(p))
+  run_multi_agent_iteration.py:6816:    out = sorted(list(dict.fromkeys(out)))
+> run_multi_agent_iteration.py:6817:    return out or [4, 8, 24, 52]
+  run_multi_agent_iteration.py:6818:
+  run_multi_agent_iteration.py:6819:
+  run_multi_agent_iteration.py:6831:
+  run_multi_agent_iteration.py:6832:
+> run_multi_agent_iteration.py:6833:def normalize_long156_policy(raw: Any) -> str:
+  run_multi_agent_iteration.py:6834:    policy = clean_text(raw).lower()
+  run_multi_agent_iteration.py:6835:    allowed = {"always", "threshold_or_cadence", "threshold_only", "cadence_only", 
+"never"}
+  run_multi_agent_iteration.py:6853:
+  run_multi_agent_iteration.py:6854:
+> run_multi_agent_iteration.py:6855:def run_dir_has_real_156_execution(run_dir_value: Any, repo: Path) -> bool:
+  run_multi_agent_iteration.py:6856:    run_dir_s = clean_text(run_dir_value)
+  run_multi_agent_iteration.py:6857:    if not run_dir_s:
+  run_multi_agent_iteration.py:6863:    if not isinstance(eo, dict):
+  run_multi_agent_iteration.py:6864:        return False
+> run_multi_agent_iteration.py:6865:    p156 = (eo.get("windows", {}) or {}).get("156", {}) or {}
+> run_multi_agent_iteration.py:6866:    return was_window_executed(p156)
+  run_multi_agent_iteration.py:6867:
+  run_multi_agent_iteration.py:6868:
+> run_multi_agent_iteration.py:6869:def count_useful_runs_since_last_real_156(rows: List[Dict[str, str]], repo: Path, 
+max_scan: int = 250) -> int:
+  run_multi_agent_iteration.py:6870:    useful = 0
+  run_multi_agent_iteration.py:6871:    scanned = 0
+  run_multi_agent_iteration.py:6874:        if scanned > max_scan:
+  run_multi_agent_iteration.py:6875:            break
+> run_multi_agent_iteration.py:6876:        if run_dir_has_real_156_execution(row.get("run_dir", ""), repo):
+  run_multi_agent_iteration.py:6877:            break
+  run_multi_agent_iteration.py:6878:        status = clean_text(row.get("status", ""))
+  run_multi_agent_iteration.py:6883:
+  run_multi_agent_iteration.py:6884:
+> run_multi_agent_iteration.py:6885:def evaluate_w52_threshold_for_156(
+  run_multi_agent_iteration.py:6886:    windows_results: Dict[str, Any],
+  run_multi_agent_iteration.py:6887:    min_spy_compare: float,
+  run_multi_agent_iteration.py:6916:
+  run_multi_agent_iteration.py:6917:
+> run_multi_agent_iteration.py:6918:def should_execute_156_window(
+  run_multi_agent_iteration.py:6919:    policy: str,
+  run_multi_agent_iteration.py:6920:    windows_results: Dict[str, Any],
+> run_multi_agent_iteration.py:6921:    useful_runs_since_last_real_156: int,
+  run_multi_agent_iteration.py:6922:    cadence_useful_runs: int,
+  run_multi_agent_iteration.py:6923:    min_w52_spy_compare: float,
+  run_multi_agent_iteration.py:6925:    min_w52_trades: float,
+  run_multi_agent_iteration.py:6926:) -> Tuple[bool, Dict[str, Any]]:
+> run_multi_agent_iteration.py:6927:    norm_policy = normalize_long156_policy(policy)
+> run_multi_agent_iteration.py:6928:    threshold_eval = evaluate_w52_threshold_for_156(
+  run_multi_agent_iteration.py:6929:        windows_results=windows_results,
+  run_multi_agent_iteration.py:6930:        min_spy_compare=min_w52_spy_compare,
+  run_multi_agent_iteration.py:6934:    threshold_met = bool(threshold_eval.get("threshold_met", False))
+  run_multi_agent_iteration.py:6935:    cadence_needed = max(1, int(cadence_useful_runs))
+> run_multi_agent_iteration.py:6936:    cadence_met = int(useful_runs_since_last_real_156) >= cadence_needed
+  run_multi_agent_iteration.py:6937:
+> run_multi_agent_iteration.py:6938:    run_156 = True
+  run_multi_agent_iteration.py:6939:    trigger = "always"
+  run_multi_agent_iteration.py:6940:    if norm_policy == "never":
+> run_multi_agent_iteration.py:6941:        run_156 = False
+  run_multi_agent_iteration.py:6942:        trigger = "none"
+  run_multi_agent_iteration.py:6943:    elif norm_policy == "threshold_only":
+> run_multi_agent_iteration.py:6944:        run_156 = threshold_met
+  run_multi_agent_iteration.py:6945:        trigger = "threshold" if threshold_met else "none"
+  run_multi_agent_iteration.py:6946:    elif norm_policy == "cadence_only":
+> run_multi_agent_iteration.py:6947:        run_156 = cadence_met
+  run_multi_agent_iteration.py:6948:        trigger = "cadence" if cadence_met else "none"
+  run_multi_agent_iteration.py:6949:    elif norm_policy == "threshold_or_cadence":
+> run_multi_agent_iteration.py:6950:        run_156 = threshold_met or cadence_met
+  run_multi_agent_iteration.py:6951:        if threshold_met:
+  run_multi_agent_iteration.py:6952:            trigger = "threshold"
+  run_multi_agent_iteration.py:6958:    detail = {
+  run_multi_agent_iteration.py:6959:        "policy": norm_policy,
+> run_multi_agent_iteration.py:6960:        "run_156": bool(run_156),
+  run_multi_agent_iteration.py:6961:        "trigger": trigger,
+  run_multi_agent_iteration.py:6962:        "threshold_met": bool(threshold_met),
+  run_multi_agent_iteration.py:6963:        "cadence_met": bool(cadence_met),
+  run_multi_agent_iteration.py:6964:        "cadence_useful_runs_required": cadence_needed,
+> run_multi_agent_iteration.py:6965:        "useful_runs_since_last_real_156": int(useful_runs_since_last_real_156),
+  run_multi_agent_iteration.py:6966:        "threshold_eval": threshold_eval,
+  run_multi_agent_iteration.py:6967:    }
+> run_multi_agent_iteration.py:6968:    return bool(run_156), detail
+  run_multi_agent_iteration.py:6969:
+  run_multi_agent_iteration.py:6970:
+  run_multi_agent_iteration.py:7014:        (not year_depth_ok)
+  run_multi_agent_iteration.py:7015:        and year_status in {"run_ok", "insufficient_depth"}
+> run_multi_agent_iteration.py:7016:        and year_requested >= 156
+  run_multi_agent_iteration.py:7017:    )
+  run_multi_agent_iteration.py:7018:
+> run_multi_agent_iteration.py:7019:    applies = bool(short_all_valid and year_requested >= 156 and year_insufficient)
+  run_multi_agent_iteration.py:7020:    return {
+  run_multi_agent_iteration.py:7021:        "applies": applies,
+  run_multi_agent_iteration.py:7401:    w24 = ((executor_output.get("windows", {}) or {}).get("24", {}) or 
+{}).get("metrics", {}) or {}
+  run_multi_agent_iteration.py:7402:    w52 = ((executor_output.get("windows", {}) or {}).get("52", {}) or 
+{}).get("metrics", {}) or {}
+> run_multi_agent_iteration.py:7403:    w156_payload = get_window_payload(executor_output, 156)
+> run_multi_agent_iteration.py:7404:    w156 = w156_payload.get("metrics", {}) if isinstance(w156_payload, dict) else 
+{}
+  run_multi_agent_iteration.py:7405:    w24_spy = to_float(w24.get("spy_compare"))
+  run_multi_agent_iteration.py:7406:    w52_spy = to_float(w52.get("spy_compare"))
+  run_multi_agent_iteration.py:7408:    w52_avg = to_float(w52.get("avg_net_return_pct"))
+  run_multi_agent_iteration.py:7409:    w52_trades = to_float(w52.get("trades"))
+> run_multi_agent_iteration.py:7410:    w156_spy = to_float((w156 or {}).get("spy_compare"))
+> run_multi_agent_iteration.py:7411:    w156_depth_ok = bool(w156_payload.get("depth_ok", False))
+  run_multi_agent_iteration.py:7412:    transition_class = _extract_primary_transition_class(compare_obj)
+  run_multi_agent_iteration.py:7413:    champion_for_followup = bool(compare_obj.get("champion_for_followup", False))
+  run_multi_agent_iteration.py:7473:            "w52_avg_net_return_pct": w52_avg,
+  run_multi_agent_iteration.py:7474:            "w52_trades": w52_trades,
+> run_multi_agent_iteration.py:7475:            "w156_spy_compare": w156_spy,
+> run_multi_agent_iteration.py:7476:            "w156_depth_ok": bool(w156_depth_ok),
+> run_multi_agent_iteration.py:7477:            "w156_status": clean_text(w156_payload.get("status", "")),
+  run_multi_agent_iteration.py:7478:            "transition_classification": clean_text(transition_class),
+  run_multi_agent_iteration.py:7479:            "score": (round(float(score), 6) if score is not None else None),
+  run_multi_agent_iteration.py:7501:        reason="best_balance_quality_frequency_score",
+  run_multi_agent_iteration.py:7502:    )
+> run_multi_agent_iteration.py:7503:    if w156_depth_ok and w156_spy is not None:
+  run_multi_agent_iteration.py:7504:        _update_slot(
+  run_multi_agent_iteration.py:7505:            "best_multi_year_real_run_id",
+> run_multi_agent_iteration.py:7506:            score=w156_spy,
+  run_multi_agent_iteration.py:7507:            reason="best_multi_year_real_depth_ok",
+  run_multi_agent_iteration.py:7508:        )
+  run_multi_agent_iteration.py:7527:    ap.add_argument("--experiment-log", default="trackers/experiment_log.csv")
+  run_multi_agent_iteration.py:7528:    ap.add_argument("--dependencies-json", 
+default="config/parameter_dependencies.json")
+> run_multi_agent_iteration.py:7529:    ap.add_argument("--evaluation-windows", default="4,8,24,52")
+  run_multi_agent_iteration.py:7530:    ap.add_argument(
+> run_multi_agent_iteration.py:7531:        "--allow-progressive-windows",
+  run_multi_agent_iteration.py:7532:        action="store_true",
+  run_multi_agent_iteration.py:7533:        help="If set, executor may extend beyond requested windows using the 
+progressive plan.",
+  run_multi_agent_iteration.py:7534:    )
+  run_multi_agent_iteration.py:7535:    ap.add_argument("--year-validation-window-weeks", type=int, default=52)
+> run_multi_agent_iteration.py:7536:    ap.add_argument("--long156-policy", default=None)
+> run_multi_agent_iteration.py:7537:    ap.add_argument("--long156-cadence-useful-runs", type=int, default=None)
+> run_multi_agent_iteration.py:7538:    ap.add_argument("--long156-min-w52-spy-compare", type=float, default=None)
+> run_multi_agent_iteration.py:7539:    ap.add_argument("--long156-min-w52-weeks-traded", type=float, default=None)
+> run_multi_agent_iteration.py:7540:    ap.add_argument("--long156-min-w52-trades", type=float, default=None)
+  run_multi_agent_iteration.py:7541:    ap.add_argument("--min-years-vs-spy", type=int, default=2)
+  run_multi_agent_iteration.py:7542:    ap.add_argument("--max-nonpositive-years-vs-spy", type=int, default=0)
+  run_multi_agent_iteration.py:7760:        return float(cfg_v) if cfg_v is not None else float(default)
+  run_multi_agent_iteration.py:7761:
+> run_multi_agent_iteration.py:7762:    long156_policy = normalize_long156_policy(
+> run_multi_agent_iteration.py:7763:        args.long156_policy if args.long156_policy is not None else 
+long_window_policy_cfg.get("run_156_policy", "cadence_only")
+  run_multi_agent_iteration.py:7764:    )
+> run_multi_agent_iteration.py:7765:    long156_cadence_useful_runs = max(
+  run_multi_agent_iteration.py:7766:        1,
+> run_multi_agent_iteration.py:7767:        _resolve_int(args.long156_cadence_useful_runs, 
+"run_156_cadence_useful_runs", 4),
+  run_multi_agent_iteration.py:7768:    )
+> run_multi_agent_iteration.py:7769:    long156_min_w52_spy_compare = _resolve_float(
+> run_multi_agent_iteration.py:7770:        args.long156_min_w52_spy_compare,
+> run_multi_agent_iteration.py:7771:        "run_156_min_w52_spy_compare",
+  run_multi_agent_iteration.py:7772:        0.5,
+  run_multi_agent_iteration.py:7773:    )
+> run_multi_agent_iteration.py:7774:    long156_min_w52_weeks_traded = _resolve_float(
+> run_multi_agent_iteration.py:7775:        args.long156_min_w52_weeks_traded,
+> run_multi_agent_iteration.py:7776:        "run_156_min_w52_weeks_traded",
+  run_multi_agent_iteration.py:7777:        20.0,
+  run_multi_agent_iteration.py:7778:    )
+> run_multi_agent_iteration.py:7779:    long156_min_w52_trades = _resolve_float(
+> run_multi_agent_iteration.py:7780:        args.long156_min_w52_trades,
+> run_multi_agent_iteration.py:7781:        "run_156_min_w52_trades",
+  run_multi_agent_iteration.py:7782:        15.0,
+  run_multi_agent_iteration.py:7783:    )
+  run_multi_agent_iteration.py:7788:    # Window constraints:
+  run_multi_agent_iteration.py:7789:    # - By default, treat --evaluation-windows as strict allowed windows.
+> run_multi_agent_iteration.py:7790:    # - Progressive extension is only allowed when --allow-progressive-windows is 
+set.
+  run_multi_agent_iteration.py:7791:    progressive_windows_enabled = bool(getattr(args, "allow_progressive_windows", 
+False))
+  run_multi_agent_iteration.py:7792:    if progressive_windows_enabled:
+  run_multi_agent_iteration.py:7804:        windows = list(allowed_windows)
+  run_multi_agent_iteration.py:7805:
+> run_multi_agent_iteration.py:7806:    standard_windows = [4, 8, 24, 52, 156]
+> run_multi_agent_iteration.py:7807:    forbidden_windows = [w for w in standard_windows if int(w) not in {int(x) for 
+x in allowed_windows}]
+  run_multi_agent_iteration.py:7808:    exit_ctx["requested_windows"] = [int(w) for w in requested_windows]
+  run_multi_agent_iteration.py:7809:    exit_ctx["allowed_windows"] = [int(w) for w in allowed_windows]
+  run_multi_agent_iteration.py:7811:    exit_ctx["status_hint"] = "running"
+  run_multi_agent_iteration.py:7812:    exit_ctx["reason"] = "running"
+> run_multi_agent_iteration.py:7813:    useful_runs_since_last_real_156 = count_useful_runs_since_last_real_156(rows, 
+repo)
+  run_multi_agent_iteration.py:7814:    run_log(
+  run_multi_agent_iteration.py:7815:        "EXECUTOR windows_policy "
+  run_multi_agent_iteration.py:7816:        f"requested={requested_windows} allowed={allowed_windows} 
+progressive_enabled={int(progressive_windows_enabled)} progressive_plan={windows} "
+  run_multi_agent_iteration.py:7817:        f"validation_phase={validation_phase} "
+> run_multi_agent_iteration.py:7818:        f"long156_policy={long156_policy} "
+> run_multi_agent_iteration.py:7819:        f"cadence_useful_runs={long156_cadence_useful_runs} "
+> run_multi_agent_iteration.py:7820:        f"useful_since_last_real_156={useful_runs_since_last_real_156} "
+> run_multi_agent_iteration.py:7821:        f"thresholds(w52_spy_compare>={long156_min_w52_spy_compare},"
+> run_multi_agent_iteration.py:7822:        f"w52_weeks_traded>={long156_min_w52_weeks_traded},"
+> run_multi_agent_iteration.py:7823:        f"w52_trades>={long156_min_w52_trades})"
+  run_multi_agent_iteration.py:7824:    )
+  run_multi_agent_iteration.py:7825:
+  run_multi_agent_iteration.py:9074:    prune_reason = ""
+  run_multi_agent_iteration.py:9075:    prune_source_log = ""
+> run_multi_agent_iteration.py:9076:    long156_decision: Dict[str, Any] = {
+> run_multi_agent_iteration.py:9077:        "requested": bool(156 in [int(x) for x in windows_sorted]),
+> run_multi_agent_iteration.py:9078:        "policy": long156_policy,
+  run_multi_agent_iteration.py:9079:        "trigger": "not_requested",
+  run_multi_agent_iteration.py:9080:        "executed": None,
+  run_multi_agent_iteration.py:9081:        "threshold_met": None,
+  run_multi_agent_iteration.py:9082:        "cadence_met": None,
+> run_multi_agent_iteration.py:9083:        "useful_runs_since_last_real_156": int(useful_runs_since_last_real_156),
+> run_multi_agent_iteration.py:9084:        "cadence_useful_runs_required": int(long156_cadence_useful_runs),
+  run_multi_agent_iteration.py:9085:    }
+  run_multi_agent_iteration.py:9086:    execution_order = list(windows_sorted)
+  run_multi_agent_iteration.py:9268:            continue
+  run_multi_agent_iteration.py:9269:
+> run_multi_agent_iteration.py:9270:        if int(w) == 156:
+> run_multi_agent_iteration.py:9271:            run_156, long156_eval = should_execute_156_window(
+> run_multi_agent_iteration.py:9272:                policy=long156_policy,
+  run_multi_agent_iteration.py:9273:                windows_results=windows_results,
+> run_multi_agent_iteration.py:9274:                useful_runs_since_last_real_156=useful_runs_since_last_real_156,
+> run_multi_agent_iteration.py:9275:                cadence_useful_runs=long156_cadence_useful_runs,
+> run_multi_agent_iteration.py:9276:                min_w52_spy_compare=long156_min_w52_spy_compare,
+> run_multi_agent_iteration.py:9277:                min_w52_weeks_traded=long156_min_w52_weeks_traded,
+> run_multi_agent_iteration.py:9278:                min_w52_trades=long156_min_w52_trades,
+  run_multi_agent_iteration.py:9279:            )
+> run_multi_agent_iteration.py:9280:            long156_decision = dict(long156_eval)
+> run_multi_agent_iteration.py:9281:            if not run_156:
+  run_multi_agent_iteration.py:9282:                skip_reason = (
+  run_multi_agent_iteration.py:9283:                    "skipped_by_policy: "
+> run_multi_agent_iteration.py:9284:                    f"policy={long156_decision.get('policy')} "
+> run_multi_agent_iteration.py:9285:                    f"trigger={long156_decision.get('trigger')} "
+> run_multi_agent_iteration.py:9286:                    
+f"threshold_met={int(bool(long156_decision.get('threshold_met')))} "
+> run_multi_agent_iteration.py:9287:                    f"cadence_met={int(bool(long156_decision.get('cadence_met')))} 
+"
+> run_multi_agent_iteration.py:9288:                    
+f"useful_since_last_real_156={long156_decision.get('useful_runs_since_last_real_156')} "
+> run_multi_agent_iteration.py:9289:                    
+f"cadence_required={long156_decision.get('cadence_useful_runs_required')}"
+  run_multi_agent_iteration.py:9290:                )
+  run_multi_agent_iteration.py:9291:                windows_results[wk] = {
+  run_multi_agent_iteration.py:9304:                    "execution_mode": "skipped_by_policy",
+  run_multi_agent_iteration.py:9305:                }
+> run_multi_agent_iteration.py:9306:                long156_decision["executed"] = False
+  run_multi_agent_iteration.py:9307:                run_log(
+  run_multi_agent_iteration.py:9308:                    "EXECUTOR window_skip "
+> run_multi_agent_iteration.py:9309:                    f"weeks=156 policy={long156_decision.get('policy')} "
+> run_multi_agent_iteration.py:9310:                    f"trigger={long156_decision.get('trigger')} "
+> run_multi_agent_iteration.py:9311:                    
+f"threshold_met={int(bool(long156_decision.get('threshold_met')))} "
+> run_multi_agent_iteration.py:9312:                    f"cadence_met={int(bool(long156_decision.get('cadence_met')))} 
+"
+> run_multi_agent_iteration.py:9313:                    
+f"useful_since_last_real_156={long156_decision.get('useful_runs_since_last_real_156')} "
+> run_multi_agent_iteration.py:9314:                    
+f"cadence_required={long156_decision.get('cadence_useful_runs_required')}"
+  run_multi_agent_iteration.py:9315:                )
+  run_multi_agent_iteration.py:9316:                continue
+> run_multi_agent_iteration.py:9317:            long156_decision["executed"] = True
+  run_multi_agent_iteration.py:9318:            run_log(
+  run_multi_agent_iteration.py:9319:                "EXECUTOR window_gate "
+> run_multi_agent_iteration.py:9320:                f"weeks=156 policy={long156_decision.get('policy')} "
+> run_multi_agent_iteration.py:9321:                f"trigger={long156_decision.get('trigger')} "
+> run_multi_agent_iteration.py:9322:                f"threshold_met={int(bool(long156_decision.get('threshold_met')))} 
+"
+> run_multi_agent_iteration.py:9323:                f"cadence_met={int(bool(long156_decision.get('cadence_met')))}"
+  run_multi_agent_iteration.py:9324:            )
+  run_multi_agent_iteration.py:9325:
+  run_multi_agent_iteration.py:9326:        allow_xlsx = bool(
+  run_multi_agent_iteration.py:9327:            window_xlsx_artifacts_enabled
+> run_multi_agent_iteration.py:9328:            and (int(w) in {52, 156})
+  run_multi_agent_iteration.py:9329:            and (run_num <= 0 or (run_num % xlsx_cadence_runs == 0))
+  run_multi_agent_iteration.py:9330:        )
+  run_multi_agent_iteration.py:9331:        wr = _run_window(int(w), lightweight=(int(w) <= 24), allow_xlsx=allow_xlsx)
+> run_multi_agent_iteration.py:9332:        if int(w) == 156 and isinstance(wr, dict):
+  run_multi_agent_iteration.py:9333:            wr["execution_mode"] = "executed"
+  run_multi_agent_iteration.py:9334:        if base_reuse_window is not None and int(w) == int(base_reuse_window) and 
+isinstance(wr, dict):
+  run_multi_agent_iteration.py:9420:            "profile_cadence_runs": int(profile_cadence_runs),
+  run_multi_agent_iteration.py:9421:            "profile_this_run": bool(profile_this_run),
+> run_multi_agent_iteration.py:9422:            "long156_policy": long156_policy,
+> run_multi_agent_iteration.py:9423:            "long156_cadence_useful_runs": int(long156_cadence_useful_runs),
+> run_multi_agent_iteration.py:9424:            "long156_useful_runs_since_last_real_156": 
+int(useful_runs_since_last_real_156),
+> run_multi_agent_iteration.py:9425:            "long156_thresholds": {
+> run_multi_agent_iteration.py:9426:                "min_w52_spy_compare": float(long156_min_w52_spy_compare),
+> run_multi_agent_iteration.py:9427:                "min_w52_weeks_traded": float(long156_min_w52_weeks_traded),
+> run_multi_agent_iteration.py:9428:                "min_w52_trades": float(long156_min_w52_trades),
+  run_multi_agent_iteration.py:9429:            },
+> run_multi_agent_iteration.py:9430:            "long156_decision": long156_decision,
+  run_multi_agent_iteration.py:9431:        },
+  run_multi_agent_iteration.py:9432:        "windows": windows_results,
+
+
